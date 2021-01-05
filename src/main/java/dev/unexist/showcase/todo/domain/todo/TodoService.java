@@ -1,5 +1,5 @@
 /**
- * @package Quarkus-Kubernetes-Showcase
+ * @package Quarkus-Testing-Showcase
  *
  * @file Todo service and domain service
  * @copyright 2020 Christoph Kappel <christoph@unexist.dev>
@@ -11,14 +11,11 @@
 
 package dev.unexist.showcase.todo.domain.todo;
 
-import dev.unexist.showcase.todo.infrastructure.stereotypes.DomainService;
-
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import java.util.List;
 import java.util.Optional;
 
-@DomainService
 @ApplicationScoped
 public class TodoService {
 

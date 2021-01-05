@@ -1,5 +1,5 @@
 /**
- * @package Quarkus-Kubernetes-Showcase
+ * @package Quarkus-Testing-Showcase
  *
  * @file Todo resource
  * @copyright 2020 Christoph Kappel <christoph@unexist.dev>
@@ -14,7 +14,6 @@ package dev.unexist.showcase.todo.application;
 import dev.unexist.showcase.todo.domain.todo.Todo;
 import dev.unexist.showcase.todo.domain.todo.TodoBase;
 import dev.unexist.showcase.todo.domain.todo.TodoService;
-import dev.unexist.showcase.todo.infrastructure.stereotypes.ApplicationService;
 import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.eclipse.microprofile.openapi.annotations.enums.SchemaType;
 import org.eclipse.microprofile.openapi.annotations.media.Content;
@@ -38,7 +37,6 @@ import javax.ws.rs.core.Response;
 import java.util.List;
 import java.util.Optional;
 
-@ApplicationService
 @Path("/todo")
 public class TodoResource {
 

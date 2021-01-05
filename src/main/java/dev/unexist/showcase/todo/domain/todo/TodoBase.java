@@ -1,5 +1,5 @@
 /**
- * @package Quarkus-Kubernetes-Showcase
+ * @package Quarkus-Testing-Showcase
  *
  * @file Todo base class
  * @copyright 2020 Christoph Kappel <christoph@unexist.dev>
