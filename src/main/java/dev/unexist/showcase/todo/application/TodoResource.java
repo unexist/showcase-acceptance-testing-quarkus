@@ -2,7 +2,7 @@
  * @package Quarkus-Testing-Showcase
  *
  * @file Todo resource
- * @copyright 2020 Christoph Kappel <christoph@unexist.dev>
+ * @copyright 2021 Christoph Kappel <christoph@unexist.dev>
  * @version $Id$
  *
  * This program can be distributed under the terms of the GNU GPLv2.
