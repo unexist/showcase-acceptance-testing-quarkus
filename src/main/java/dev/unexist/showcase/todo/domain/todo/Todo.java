@@ -1,7 +1,7 @@
 /**
  * @package Quarkus-Testing-Showcase
  *
- * @file Todo class and aggregate root
+ * @file Todo class
  * @copyright 2021 Christoph Kappel <christoph@unexist.dev>
  * @version $Id$
  *

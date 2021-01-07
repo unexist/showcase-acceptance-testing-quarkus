@@ -1,7 +1,7 @@
 /**
  * @package Quarkus-Testing-Showcase
  *
- * @file Todo service and domain service
+ * @file Todo service
  * @copyright 2021 Christoph Kappel <christoph@unexist.dev>
  * @version $Id$
  *
