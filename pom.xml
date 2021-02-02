@@ -24,6 +24,8 @@
         <spotbugs-plugin.version>4.1.4</spotbugs-plugin.version>
         <hg-revision-plugin.version>0.10</hg-revision-plugin.version>
         <cucumber.version>6.9.1</cucumber.version>
+        <junit5.version>5.7.0</junit5.version>
+        <junit-platform.version>1.7.0</junit-platform.version>
 
         <!-- Workaround to get the timestamp -->
         <timestamp>${maven.build.timestamp}</timestamp>
