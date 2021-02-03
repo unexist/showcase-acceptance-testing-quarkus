@@ -6,7 +6,7 @@ Feature: Create a todo
     When I ask to create a todo
     Then I should be told "<result>"
 
-  Examples:
-    | title | result |
-    | Test  | 400    |
-    |       | 400    |
+    Examples:
+      | title | result |
+      | Test  | 400    |
+      |       | 400    |

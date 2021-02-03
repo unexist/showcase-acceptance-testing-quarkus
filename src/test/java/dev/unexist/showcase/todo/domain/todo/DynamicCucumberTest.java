@@ -57,7 +57,7 @@ import org.junit.platform.console.ConsoleLauncher;
 
 /* https://github.com/panchitoboy/quarkus-cucumber */
 @QuarkusTest
-@TestInstance (TestInstance.Lifecycle.PER_CLASS)
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class DynamicCucumberTest {
     private static String [] mainArgs = new String [] {};
 
@@ -65,20 +65,22 @@ class DynamicCucumberTest {
     List <DynamicNode> getTests() {
         try {
             // We run in a different ClassLoader then "main", so we need to grab any cli arguments from the SystemClassLoader
-            Class <?> aClass = ClassLoader.getSystemClassLoader().loadClass (this.getClass().getName());
-            Field aClassDeclaredField = aClass.getDeclaredField ("mainArgs");
-            aClassDeclaredField.setAccessible (true);
-            DynamicCucumberTest.mainArgs = (String []) aClassDeclaredField.get (aClass);
-        } catch (NoSuchFieldException | ClassNotFoundException | IllegalAccessException e) {
+            Class <?> aClass = ClassLoader.getSystemClassLoader().loadClass(this.getClass().getName());
+            Field aClassDeclaredField = aClass.getDeclaredField("mainArgs");
+
+            aClassDeclaredField.setAccessible(true);
+
+            DynamicCucumberTest.mainArgs = (String []) aClassDeclaredField.get(aClass);
+        } catch(NoSuchFieldException | ClassNotFoundException | IllegalAccessException e) {
             e.printStackTrace();
         }
 
-        EventBus eventBus = new TimeServiceEventBus (Clock.systemUTC(), UUID::randomUUID);
+        EventBus eventBus = new TimeServiceEventBus(Clock.systemUTC(), UUID::randomUUID);
 
-        final FeatureParser parser = new FeatureParser (eventBus::generateId);
+        final FeatureParser parser = new FeatureParser(eventBus::generateId);
 
         RuntimeOptionsBuilder commandlineOptionsParser =
-                new CommandlineOptionsParser (System.out).parse (mainArgs);
+                new CommandlineOptionsParser(System.out).parse(mainArgs);
 
         RuntimeOptionsBuilder runtimeOptionsBuilder = new RuntimeOptionsBuilder();
 
@@ -87,23 +89,25 @@ class DynamicCucumberTest {
         runtimeOptionsBuilder.addDefaultFormatterIfAbsent();
         runtimeOptionsBuilder.addDefaultSummaryPrinterIfAbsent();
 
-        runtimeOptionsBuilder.addGlue (URI.create ("classpath:/" +
-                TodoSteps.class.getPackage().getName().replace (".", "/")));
+        runtimeOptionsBuilder.addGlue(URI.create("classpath:/" +
+                TodoSteps.class.getPackage().getName().replace(".", "/")));
 
-        RuntimeOptions runtimeOptions = runtimeOptionsBuilder.build (commandlineOptionsParser.build());
-        FeatureSupplier featureSupplier = new FeaturePathFeatureSupplier (() -> Thread.currentThread()
+        RuntimeOptions runtimeOptions = runtimeOptionsBuilder.build(commandlineOptionsParser.build());
+        FeatureSupplier featureSupplier = new FeaturePathFeatureSupplier(() -> Thread.currentThread()
                 .getContextClassLoader(), runtimeOptions, parser);
 
-        final Plugins plugins = new Plugins (new PluginFactory(), runtimeOptions);
-        plugins.addPlugin (new PrettyFormatter (System.out));
+        final Plugins plugins = new Plugins(new PluginFactory(), runtimeOptions);
 
-        final ExitStatus exitStatus = new ExitStatus (runtimeOptions);
-        plugins.addPlugin (exitStatus);
+        plugins.addPlugin(new PrettyFormatter(System.out));
 
-        if (runtimeOptions.isMultiThreaded()) {
-            plugins.setSerialEventBusOnEventListenerPlugins (eventBus);
+        final ExitStatus exitStatus = new ExitStatus(runtimeOptions);
+
+        plugins.addPlugin(exitStatus);
+
+        if(runtimeOptions.isMultiThreaded()) {
+            plugins.setSerialEventBusOnEventListenerPlugins(eventBus);
         } else {
-            plugins.setEventBusOnEventListenerPlugins (eventBus);
+            plugins.setEventBusOnEventListenerPlugins(eventBus);
         }
 
         ObjectFactory objectFactory = new CdiObjectFactory();
@@ -111,55 +115,54 @@ class DynamicCucumberTest {
         ObjectFactorySupplier objectFactorySupplier =() -> objectFactory;
 
         TypeRegistryConfigurerSupplier typeRegistryConfigurerSupplier =
-                new ScanningTypeRegistryConfigurerSupplier (() -> Thread.currentThread()
+                new ScanningTypeRegistryConfigurerSupplier(() -> Thread.currentThread()
                     .getContextClassLoader(),runtimeOptions);
 
-        Runner runner = new Runner (eventBus,
-                Collections.singleton (new JavaBackendProviderService().create (objectFactorySupplier.get(),
-                        objectFactorySupplier.get(),
-                       () -> Thread.currentThread()
-                                .getContextClassLoader())),
-                objectFactorySupplier.get(),
-                typeRegistryConfigurerSupplier.get(),
-                runtimeOptions);
+        Runner runner = new Runner(eventBus,
+                Collections.singleton(new JavaBackendProviderService()
+                        .create(objectFactorySupplier.get(), objectFactorySupplier.get(),
+                      () -> Thread.currentThread().getContextClassLoader())),
+                objectFactorySupplier.get(), typeRegistryConfigurerSupplier.get(), runtimeOptions);
 
-        CucumberExecutionContext context = new CucumberExecutionContext (eventBus, exitStatus,() -> runner);
+        CucumberExecutionContext context = new CucumberExecutionContext(eventBus, exitStatus,() -> runner);
 
-        List <DynamicNode> features = new LinkedList <>();
-        features.add (DynamicTest.dynamicTest ("Start Cucumber", context::startTestRun));
+        List <DynamicNode> features = new LinkedList<>();
 
-        featureSupplier.get().forEach (f -> {
-            List <DynamicTest> tests = new LinkedList <>();
+        features.add(DynamicTest.dynamicTest("Start Cucumber", context::startTestRun));
 
-            tests.add (DynamicTest.dynamicTest ("Start Feature",() -> context.beforeFeature (f)));
+        featureSupplier.get().forEach(f -> {
+            List <DynamicTest> tests = new LinkedList<>();
 
-            f.getPickles().forEach (p -> tests.add (DynamicTest.dynamicTest (p.getName(),() -> {
-                AtomicReference <TestStepFinished> resultAtomicReference = new AtomicReference <>();
-                EventHandler <TestStepFinished> handler = event -> {
-                    if (event.getResult().getStatus() != Status.PASSED) {
+            tests.add(DynamicTest.dynamicTest("Start Feature",() -> context.beforeFeature(f)));
+
+            f.getPickles().forEach(p -> tests.add(DynamicTest.dynamicTest(p.getName(),() -> {
+                AtomicReference <TestStepFinished> resultAtomicReference = new AtomicReference<>();
+
+                EventHandler<TestStepFinished> handler = event -> {
+                    if(event.getResult().getStatus() != Status.PASSED) {
                         // save the first failed test step, so that we can get the line number of the cucumber file
-                        resultAtomicReference.compareAndSet (null, event);
+                        resultAtomicReference.compareAndSet(null, event);
                     }
                 };
 
-                eventBus.registerHandlerFor (TestStepFinished.class, handler);
-                context.runTestCase (r -> r.runPickle (p));
-                eventBus.removeHandlerFor (TestStepFinished.class, handler);
+                eventBus.registerHandlerFor(TestStepFinished.class, handler);
+                context.runTestCase(r -> r.runPickle(p));
+                eventBus.removeHandlerFor(TestStepFinished.class, handler);
 
-                if (mainArgs.length == 0) {
+                if(mainArgs.length == 0) {
                     // if we have no main arguments, we are running as part of a junit test suite, we need to fail the junit test explicitly
-                    if (resultAtomicReference.get() != null) {
+                    if(resultAtomicReference.get() != null) {
                         Assertions.fail("failed in " + f.getUri() + " at line " +
-                                        ((PickleStepTestStep) resultAtomicReference.get()
+                                       ((PickleStepTestStep) resultAtomicReference.get()
                                                 .getTestStep()).getStep().getLocation().getLine(),
                                 resultAtomicReference.get().getResult().getError());
                     }
                 }
             })));
-            features.add (DynamicContainer.dynamicContainer (f.getName().orElse (f.getSource()), tests.stream()));
+            features.add(DynamicContainer.dynamicContainer(f.getName().orElse(f.getSource()), tests.stream()));
         });
 
-        features.add (DynamicTest.dynamicTest ("Finish Cucumber", context::finishTestRun));
+        features.add(DynamicTest.dynamicTest("Finish Cucumber", context::finishTestRun));
 
         return features;
     }
@@ -169,29 +172,28 @@ class DynamicCucumberTest {
         }
 
         public void start() {
-
         }
 
         public void stop() {
-
         }
 
-        public boolean addClass (Class <?> clazz) {
+        public boolean addClass(Class <?> clazz) {
             return true;
         }
 
-        public <T> T getInstance (Class <T> type) {
-            Instance <T> selected = CDI.current().select (type);
-            if (selected.isUnsatisfied()) {
-                throw new IllegalArgumentException (type.getName() + " is no CDI bean.");
+        public <T> T getInstance(Class <T> type) {
+            Instance <T> selected = CDI.current().select(type);
+
+            if(selected.isUnsatisfied()) {
+                throw new IllegalArgumentException(type.getName() + " is no CDI bean.");
             } else {
                 return selected.get();
             }
         }
     }
 
-    public static void main (String [] args) {
+    public static void main(String [] args) {
         mainArgs = args;
-        ConsoleLauncher.main ("-c", DynamicCucumberTest.class.getName());
+        ConsoleLauncher.main("-c", DynamicCucumberTest.class.getName());
     }
 }
