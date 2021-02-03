@@ -16,19 +16,27 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.restassured.builder.RequestSpecBuilder;
+import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
+import javax.enterprise.context.ApplicationScoped;
+
 import static io.restassured.RestAssured.given;
 
-public class TodoCucumberSteps {
+@ApplicationScoped
+public class TodoSteps {
     private String title;
     private Response response;
     private RequestSpecification requestSpec;
 
     @Before
     public void beforeScenario() {
-        requestSpec = new RequestSpecBuilder().build();
+        requestSpec = new RequestSpecBuilder()
+                .setPort(8081)
+                .setContentType(ContentType.JSON)
+                .setAccept(ContentType.JSON)
+                .build();
     }
 
     @Given("New title is {string}")

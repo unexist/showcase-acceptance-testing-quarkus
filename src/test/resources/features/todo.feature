@@ -8,5 +8,5 @@ Feature: Create a todo
 
   Examples:
     | title | result |
-    | Test  | 200    |
+    | Test  | 400    |
     |       | 400    |
