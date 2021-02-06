@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <project
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd"
-        xmlns="http://maven.apache.org/POM/4.0.0"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        xmlns="http://maven.apache.org/POM/4.0.0">
     <modelVersion>4.0.0</modelVersion>
     <groupId>dev.unexist.showcase</groupId>
     <artifactId>quarkus-testing-showcase</artifactId>
@@ -38,12 +38,12 @@
         <!-- Fitnesse -->
         <fitness.version>20201213</fitness.version>
         <maven-antrun-plugin.version>1.8</maven-antrun-plugin.version>
-        <fitnesse.command></fitnesse.command>
 
         <!-- Workaround to get the timestamp -->
         <timestamp>${maven.build.timestamp}</timestamp>
         <maven.build.timestamp.format>yyyy-MM-dd HH:mm</maven.build.timestamp.format>
     </properties>
+
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -55,6 +55,7 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+
     <dependencies>
         <!-- Quarkus -->
         <dependency>
@@ -63,7 +64,7 @@
         </dependency>
         <dependency>
             <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-resteasy-jsonb</artifactId>
+            <artifactId>quarkus-resteasy-jackson</artifactId>
         </dependency>
         <dependency>
             <groupId>io.quarkus</groupId>
@@ -121,162 +122,8 @@
             <version>${fitness.version}</version>
         </dependency>
     </dependencies>
+
     <build>
-        <plugins>
-            <plugin>
-                <groupId>io.quarkus</groupId>
-                <artifactId>quarkus-maven-plugin</artifactId>
-                <version>${quarkus-plugin.version}</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>generate-code</goal>
-                            <goal>generate-code-tests</goal>
-                            <goal>build</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>${compiler-plugin.version}</version>
-            </plugin>
-            <plugin>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>${surefire-plugin.version}</version>
-                <configuration>
-                    <systemPropertyVariables>
-                        <java.util.logging.manager>org.jboss.logmanager.LogManager
-                        </java.util.logging.manager>
-                        <maven.home>${maven.home}</maven.home>
-                    </systemPropertyVariables>
-                </configuration>
-            </plugin>
-
-            <!-- Info -->
-            <plugin>
-                <groupId>com.github.volodya-lombrozo</groupId>
-                <artifactId>hg-revision-plugin</artifactId>
-                <version>${hg-revision-plugin.version}</version>
-                <executions>
-                    <execution>
-                        <phase>validate</phase>
-                        <goals>
-                            <goal>scan</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-
-            <!-- Audit -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-checkstyle-plugin</artifactId>
-                <version>${checkstyle-plugin.version}</version>
-                <configuration>
-                    <configLocation>checkstyle/config.xml</configLocation>
-                    <suppressionsLocation>checkstyle/suppressions.xml</suppressionsLocation>
-                    <encoding>UTF-8</encoding>
-                    <consoleOutput>true</consoleOutput>
-                    <failsOnError>true</failsOnError>
-                    <linkXRef>false</linkXRef>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>validate</id>
-                        <phase>validate</phase>
-                        <goals>
-                            <goal>check</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>com.github.spotbugs</groupId>
-                <artifactId>spotbugs-maven-plugin</artifactId>
-                <version>${spotbugs-maven-plugin.version}</version>
-                <dependencies>
-                    <!-- overwrite dependency on spotbugs if you want to specify the version of spotbugs -->
-                    <dependency>
-                        <groupId>com.github.spotbugs</groupId>
-                        <artifactId>spotbugs</artifactId>
-                        <version>${spotbugs-plugin.version}</version>
-                    </dependency>
-                </dependencies>
-                <executions>
-                    <execution>
-                        <id>validate</id>
-                        <phase>validate</phase>
-                        <goals>
-                            <goal>check</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-
-            <!-- Required for FitNesse -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-antrun-plugin</artifactId>
-                <version>${maven-antrun-plugin.version}</version>
-                <executions>
-                    <execution>
-                        <id>start-quarkus</id>
-                        <phase>test</phase>
-                        <configuration>
-                            <tasks>
-                                <echo message=""/>
-                                <echo message=""/>
-                                <echo message="Quarkus is available here:"/>
-                                <echo message=""/>
-                                <echo message="  http://localhost:8080"/>
-                                <echo message=""/>
-                                <echo message=""/>
-                                <java classname="dev.unexist.showcase.todo.application.TodoMain"
-                                      classpathref="maven.test.classpath"
-                                      fork="true" failonerror="true">
-                                    <arg line="-p 8081"/>
-                                    <jvmarg value="-Xmx1024m"/>
-                                </java>
-                            </tasks>
-                        </configuration>
-                        <goals>
-                            <goal>run</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>start-fitnesse</id>
-                        <phase>test</phase>
-                        <configuration>
-                            <tasks>
-                                <echo message=""/>
-                                <echo message=""/>
-                                <echo message="Fitnesse wiki is available here:"/>
-                                <echo message=""/>
-                                <echo message="  http://localhost:8888/FrontPage"/>
-                                <echo message=""/>
-                                <echo message=""/>
-                                <java classname="fitnesseMain.FitNesseMain"
-                                      classpathref="maven.test.classpath"
-                                      fork="true" failonerror="true">
-                                    <arg line="-p 8888"/>
-                                    <arg line="-v"/>
-                                    <arg line="-d ."/>
-                                    <arg line="-lh"/>
-                                    <arg line="-e 9999"/>
-                                    <!-- <arg line="${fitnesse.command}" /> -->
-                                    <jvmarg value="-Xmx1024m"/>
-                                </java>
-                            </tasks>
-                        </configuration>
-                        <goals>
-                            <goal>run</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-
         <!-- Replace placeholder in application.properties -->
         <resources>
             <resource>
@@ -288,7 +135,160 @@
             </resource>
         </resources>
     </build>
+
     <profiles>
+        <profile>
+            <id>start-quarkus</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>io.quarkus</groupId>
+                        <artifactId>quarkus-maven-plugin</artifactId>
+                        <version>${quarkus-plugin.version}</version>
+                        <executions>
+                            <execution>
+                                <goals>
+                                    <goal>generate-code</goal>
+                                    <goal>generate-code-tests</goal>
+                                    <goal>build</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <artifactId>maven-compiler-plugin</artifactId>
+                        <version>${compiler-plugin.version}</version>
+                    </plugin>
+                    <plugin>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <version>${surefire-plugin.version}</version>
+                        <configuration>
+                            <systemPropertyVariables>
+                                <java.util.logging.manager>org.jboss.logmanager.LogManager
+                                </java.util.logging.manager>
+                                <maven.home>${maven.home}</maven.home>
+                            </systemPropertyVariables>
+                        </configuration>
+                    </plugin>
+
+                    <!-- Info -->
+                    <plugin>
+                        <groupId>com.github.volodya-lombrozo</groupId>
+                        <artifactId>hg-revision-plugin</artifactId>
+                        <version>${hg-revision-plugin.version}</version>
+                        <executions>
+                            <execution>
+                                <phase>validate</phase>
+                                <goals>
+                                    <goal>scan</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+
+                    <!-- Audit -->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-checkstyle-plugin</artifactId>
+                        <version>${checkstyle-plugin.version}</version>
+                        <configuration>
+                            <configLocation>checkstyle/config.xml</configLocation>
+                            <suppressionsLocation>checkstyle/suppressions.xml</suppressionsLocation>
+                            <encoding>UTF-8</encoding>
+                            <consoleOutput>true</consoleOutput>
+                            <failsOnError>true</failsOnError>
+                            <linkXRef>false</linkXRef>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>validate</id>
+                                <phase>validate</phase>
+                                <goals>
+                                    <goal>check</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>com.github.spotbugs</groupId>
+                        <artifactId>spotbugs-maven-plugin</artifactId>
+                        <version>${spotbugs-maven-plugin.version}</version>
+                        <dependencies>
+                            <!-- overwrite dependency on spotbugs if you want to specify the version of spotbugs -->
+                            <dependency>
+                                <groupId>com.github.spotbugs</groupId>
+                                <artifactId>spotbugs</artifactId>
+                                <version>${spotbugs-plugin.version}</version>
+                            </dependency>
+                        </dependencies>
+                        <executions>
+                            <execution>
+                                <id>validate</id>
+                                <phase>validate</phase>
+                                <goals>
+                                    <goal>check</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+        <profile>
+            <id>start-fitnesse</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-antrun-plugin</artifactId>
+                        <version>${maven-antrun-plugin.version}</version>
+                        <executions>
+                            <execution>
+                                <id>start-fitnesse</id>
+                                <phase>clean</phase>
+                                <configuration>
+                                    <target>
+                                        <echo message=""/>
+                                        <echo message="Quarkus is available here:"/>
+                                        <echo message=""/>
+                                        <echo message="  http://localhost:8080"/>
+                                        <echo message=""/>
+                                        <echo message="Fitnesse wiki is available here:"/>
+                                        <echo message=""/>
+                                        <echo message="  http://localhost:8888/FrontPage"/>
+                                        <echo message=""/>
+                                        <echo message=""/>
+
+                                        <!--<java classname="dev.unexist.showcase.todo.application.TodoMain"
+                                              classpathref="maven.test.classpath"
+                                              fork="true" failonerror="true">
+                                            <arg line="-p 8081"/>
+                                            <jvmarg value="-Xmx1024m"/>
+                                        </java>-->
+                                        <java classname="fitnesseMain.FitNesseMain"
+                                              classpathref="maven.test.classpath"
+                                              fork="true" failonerror="true">
+                                            <arg line="-p 8888"/>
+                                            <arg line="-v"/>
+                                            <arg line="-d ."/>
+                                            <arg line="-lh"/>
+                                            <arg line="-e 9999"/>
+                                            <!-- <arg line="${fitnesse.command}" /> -->
+                                            <jvmarg value="-Xmx1024m"/>
+                                        </java>
+                                    </target>
+                                </configuration>
+                                <goals>
+                                    <goal>run</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
         <profile>
             <id>native</id>
             <activation>
