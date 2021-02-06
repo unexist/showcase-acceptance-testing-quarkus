@@ -18,6 +18,7 @@
         <apache-commons-lang.version>3.11</apache-commons-lang.version>
         <hg-revision-plugin.version>0.10</hg-revision-plugin.version>
         <surefire-plugin.version>3.0.0-M5</surefire-plugin.version>
+        <jackson-modules-java8.version>2.12.1</jackson-modules-java8.version>
 
         <!-- Quarkus -->
         <quarkus-plugin.version>1.9.2.Final</quarkus-plugin.version>
@@ -73,6 +74,13 @@
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-hibernate-validator</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.module</groupId>
+            <artifactId>jackson-modules-java8</artifactId>
+            <version>${jackson-modules-java8.version}</version>
+            <type>pom</type>
         </dependency>
 
         <!-- Apache Commons -->
