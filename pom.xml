@@ -221,27 +221,44 @@
                 <version>${maven-antrun-plugin.version}</version>
                 <executions>
                     <execution>
+                        <id>start-quarkus</id>
+                        <phase>test</phase>
+                        <configuration>
+                            <tasks>
+                                <echo message=""/>
+                                <echo message=""/>
+                                <echo message="Quarkus is available here:"/>
+                                <echo message=""/>
+                                <echo message="  http://localhost:8080"/>
+                                <echo message=""/>
+                                <echo message=""/>
+                                <java classname="dev.unexist.showcase.todo.application.TodoMain"
+                                      classpathref="maven.test.classpath"
+                                      fork="true" failonerror="true">
+                                    <arg line="-p 8081"/>
+                                    <jvmarg value="-Xmx1024m"/>
+                                </java>
+                            </tasks>
+                        </configuration>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                    <execution>
                         <id>start-fitnesse</id>
                         <phase>test</phase>
                         <configuration>
                             <tasks>
-                                <!-- Not needed right now -->
-                                <!--
-                                <copy todir="FitNesseClasses" flatten="true">
-                                    <fileset dir="${project.build.testOutputDirectory}">
-                                        <include name="**/*.class" />
-                                    </fileset>
-                                </copy>
-                                -->
                                 <echo message=""/>
                                 <echo message=""/>
-                                <echo message="Fitnesse wiki available here:"/>
+                                <echo message="Fitnesse wiki is available here:"/>
                                 <echo message=""/>
                                 <echo message="  http://localhost:8888/FrontPage"/>
                                 <echo message=""/>
                                 <echo message=""/>
                                 <java classname="fitnesseMain.FitNesseMain"
-                                      classpathref="maven.test.classpath" fork="true">
+                                      classpathref="maven.test.classpath"
+                                      fork="true" failonerror="true">
                                     <arg line="-p 8888"/>
                                     <arg line="-v"/>
                                     <arg line="-d ."/>
