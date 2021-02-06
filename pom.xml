@@ -1,7 +1,8 @@
 <?xml version="1.0"?>
-<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd"
-         xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<project
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd"
+        xmlns="http://maven.apache.org/POM/4.0.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <modelVersion>4.0.0</modelVersion>
     <groupId>dev.unexist.showcase</groupId>
     <artifactId>quarkus-testing-showcase</artifactId>
@@ -13,19 +14,31 @@
         <maven.compiler.target>11</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+        <apache-commons-lang.version>3.11</apache-commons-lang.version>
+        <hg-revision-plugin.version>0.10</hg-revision-plugin.version>
+        <surefire-plugin.version>3.0.0-M5</surefire-plugin.version>
+
+        <!-- Quarkus -->
         <quarkus-plugin.version>1.9.2.Final</quarkus-plugin.version>
         <quarkus.platform.artifact-id>quarkus-universe-bom</quarkus.platform.artifact-id>
         <quarkus.platform.group-id>io.quarkus</quarkus.platform.group-id>
         <quarkus.platform.version>1.9.2.Final</quarkus.platform.version>
-        <apache-commons-lang.version>3.11</apache-commons-lang.version>
-        <surefire-plugin.version>3.0.0-M5</surefire-plugin.version>
+
+        <!-- Audit -->
         <checkstyle-plugin.version>3.1.1</checkstyle-plugin.version>
         <spotbugs-maven-plugin.version>4.1.3</spotbugs-maven-plugin.version>
         <spotbugs-plugin.version>4.1.4</spotbugs-plugin.version>
-        <hg-revision-plugin.version>0.10</hg-revision-plugin.version>
+
+        <!-- Cucumber -->
         <cucumber.version>6.9.1</cucumber.version>
         <junit5.version>5.7.0</junit5.version>
         <junit-platform.version>1.7.0</junit-platform.version>
+
+        <!-- Fitnesse -->
+        <fitness.version>20201213</fitness.version>
+        <maven-antrun-plugin.version>1.8</maven-antrun-plugin.version>
+        <fitnesse.command></fitnesse.command>
 
         <!-- Workaround to get the timestamp -->
         <timestamp>${maven.build.timestamp}</timestamp>
@@ -102,6 +115,11 @@
             <version>${junit-platform.version}</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.fitnesse</groupId>
+            <artifactId>fitnesse</artifactId>
+            <version>${fitness.version}</version>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
@@ -128,7 +146,8 @@
                 <version>${surefire-plugin.version}</version>
                 <configuration>
                     <systemPropertyVariables>
-                        <java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
+                        <java.util.logging.manager>org.jboss.logmanager.LogManager
+                        </java.util.logging.manager>
                         <maven.home>${maven.home}</maven.home>
                     </systemPropertyVariables>
                 </configuration>
@@ -190,6 +209,51 @@
                         <phase>validate</phase>
                         <goals>
                             <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- Required for FitNesse -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>${maven-antrun-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>start-fitnesse</id>
+                        <phase>test</phase>
+                        <configuration>
+                            <tasks>
+                                <!-- Not needed right now -->
+                                <!--
+                                <copy todir="FitNesseClasses" flatten="true">
+                                    <fileset dir="${project.build.testOutputDirectory}">
+                                        <include name="**/*.class" />
+                                    </fileset>
+                                </copy>
+                                -->
+                                <echo message=""/>
+                                <echo message=""/>
+                                <echo message="Fitnesse wiki available here:"/>
+                                <echo message=""/>
+                                <echo message="  http://localhost:8888/FrontPage"/>
+                                <echo message=""/>
+                                <echo message=""/>
+                                <java classname="fitnesseMain.FitNesseMain"
+                                      classpathref="maven.test.classpath" fork="true">
+                                    <arg line="-p 8888"/>
+                                    <arg line="-v"/>
+                                    <arg line="-d ."/>
+                                    <arg line="-lh"/>
+                                    <arg line="-e 9999"/>
+                                    <!-- <arg line="${fitnesse.command}" /> -->
+                                    <jvmarg value="-Xmx1024m"/>
+                                </java>
+                            </tasks>
+                        </configuration>
+                        <goals>
+                            <goal>run</goal>
                         </goals>
                     </execution>
                 </executions>

@@ -9,8 +9,9 @@
  * See the file COPYING for details.
  **/
 
-package dev.unexist.showcase.todo.domain.todo;
+package dev.unexist.showcase.todo.domain.todo.cucumber;
 
+import dev.unexist.showcase.todo.domain.todo.TodoBase;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;

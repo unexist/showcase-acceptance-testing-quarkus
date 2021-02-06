@@ -9,7 +9,7 @@
  * See the file COPYING for details.
  **/
 
-package dev.unexist.showcase.todo.domain.todo;
+package dev.unexist.showcase.todo.domain.todo.cucumber;
 
 import java.lang.reflect.Field;
 import java.net.URI;
