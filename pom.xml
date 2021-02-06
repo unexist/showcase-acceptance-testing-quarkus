@@ -146,7 +146,7 @@
 
     <profiles>
         <profile>
-            <id>start-quarkus</id>
+            <id>quarkus</id>
             <build>
                 <plugins>
                     <plugin>
@@ -244,7 +244,7 @@
         </profile>
 
         <profile>
-            <id>start-fitnesse</id>
+            <id>fitnesse</id>
             <build>
                 <plugins>
                     <plugin>

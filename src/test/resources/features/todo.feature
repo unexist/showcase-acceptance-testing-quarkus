@@ -1,13 +1,13 @@
 Feature: Create a todo
   I want to create a new todo
 
-  Scenario Outline: First todo
+  Scenario Outline: Dream of a todo
     Given I imagine a todo "<title>"
     And a description of "<description>"
     And starting on "<start>"
     And lasting no longer than "<due>"
     And still not "<done>"
-    When I ask for the status code
+    When I would ask for the status code
     Then I should be told "<status>"
 
     Examples:

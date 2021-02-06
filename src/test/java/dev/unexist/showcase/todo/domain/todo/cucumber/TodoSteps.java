@@ -94,7 +94,7 @@ public class TodoSteps {
         this.todoBase.setDone(Boolean.valueOf(isDone));
     }
 
-    @When("I ask for the status code")
+    @When("I would ask for the status code")
     public void when_get_status() {
         response = given(this.requestSpec)
                 .when()

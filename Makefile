@@ -1,8 +1,11 @@
 quarkus:
-	mvn -Pstart-quarkus quarkus:dev
+	mvn -Pquarkus quarkus:dev
 
 fitnesse:
-	mvn -Pstart-fitnesse clean
+	mvn -Pfitnesse clean
+
+cucumber:
+	mvn -Pquarkus test
 
 .DEFAULT_GOAL := update-tests
 update-tests:

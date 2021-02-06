@@ -9,7 +9,7 @@
  * See the file LICENSE for details.
  **/
 
-package dev.unexist.showcase.todo.domain.todo.fixtures;
+package dev.unexist.showcase.todo.domain.todo.fitnesse;
 
 import dev.unexist.showcase.todo.domain.todo.DueDate;
 import dev.unexist.showcase.todo.domain.todo.TodoBase;
