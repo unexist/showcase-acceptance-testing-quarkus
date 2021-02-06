@@ -1,7 +1,7 @@
 /**
  * @package Quarkus-Testing-Showcase
  *
- * @file Todo cucumber
+ * @file Todo fitness fixture
  * @copyright 2021 Christoph Kappel <christoph@unexist.dev>
  * @version $Id$
  *
@@ -33,7 +33,6 @@ public class TodoFixture {
 
     public void beginTable() {
         this.todoBase = new TodoBase();
-
         this.dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         this.requestSpec = new RequestSpecBuilder()
                 .setPort(8080)
