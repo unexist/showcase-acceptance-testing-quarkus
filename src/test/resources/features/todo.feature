@@ -2,11 +2,20 @@ Feature: Create a todo
   I want to create a new todo
 
   Scenario Outline: First todo
-    Given New title is "<title>"
-    When I ask to create a todo
-    Then I should be told "<result>"
+    Given I imagine a todo "<title>"
+    And a description of "<description>"
+    And starting on "<start>"
+    And lasting no longer than "<due>"
+    And still not "<done>"
+    When I ask for the status code
+    Then I should be told "<status>"
 
     Examples:
-      | title | result |
-      | Test  | 400    |
-      |       | 400    |
+      | title | description | start      | due        | done  | status |
+      | Test  | Test        | 2021-01-01 | 2021-02-01 | false | 201    |
+      |       | Test        | 2021-01-01 | 2021-02-01 | false | 201    |
+      | Test  |             | 2021-01-01 | 2021-02-01 | false | 201    |
+      | Test  | Test        |            | 2021-02-01 | false | 201    |
+      | Test  | Test        | 2021-01-01 |            | false | 201    |
+      | Test  | Test        | 2021-01-01 | 2021-02-01 |       | 201    |
+      |       |             |            |            |       | 400    |
