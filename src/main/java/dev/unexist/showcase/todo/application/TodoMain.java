@@ -11,7 +11,12 @@
 
 package dev.unexist.showcase.todo.application;
 
-import javax.ws.rs.core.Application;
+import io.quarkus.runtime.Quarkus;
+import io.quarkus.runtime.annotations.QuarkusMain;
 
-public class RestApplication extends Application {
+@QuarkusMain
+public class TodoMain {
+    public static void main(String[] args) {
+        Quarkus.run(args);
+    }
 }
