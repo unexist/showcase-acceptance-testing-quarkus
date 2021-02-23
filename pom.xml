@@ -38,6 +38,7 @@
 
         <!-- Fitnesse -->
         <fitness.version>20201213</fitness.version>
+        <dbfitness.version>3.2.0</dbfitness.version>
         <maven-antrun-plugin.version>1.8</maven-antrun-plugin.version>
 
         <!-- Workaround to get the timestamp -->
@@ -124,11 +125,7 @@
             <version>${junit-platform.version}</version>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>org.fitnesse</groupId>
-            <artifactId>fitnesse</artifactId>
-            <version>${fitness.version}</version>
-        </dependency>
+
     </dependencies>
 
     <build>
@@ -245,6 +242,13 @@
 
         <profile>
             <id>fitnesse</id>
+            <dependencies>
+                <dependency>
+                    <groupId>org.fitnesse</groupId>
+                    <artifactId>fitnesse</artifactId>
+                    <version>${fitness.version}</version>
+                </dependency>
+            </dependencies>
             <build>
                 <plugins>
                     <plugin>
@@ -258,22 +262,12 @@
                                 <configuration>
                                     <target>
                                         <echo message=""/>
-                                        <echo message="Quarkus is available here:"/>
-                                        <echo message=""/>
-                                        <echo message="  http://localhost:8080"/>
-                                        <echo message=""/>
                                         <echo message="Fitnesse wiki is available here:"/>
                                         <echo message=""/>
                                         <echo message="  http://localhost:8888/FrontPage"/>
                                         <echo message=""/>
                                         <echo message=""/>
 
-                                        <!--<java classname="dev.unexist.showcase.todo.application.TodoMain"
-                                              classpathref="maven.test.classpath"
-                                              fork="true" failonerror="true">
-                                            <arg line="-p 8081"/>
-                                            <jvmarg value="-Xmx1024m"/>
-                                        </java>-->
                                         <java classname="fitnesseMain.FitNesseMain"
                                               classpathref="maven.test.classpath"
                                               fork="true" failonerror="true">
@@ -281,6 +275,56 @@
                                             <arg line="-v"/>
                                             <arg line="-d ."/>
                                             <arg line="-lh"/>
+                                            <arg line="-e 9999"/>
+                                            <!-- <arg line="${fitnesse.command}" /> -->
+                                            <jvmarg value="-Xmx1024m"/>
+                                        </java>
+                                    </target>
+                                </configuration>
+                                <goals>
+                                    <goal>run</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+        <profile>
+            <id>dbfitnesse</id>
+            <dependencies>
+                <dependency>
+                    <groupId>com.github.dbfit</groupId>
+                    <artifactId>dbfit</artifactId>
+                    <version>${dbfitness.version}</version>
+                </dependency>
+            </dependencies>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-antrun-plugin</artifactId>
+                        <version>${maven-antrun-plugin.version}</version>
+                        <executions>
+                            <execution>
+                                <id>start-dbfitnesse</id>
+                                <phase>clean</phase>
+                                <configuration>
+                                    <target>
+                                        <echo message=""/>
+                                        <echo message="Fitnesse wiki is available here:"/>
+                                        <echo message=""/>
+                                        <echo message="  http://localhost:8888/FrontPage"/>
+                                        <echo message=""/>
+                                        <echo message=""/>
+
+                                        <java classname="fitnesseMain.FitNesseMain"
+                                              classpathref="maven.test.classpath"
+                                              fork="true" failonerror="true">
+                                            <arg line="-p 8888"/>
+                                            <arg line="-v"/>
+                                            <arg line="-d ."/>
                                             <arg line="-e 9999"/>
                                             <!-- <arg line="${fitnesse.command}" /> -->
                                             <jvmarg value="-Xmx1024m"/>
