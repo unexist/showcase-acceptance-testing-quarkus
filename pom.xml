@@ -21,15 +21,18 @@
         <jackson-modules-java8.version>2.12.1</jackson-modules-java8.version>
 
         <!-- Quarkus -->
-        <quarkus-plugin.version>1.12.0.Final</quarkus-plugin.version>
+        <quarkus-plugin.version>1.13.0.Final</quarkus-plugin.version>
         <quarkus.platform.artifact-id>quarkus-universe-bom</quarkus.platform.artifact-id>
         <quarkus.platform.group-id>io.quarkus</quarkus.platform.group-id>
-        <quarkus.platform.version>1.12.0.Final</quarkus.platform.version>
+        <quarkus.platform.version>1.13.0.Final</quarkus.platform.version>
 
         <!-- Audit -->
         <checkstyle-plugin.version>3.1.1</checkstyle-plugin.version>
         <spotbugs-maven-plugin.version>4.1.3</spotbugs-maven-plugin.version>
         <spotbugs-plugin.version>4.1.4</spotbugs-plugin.version>
+
+        <!-- Testing -->
+        <jqwik.version>1.5.0</jqwik.version>
 
         <!-- Cucumber -->
         <cucumber.version>6.9.1</cucumber.version>
@@ -98,6 +101,11 @@
             <scope>test</scope>
         </dependency>
         <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-jacoco</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
             <groupId>io.rest-assured</groupId>
             <artifactId>rest-assured</artifactId>
             <scope>test</scope>
@@ -125,7 +133,12 @@
             <version>${junit-platform.version}</version>
             <scope>test</scope>
         </dependency>
-
+        <dependency>
+            <groupId>net.jqwik</groupId>
+            <artifactId>jqwik</artifactId>
+            <version>${jqwik.version}</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
