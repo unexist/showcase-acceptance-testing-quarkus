@@ -9,7 +9,7 @@
 
     <parent>
         <groupId>dev.unexist.showcase</groupId>
-        <artifactId>quarkus-showcase-parent</artifactId>
+        <artifactId>java-parent</artifactId>
         <version>0.1</version>
     </parent>
 
