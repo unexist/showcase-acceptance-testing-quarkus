@@ -16,6 +16,7 @@
     <properties>
         <!-- Testing -->
         <jqwik.version>1.5.0</jqwik.version>
+        <javafaker.version>1.0.2</javafaker.version>
 
         <!-- Cucumber -->
         <cucumber.version>6.9.1</cucumber.version>
@@ -53,6 +54,11 @@
             <artifactId>jqwik</artifactId>
             <version>${jqwik.version}</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.github.javafaker</groupId>
+            <artifactId>javafaker</artifactId>
+            <version>${javafaker.version}</version>
         </dependency>
     </dependencies>
 
