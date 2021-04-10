@@ -1,7 +1,23 @@
-# quarkus-testing-showcase project
+Quarkus testing showcase
+----
+This project holds a showcase for various testing strategies and technologies.
 
-This is a small showcase for various types of testing
+Frameworks
+----
+- [Cucumber](https://cucumber.io)
+- [FitNesse](https://fitnesse.org)
+- [DbFit](https://dbfit.github.io/dbfit/)
 
-## Cucumber
+Libraries
+----
+- [jqwik](https://jqwik.net/)
+- [java-faker](https://github.com/DiUS/java-faker)
 
-## FitNesse
+Instructions
+----
+Following make targets exist:
+
+- **quarkus** - Start quarkus application
+- **fitnesse** - Start FitNesse
+- **dbfitnesse** - Start DbFitNesse
+- **cucumber** - Run cucumber tests
