@@ -36,30 +36,14 @@ public class TodoRepositoryImpl implements TodoRepository {
         this.list = new ArrayList<>();
     }
 
-    /**
-     * Add {@link Todo} entry to list
-     *
-     * @param todo
-     *          {@link Todo} entry to add
-     * @return
-     *          Either {@code true} on success; otherwise {@code false}
-     **/
-
+    @Override
     public boolean add(final Todo todo) {
         todo.setId(this.list.size() + 1);
 
         return this.list.add(todo);
     }
 
-    /**
-     * Update {@link Todo} with given id
-     *
-     * @param todo
-     *          A {@link Todo} to update
-     * @return
-     *          Either {@code true} on success; otherwise {@code false}
-     **/
-
+    @Override
     public boolean update(final Todo todo) {
         boolean ret = false;
 
@@ -74,15 +58,7 @@ public class TodoRepositoryImpl implements TodoRepository {
         return ret;
     }
 
-    /**
-     * Delete {@link Todo} with given id
-     *
-     * @param id
-     *          Id to delete
-     * @return
-     *          Either {@code true} on success; otherwise {@code false}
-     **/
-
+    @Override
     public boolean deleteById(int id) {
         boolean ret = false;
 
@@ -97,25 +73,12 @@ public class TodoRepositoryImpl implements TodoRepository {
         return ret;
     }
 
-    /**
-     * Get all {@link Todo} entries
-     *
-     * @return List of all stored {@link Todo}
-     **/
-
+    @Override
     public List<Todo> getAll() {
         return Collections.unmodifiableList(this.list);
     }
 
-    /**
-     * Find {@link Todo} by given id
-     *
-     * @param id
-     *          Id to find
-     * @return
-     *          A {@link Optional} with the result of the lookup
-     **/
-
+    @Override
     public Optional<Todo> findById(int id) {
         return this.list.stream()
                 .filter(t -> t.getId() == id)
