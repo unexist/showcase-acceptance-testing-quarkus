@@ -19,6 +19,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.quarkus.arc.Unremovable;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
@@ -33,6 +34,7 @@ import java.time.format.DateTimeFormatter;
 import static io.restassured.RestAssured.given;
 
 @ApplicationScoped
+@Unremovable
 public class TodoSteps {
     private TodoBase todoBase;
     private Response response;
