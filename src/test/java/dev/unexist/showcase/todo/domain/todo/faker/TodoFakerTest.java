@@ -12,12 +12,17 @@
 package dev.unexist.showcase.todo.domain.todo.faker;
 
 import com.github.javafaker.Faker;
+import dev.unexist.showcase.todo.domain.todo.DueDate;
 import dev.unexist.showcase.todo.domain.todo.Todo;
 import org.junit.jupiter.api.Test;
 
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.Date;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class TodoTest {
+public class TodoFakerTest {
 
     @Test
     public void testCreateTodo() {
@@ -29,5 +34,26 @@ public class TodoTest {
 
         assertThat(todo.getTitle()).isNotNull();
         assertThat(todo.getDescription()).isNotNull();
+    }
+
+    @Test
+    public void testCreateTodoWithDate() {
+        Faker faker = new Faker();
+        Todo todo = new Todo();
+
+        DueDate dd = new DueDate();
+
+        dd.setStart(convertDateToLocalDate(faker.date().birthday()));
+        dd.setDue(convertDateToLocalDate(faker.date().birthday()));
+
+        todo.setDueDate(dd);
+
+
+        assertThat(todo.getDueDate()).isNotNull();
+    }
+
+    private LocalDate convertDateToLocalDate(final Date date) {
+        return date.toInstant().atZone(
+                ZoneId.systemDefault()).toLocalDate();
     }
 }
