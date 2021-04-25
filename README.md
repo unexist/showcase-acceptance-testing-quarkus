@@ -1,5 +1,5 @@
 Quarkus testing showcase
-----
+====
 This project holds a showcase for various testing strategies and technologies.
 
 Frameworks
