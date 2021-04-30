@@ -25,7 +25,8 @@
         <junit-vintage-engine.version>5.7.1</junit-vintage-engine.version>
 
         <!-- Fitnesse -->
-        <fitness.version>20201213</fitness.version>
+        <fitness.version>20210410</fitness.version>
+        <fitnesse-cucumber.version>1.0</fitnesse-cucumber.version>
         <dbfitness.version>3.2.0</dbfitness.version>
         <maven-antrun-plugin.version>1.8</maven-antrun-plugin.version>
     </properties>
@@ -78,6 +79,11 @@
                     <groupId>org.fitnesse</groupId>
                     <artifactId>fitnesse</artifactId>
                     <version>${fitness.version}</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.fitnesse.cucumber</groupId>
+                    <artifactId>fitnesse-cucumber</artifactId>
+                    <version>${fitnesse-cucumber.version}</version>
                 </dependency>
             </dependencies>
             <build>
