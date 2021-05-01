@@ -1,0 +1,9 @@
+!1 Welcome to [[FitNesse][FitNesse.FitNesse]]!
+!3 ''The fully integrated stand-alone acceptance testing framework and wiki.''
+
+|[[Todo Slim][TodoSlim]]          |''Todo Slim based acceptance tests''       |
+|[[Todo Cucumber][TodoCucumber]]  |''Todo Cucumber based acceptance tests''   |
+|[[Database Test][Database]]      |''Database Tests''                         |
+
+
+!note Release ${FITNESSE_VERSION}

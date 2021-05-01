@@ -1,0 +1,31 @@
+!1 Test status code of the REST endpoint
+
+This test runs different calls to the REST endpoint
+
+----
+!contents -R2 -g -p -f -h
+
+|import|
+|dev.unexist.showcase.todo.domain.todo|
+
+Feature: Create a todo
+I want to create a new todo
+
+Scenario Outline: Dream of a todo
+Given I imagine a todo "<title>"
+And a description of "<description>"
+And starting on "<start>"
+And lasting no longer than "<due>"
+And still not "<done>"
+When I would ask for the status code
+Then I should be told "<status>"
+
+Examples:
+| title | description | start      | due        | done  | status |
+| Test  | Test        | 2021-01-01 | 2021-02-01 | false | 201    |
+|       | Test        | 2021-01-01 | 2021-02-01 | false | 201    |
+| Test  |             | 2021-01-01 | 2021-02-01 | false | 201    |
+| Test  | Test        |            | 2021-02-01 | false | 201    |
+| Test  | Test        | 2021-01-01 |            | false | 201    |
+| Test  | Test        | 2021-01-01 | 2021-02-01 |       | 201    |
+|       |             |            |            |       | 400    |

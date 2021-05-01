@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<suiteResults>
+  <FitNesseVersion>v20201213</FitNesseVersion>
+  <rootPath>Todo</rootPath>
+  <pageHistoryReference>
+    <name>Todo.TodoFitness</name>
+    <date>2021-02-06T13:32:53+01:00</date>
+    <pageHistoryLink>Todo.TodoFitness?pageHistory&amp;resultDate=20210206133253</pageHistoryLink>
+    <counts>
+      <right>0</right>
+      <wrong>0</wrong>
+      <ignores>0</ignores>
+      <exceptions>5</exceptions>
+    </counts>
+    <runTimeInMillis>87</runTimeInMillis>
+  </pageHistoryReference>
+  <executionLog>
+    <testSystem>slim:fitnesse.slim.SlimService</testSystem>
+    <command>/Users/unexist/Library/Java/JavaVirtualMachines/adopt-openj9-11.0.10/Contents/Home/bin/java -cp /Users/unexist/.m2/repository/org/fitnesse/fitnesse/20201213/fitnesse-20201213.jar:./FitNesseClasses fitnesse.slim.SlimService 1</command>
+    <exitCode>0</exitCode>
+    <stdOut></stdOut>
+    <stdErr></stdErr>
+  </executionLog>
+  <finalCounts>
+    <right>0</right>
+    <wrong>0</wrong>
+    <ignores>0</ignores>
+    <exceptions>1</exceptions>
+  </finalCounts>
+  <totalRunTimeInMillis>459</totalRunTimeInMillis>
+</suiteResults>
+

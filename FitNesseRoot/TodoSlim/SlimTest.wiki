@@ -1,0 +1,20 @@
+!1 Test status code of the REST endpoint
+
+This test runs different calls to the REST endpoint
+
+----
+!contents -R2 -g -p -f -h
+
+|import|
+|dev.unexist.showcase.todo.domain.todo.fitnesse|
+
+!|Todo Fixture                                                      |
+| title   | description | start date | due date   | done  | status? |
+| Test    | Test        | 2021-01-01 | 2021-02-01 | false | 201     |
+|         | Test        | 2021-01-01 | 2021-02-01 | false | 201     |
+| Test    |             | 2021-01-01 | 2021-02-01 | false | 201     |
+| Test    | Test        |            | 2021-02-01 | false | 201     |
+| Test    | Test        | 2021-01-01 |            | false | 201     |
+| Test    | Test        | 2021-01-01 | 2021-02-01 |       | 201     |
+|         |             |            |            |       | 400     |  
+

@@ -1,0 +1,1100 @@
+<?xml version="1.0"?>
+<testResults>
+  <FitNesseVersion>v20201213</FitNesseVersion>
+  <rootPath>Todo.TodoFitness</rootPath>
+  <result>
+    <counts>
+      <right>0</right>
+      <wrong>0</wrong>
+      <ignores>0</ignores>
+      <exceptions>11</exceptions>
+    </counts>
+    <date>2021-02-06T14:04:59+01:00</date>
+    <runTimeInMillis>94</runTimeInMillis>
+    <content>&lt;br/&gt;&lt;h1 id="0"&gt;Test status code of the REST endpoint&lt;/h1&gt;
+        &lt;br/&gt;This test runs different calls to the REST endpoint&lt;br/&gt;&lt;br/&gt;&lt;hr/&gt;
+        &lt;br/&gt;&lt;div class="contents"&gt;
+        &lt;b&gt;Contents:&lt;/b&gt;
+        &lt;ul class="toc1"/&gt;&lt;ul class="toc1"/&gt;
+        &lt;/div&gt;
+        &lt;br/&gt;&lt;br/&gt;&lt;table&gt;
+        &lt;tr class="slimRowTitle"&gt;
+        &lt;td&gt;import&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr class="slimRowColor0"&gt;
+        &lt;td&gt;&lt;span class="pass"&gt;dev.unexist.showcase.todo.domain.todo.fixtures&lt;/span&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;/table&gt;
+        &lt;br/&gt;&lt;table&gt;
+        &lt;tr class="exception closed"&gt;
+        &lt;td colspan="2" class="error"&gt;&lt;span class="pass"&gt;Todo Fixture&lt;/span&gt;&lt;/td&gt;
+        &lt;/tr&gt;&lt;tr class="exception-detail closed-detail"&gt;&lt;td colspan="2"&gt;&lt;pre&gt;__EXCEPTION__:java.lang.NoClassDefFoundError:
+        io.restassured.specification.RequestSpecification
+        at java.base/java.lang.Class.getDeclaredFields(Class.java:947) [rt.jar]
+        at
+        fitnesse.slim.SystemUnderTestMethodExecutor.findSystemUnderTest(SystemUnderTestMethodExecutor.java:23)
+        [fitnesse-20201213.jar:20201213]
+        at
+        fitnesse.slim.SystemUnderTestMethodExecutor.execute(SystemUnderTestMethodExecutor.java:19)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.StatementExecutor.getMethodExecutionResult(StatementExecutor.java:139)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.StatementExecutor.call(StatementExecutor.java:112)
+        [fitnesse-20201213.jar:20201213]
+        at
+        fitnesse.slim.instructions.CallAndOptionalAssignInstruction.executeInternal(CallAndOptionalAssignInstruction.java:30)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.instructions.Instruction.execute(Instruction.java:29)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.ListExecutor$Executive.executeStatement(ListExecutor.java:49)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.ListExecutor$Executive.executeStatements(ListExecutor.java:43)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.ListExecutor.execute(ListExecutor.java:85) [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimServer.executeInstructions(SlimServer.java:82)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimServer.processOneSetOfInstructions(SlimServer.java:75)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimServer.tryProcessInstructions(SlimServer.java:62)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimServer.serve(SlimServer.java:47) [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.handle(SlimService.java:169) [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.acceptOne(SlimService.java:177)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.accept(SlimService.java:139) [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.startWithFactory(SlimService.java:92)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.main(SlimService.java:57) [fitnesse-20201213.jar:20201213]
+        Caused by: java.lang.ClassNotFoundException:
+        io.restassured.specification.RequestSpecification
+        at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:766)
+        [n/a]
+        at
+        java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:178)
+        [n/a]
+        at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:1083) [rt.jar]
+        at java.base/java.lang.Class.getDeclaredFieldsImpl(Native Method) [rt.jar]
+        at java.base/java.lang.Class.getDeclaredFields(Class.java:947) [rt.jar]
+        at
+        fitnesse.slim.SystemUnderTestMethodExecutor.findSystemUnderTest(SystemUnderTestMethodExecutor.java:23)
+        [fitnesse-20201213.jar:20201213]
+        at
+        fitnesse.slim.SystemUnderTestMethodExecutor.execute(SystemUnderTestMethodExecutor.java:19)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.StatementExecutor.getMethodExecutionResult(StatementExecutor.java:139)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.StatementExecutor.call(StatementExecutor.java:112)
+        [fitnesse-20201213.jar:20201213]
+        at
+        fitnesse.slim.instructions.CallAndOptionalAssignInstruction.executeInternal(CallAndOptionalAssignInstruction.java:30)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.instructions.Instruction.execute(Instruction.java:29)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.ListExecutor$Executive.executeStatement(ListExecutor.java:49)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.ListExecutor$Executive.executeStatements(ListExecutor.java:43)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.ListExecutor.execute(ListExecutor.java:85) [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimServer.executeInstructions(SlimServer.java:82)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimServer.processOneSetOfInstructions(SlimServer.java:75)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimServer.tryProcessInstructions(SlimServer.java:62)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimServer.serve(SlimServer.java:47) [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.handle(SlimService.java:169) [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.acceptOne(SlimService.java:177)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.accept(SlimService.java:139) [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.startWithFactory(SlimService.java:92)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.main(SlimService.java:57) [fitnesse-20201213.jar:20201213]&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr
+        class="exception-detail closed-detail"&gt;&lt;td colspan="2"&gt;&lt;pre&gt;__EXCEPTION__:java.lang.NoClassDefFoundError:
+        io.restassured.specification.RequestSpecification
+        at java.base/java.lang.Class.getDeclaredFieldsImpl(Native Method) [rt.jar]
+        at java.base/java.lang.Class.getDeclaredFields(Class.java:947) [rt.jar]
+        at
+        fitnesse.slim.SystemUnderTestMethodExecutor.findSystemUnderTest(SystemUnderTestMethodExecutor.java:23)
+        [fitnesse-20201213.jar:20201213]
+        at
+        fitnesse.slim.SystemUnderTestMethodExecutor.execute(SystemUnderTestMethodExecutor.java:19)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.StatementExecutor.getMethodExecutionResult(StatementExecutor.java:139)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.StatementExecutor.call(StatementExecutor.java:112)
+        [fitnesse-20201213.jar:20201213]
+        at
+        fitnesse.slim.instructions.CallAndOptionalAssignInstruction.executeInternal(CallAndOptionalAssignInstruction.java:30)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.instructions.Instruction.execute(Instruction.java:29)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.ListExecutor$Executive.executeStatement(ListExecutor.java:49)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.ListExecutor$Executive.executeStatements(ListExecutor.java:43)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.ListExecutor.execute(ListExecutor.java:85) [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimServer.executeInstructions(SlimServer.java:82)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimServer.processOneSetOfInstructions(SlimServer.java:75)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimServer.tryProcessInstructions(SlimServer.java:62)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimServer.serve(SlimServer.java:47) [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.handle(SlimService.java:169) [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.acceptOne(SlimService.java:177)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.accept(SlimService.java:139) [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.startWithFactory(SlimService.java:92)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.main(SlimService.java:57) [fitnesse-20201213.jar:20201213]
+        Caused by: java.lang.ClassNotFoundException:
+        io.restassured.specification.RequestSpecification
+        at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:766)
+        [n/a]
+        at
+        java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:178)
+        [n/a]
+        at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:1083) [rt.jar]
+        at java.base/java.lang.Class.getDeclaredFieldsImpl(Native Method) [rt.jar]
+        at java.base/java.lang.Class.getDeclaredFields(Class.java:947) [rt.jar]
+        at
+        fitnesse.slim.SystemUnderTestMethodExecutor.findSystemUnderTest(SystemUnderTestMethodExecutor.java:23)
+        [fitnesse-20201213.jar:20201213]
+        at
+        fitnesse.slim.SystemUnderTestMethodExecutor.execute(SystemUnderTestMethodExecutor.java:19)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.StatementExecutor.getMethodExecutionResult(StatementExecutor.java:139)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.StatementExecutor.call(StatementExecutor.java:112)
+        [fitnesse-20201213.jar:20201213]
+        at
+        fitnesse.slim.instructions.CallAndOptionalAssignInstruction.executeInternal(CallAndOptionalAssignInstruction.java:30)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.instructions.Instruction.execute(Instruction.java:29)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.ListExecutor$Executive.executeStatement(ListExecutor.java:49)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.ListExecutor$Executive.executeStatements(ListExecutor.java:43)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.ListExecutor.execute(ListExecutor.java:85) [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimServer.executeInstructions(SlimServer.java:82)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimServer.processOneSetOfInstructions(SlimServer.java:75)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimServer.tryProcessInstructions(SlimServer.java:62)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimServer.serve(SlimServer.java:47) [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.handle(SlimService.java:169) [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.acceptOne(SlimService.java:177)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.accept(SlimService.java:139) [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.startWithFactory(SlimService.java:92)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.main(SlimService.java:57) [fitnesse-20201213.jar:20201213]&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr
+        class="exception-detail closed-detail"&gt;&lt;td colspan="2"&gt;&lt;pre&gt;__EXCEPTION__:java.lang.NoClassDefFoundError:
+        io.restassured.specification.RequestSpecification
+        at java.base/java.lang.Class.getDeclaredFieldsImpl(Native Method) [rt.jar]
+        at java.base/java.lang.Class.getDeclaredFields(Class.java:947) [rt.jar]
+        at
+        fitnesse.slim.SystemUnderTestMethodExecutor.findSystemUnderTest(SystemUnderTestMethodExecutor.java:23)
+        [fitnesse-20201213.jar:20201213]
+        at
+        fitnesse.slim.SystemUnderTestMethodExecutor.execute(SystemUnderTestMethodExecutor.java:19)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.StatementExecutor.getMethodExecutionResult(StatementExecutor.java:139)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.StatementExecutor.call(StatementExecutor.java:112)
+        [fitnesse-20201213.jar:20201213]
+        at
+        fitnesse.slim.instructions.CallAndOptionalAssignInstruction.executeInternal(CallAndOptionalAssignInstruction.java:30)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.instructions.Instruction.execute(Instruction.java:29)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.ListExecutor$Executive.executeStatement(ListExecutor.java:49)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.ListExecutor$Executive.executeStatements(ListExecutor.java:43)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.ListExecutor.execute(ListExecutor.java:85) [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimServer.executeInstructions(SlimServer.java:82)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimServer.processOneSetOfInstructions(SlimServer.java:75)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimServer.tryProcessInstructions(SlimServer.java:62)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimServer.serve(SlimServer.java:47) [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.handle(SlimService.java:169) [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.acceptOne(SlimService.java:177)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.accept(SlimService.java:139) [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.startWithFactory(SlimService.java:92)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.main(SlimService.java:57) [fitnesse-20201213.jar:20201213]
+        Caused by: java.lang.ClassNotFoundException:
+        io.restassured.specification.RequestSpecification
+        at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:766)
+        [n/a]
+        at
+        java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:178)
+        [n/a]
+        at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:1083) [rt.jar]
+        at java.base/java.lang.Class.getDeclaredFieldsImpl(Native Method) [rt.jar]
+        at java.base/java.lang.Class.getDeclaredFields(Class.java:947) [rt.jar]
+        at
+        fitnesse.slim.SystemUnderTestMethodExecutor.findSystemUnderTest(SystemUnderTestMethodExecutor.java:23)
+        [fitnesse-20201213.jar:20201213]
+        at
+        fitnesse.slim.SystemUnderTestMethodExecutor.execute(SystemUnderTestMethodExecutor.java:19)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.StatementExecutor.getMethodExecutionResult(StatementExecutor.java:139)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.StatementExecutor.call(StatementExecutor.java:112)
+        [fitnesse-20201213.jar:20201213]
+        at
+        fitnesse.slim.instructions.CallAndOptionalAssignInstruction.executeInternal(CallAndOptionalAssignInstruction.java:30)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.instructions.Instruction.execute(Instruction.java:29)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.ListExecutor$Executive.executeStatement(ListExecutor.java:49)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.ListExecutor$Executive.executeStatements(ListExecutor.java:43)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.ListExecutor.execute(ListExecutor.java:85) [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimServer.executeInstructions(SlimServer.java:82)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimServer.processOneSetOfInstructions(SlimServer.java:75)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimServer.tryProcessInstructions(SlimServer.java:62)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimServer.serve(SlimServer.java:47) [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.handle(SlimService.java:169) [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.acceptOne(SlimService.java:177)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.accept(SlimService.java:139) [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.startWithFactory(SlimService.java:92)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.main(SlimService.java:57) [fitnesse-20201213.jar:20201213]&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr class="slimRowTitle"&gt;
+        &lt;td&gt;title&lt;/td&gt;
+        &lt;td&gt;status?&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr class="exception closed"&gt;
+        &lt;td class="error"&gt;&lt;table&gt;&lt;tr class="exception closed"&gt;&lt;td&gt; &lt;span
+        class="error"&gt;Test&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr class="exception-detail
+        closed-detail"&gt;&lt;td&gt;__EXCEPTION__:java.lang.NoClassDefFoundError:
+        io.restassured.builder.RequestSpecBuilder
+        at dev.unexist.showcase.todo.domain.todo.fitnesse.TodoFixture.setTitle(TodoFixture.java:27)
+        [file:/Users/unexist/Projects/quarkus-testing-showcase/target/test-classes/]
+        at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) [n/a]
+        at
+        java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+        [n/a]
+        at
+        java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+        [n/a]
+        at java.base/java.lang.reflect.Method.invoke(Method.java:566) [rt.jar]
+        at
+        fitnesse.slim.fixtureInteraction.SimpleInteraction.methodInvoke(SimpleInteraction.java:322)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.fixtureInteraction.SimpleInteraction.callMethod(SimpleInteraction.java:307)
+        [fitnesse-20201213.jar:20201213]
+        at
+        fitnesse.slim.fixtureInteraction.SimpleInteraction.invokeMethod(SimpleInteraction.java:290)
+        [fitnesse-20201213.jar:20201213]
+        at
+        fitnesse.slim.fixtureInteraction.SimpleInteraction.findAndInvoke(SimpleInteraction.java:217)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.MethodExecutor.findAndInvoke(MethodExecutor.java:18)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.FixtureMethodExecutor.execute(FixtureMethodExecutor.java:18)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.StatementExecutor.getMethodExecutionResult(StatementExecutor.java:139)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.StatementExecutor.call(StatementExecutor.java:112)
+        [fitnesse-20201213.jar:20201213]
+        at
+        fitnesse.slim.instructions.CallAndOptionalAssignInstruction.executeInternal(CallAndOptionalAssignInstruction.java:30)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.instructions.Instruction.execute(Instruction.java:29)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.ListExecutor$Executive.executeStatement(ListExecutor.java:49)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.ListExecutor$Executive.executeStatements(ListExecutor.java:43)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.ListExecutor.execute(ListExecutor.java:85) [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimServer.executeInstructions(SlimServer.java:82)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimServer.processOneSetOfInstructions(SlimServer.java:75)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimServer.tryProcessInstructions(SlimServer.java:62)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimServer.serve(SlimServer.java:47) [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.handle(SlimService.java:169) [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.acceptOne(SlimService.java:177)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.accept(SlimService.java:139) [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.startWithFactory(SlimService.java:92)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.main(SlimService.java:57) [fitnesse-20201213.jar:20201213]
+        Caused by: java.lang.ClassNotFoundException: io.restassured.builder.RequestSpecBuilder
+        at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:766)
+        [n/a]
+        at
+        java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:178)
+        [n/a]
+        at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:1083) [rt.jar]
+        at dev.unexist.showcase.todo.domain.todo.fitnesse.TodoFixture.setTitle(TodoFixture.java:27)
+        [file:/Users/unexist/Projects/quarkus-testing-showcase/target/test-classes/]
+        at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) [n/a]
+        at
+        java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+        [n/a]
+        at
+        java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+        [n/a]
+        at java.base/java.lang.reflect.Method.invoke(Method.java:566) [rt.jar]
+        at
+        fitnesse.slim.fixtureInteraction.SimpleInteraction.methodInvoke(SimpleInteraction.java:322)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.fixtureInteraction.SimpleInteraction.callMethod(SimpleInteraction.java:307)
+        [fitnesse-20201213.jar:20201213]
+        at
+        fitnesse.slim.fixtureInteraction.SimpleInteraction.invokeMethod(SimpleInteraction.java:290)
+        [fitnesse-20201213.jar:20201213]
+        at
+        fitnesse.slim.fixtureInteraction.SimpleInteraction.findAndInvoke(SimpleInteraction.java:217)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.MethodExecutor.findAndInvoke(MethodExecutor.java:18)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.FixtureMethodExecutor.execute(FixtureMethodExecutor.java:18)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.StatementExecutor.getMethodExecutionResult(StatementExecutor.java:139)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.StatementExecutor.call(StatementExecutor.java:112)
+        [fitnesse-20201213.jar:20201213]
+        at
+        fitnesse.slim.instructions.CallAndOptionalAssignInstruction.executeInternal(CallAndOptionalAssignInstruction.java:30)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.instructions.Instruction.execute(Instruction.java:29)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.ListExecutor$Executive.executeStatement(ListExecutor.java:49)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.ListExecutor$Executive.executeStatements(ListExecutor.java:43)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.ListExecutor.execute(ListExecutor.java:85) [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimServer.executeInstructions(SlimServer.java:82)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimServer.processOneSetOfInstructions(SlimServer.java:75)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimServer.tryProcessInstructions(SlimServer.java:62)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimServer.serve(SlimServer.java:47) [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.handle(SlimService.java:169) [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.acceptOne(SlimService.java:177)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.accept(SlimService.java:139) [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.startWithFactory(SlimService.java:92)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.main(SlimService.java:57) [fitnesse-20201213.jar:20201213]&lt;/td&lt;/tr&gt;&lt;/table&gt;&lt;/td&gt;
+        &lt;td class="error"&gt;&lt;table&gt;&lt;tr class="exception closed"&gt;&lt;td&gt; &lt;span
+        class="error"&gt;200&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr class="exception-detail
+        closed-detail"&gt;&lt;td&gt;__EXCEPTION__:java.lang.NoClassDefFoundError:
+        io.restassured.RestAssured
+        at dev.unexist.showcase.todo.domain.todo.fitnesse.TodoFixture.status(TodoFixture.java:39)
+        [file:/Users/unexist/Projects/quarkus-testing-showcase/target/test-classes/]
+        at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) [n/a]
+        at
+        java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+        [n/a]
+        at
+        java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+        [n/a]
+        at java.base/java.lang.reflect.Method.invoke(Method.java:566) [rt.jar]
+        at
+        fitnesse.slim.fixtureInteraction.SimpleInteraction.methodInvoke(SimpleInteraction.java:322)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.fixtureInteraction.SimpleInteraction.callMethod(SimpleInteraction.java:307)
+        [fitnesse-20201213.jar:20201213]
+        at
+        fitnesse.slim.fixtureInteraction.SimpleInteraction.invokeMethod(SimpleInteraction.java:290)
+        [fitnesse-20201213.jar:20201213]
+        at
+        fitnesse.slim.fixtureInteraction.SimpleInteraction.findAndInvoke(SimpleInteraction.java:217)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.MethodExecutor.findAndInvoke(MethodExecutor.java:18)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.FixtureMethodExecutor.execute(FixtureMethodExecutor.java:18)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.StatementExecutor.getMethodExecutionResult(StatementExecutor.java:139)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.StatementExecutor.call(StatementExecutor.java:112)
+        [fitnesse-20201213.jar:20201213]
+        at
+        fitnesse.slim.instructions.CallAndOptionalAssignInstruction.executeInternal(CallAndOptionalAssignInstruction.java:30)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.instructions.Instruction.execute(Instruction.java:29)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.ListExecutor$Executive.executeStatement(ListExecutor.java:49)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.ListExecutor$Executive.executeStatements(ListExecutor.java:43)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.ListExecutor.execute(ListExecutor.java:85) [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimServer.executeInstructions(SlimServer.java:82)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimServer.processOneSetOfInstructions(SlimServer.java:75)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimServer.tryProcessInstructions(SlimServer.java:62)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimServer.serve(SlimServer.java:47) [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.handle(SlimService.java:169) [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.acceptOne(SlimService.java:177)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.accept(SlimService.java:139) [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.startWithFactory(SlimService.java:92)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.main(SlimService.java:57) [fitnesse-20201213.jar:20201213]
+        Caused by: java.lang.ClassNotFoundException: io.restassured.RestAssured
+        at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:766)
+        [n/a]
+        at
+        java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:178)
+        [n/a]
+        at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:1083) [rt.jar]
+        at dev.unexist.showcase.todo.domain.todo.fitnesse.TodoFixture.status(TodoFixture.java:39)
+        [file:/Users/unexist/Projects/quarkus-testing-showcase/target/test-classes/]
+        at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) [n/a]
+        at
+        java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+        [n/a]
+        at
+        java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+        [n/a]
+        at java.base/java.lang.reflect.Method.invoke(Method.java:566) [rt.jar]
+        at
+        fitnesse.slim.fixtureInteraction.SimpleInteraction.methodInvoke(SimpleInteraction.java:322)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.fixtureInteraction.SimpleInteraction.callMethod(SimpleInteraction.java:307)
+        [fitnesse-20201213.jar:20201213]
+        at
+        fitnesse.slim.fixtureInteraction.SimpleInteraction.invokeMethod(SimpleInteraction.java:290)
+        [fitnesse-20201213.jar:20201213]
+        at
+        fitnesse.slim.fixtureInteraction.SimpleInteraction.findAndInvoke(SimpleInteraction.java:217)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.MethodExecutor.findAndInvoke(MethodExecutor.java:18)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.FixtureMethodExecutor.execute(FixtureMethodExecutor.java:18)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.StatementExecutor.getMethodExecutionResult(StatementExecutor.java:139)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.StatementExecutor.call(StatementExecutor.java:112)
+        [fitnesse-20201213.jar:20201213]
+        at
+        fitnesse.slim.instructions.CallAndOptionalAssignInstruction.executeInternal(CallAndOptionalAssignInstruction.java:30)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.instructions.Instruction.execute(Instruction.java:29)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.ListExecutor$Executive.executeStatement(ListExecutor.java:49)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.ListExecutor$Executive.executeStatements(ListExecutor.java:43)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.ListExecutor.execute(ListExecutor.java:85) [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimServer.executeInstructions(SlimServer.java:82)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimServer.processOneSetOfInstructions(SlimServer.java:75)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimServer.tryProcessInstructions(SlimServer.java:62)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimServer.serve(SlimServer.java:47) [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.handle(SlimService.java:169) [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.acceptOne(SlimService.java:177)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.accept(SlimService.java:139) [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.startWithFactory(SlimService.java:92)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.main(SlimService.java:57) [fitnesse-20201213.jar:20201213]&lt;/td&lt;/tr&gt;&lt;/table&gt;&lt;/td&gt;
+        &lt;/tr&gt;&lt;tr class="exception-detail closed-detail"&gt;&lt;td colspan="2"&gt;&lt;pre&gt;__EXCEPTION__:java.lang.NoClassDefFoundError:
+        io.restassured.specification.RequestSpecification
+        at java.base/java.lang.Class.getDeclaredFields(Class.java:947) [rt.jar]
+        at
+        fitnesse.slim.SystemUnderTestMethodExecutor.findSystemUnderTest(SystemUnderTestMethodExecutor.java:23)
+        [fitnesse-20201213.jar:20201213]
+        at
+        fitnesse.slim.SystemUnderTestMethodExecutor.execute(SystemUnderTestMethodExecutor.java:19)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.StatementExecutor.getMethodExecutionResult(StatementExecutor.java:139)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.StatementExecutor.call(StatementExecutor.java:112)
+        [fitnesse-20201213.jar:20201213]
+        at
+        fitnesse.slim.instructions.CallAndOptionalAssignInstruction.executeInternal(CallAndOptionalAssignInstruction.java:30)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.instructions.Instruction.execute(Instruction.java:29)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.ListExecutor$Executive.executeStatement(ListExecutor.java:49)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.ListExecutor$Executive.executeStatements(ListExecutor.java:43)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.ListExecutor.execute(ListExecutor.java:85) [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimServer.executeInstructions(SlimServer.java:82)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimServer.processOneSetOfInstructions(SlimServer.java:75)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimServer.tryProcessInstructions(SlimServer.java:62)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimServer.serve(SlimServer.java:47) [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.handle(SlimService.java:169) [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.acceptOne(SlimService.java:177)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.accept(SlimService.java:139) [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.startWithFactory(SlimService.java:92)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.main(SlimService.java:57) [fitnesse-20201213.jar:20201213]
+        Caused by: java.lang.ClassNotFoundException:
+        io.restassured.specification.RequestSpecification
+        at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:766)
+        [n/a]
+        at
+        java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:178)
+        [n/a]
+        at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:1083) [rt.jar]
+        at java.base/java.lang.Class.getDeclaredFieldsImpl(Native Method) [rt.jar]
+        at java.base/java.lang.Class.getDeclaredFields(Class.java:947) [rt.jar]
+        at
+        fitnesse.slim.SystemUnderTestMethodExecutor.findSystemUnderTest(SystemUnderTestMethodExecutor.java:23)
+        [fitnesse-20201213.jar:20201213]
+        at
+        fitnesse.slim.SystemUnderTestMethodExecutor.execute(SystemUnderTestMethodExecutor.java:19)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.StatementExecutor.getMethodExecutionResult(StatementExecutor.java:139)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.StatementExecutor.call(StatementExecutor.java:112)
+        [fitnesse-20201213.jar:20201213]
+        at
+        fitnesse.slim.instructions.CallAndOptionalAssignInstruction.executeInternal(CallAndOptionalAssignInstruction.java:30)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.instructions.Instruction.execute(Instruction.java:29)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.ListExecutor$Executive.executeStatement(ListExecutor.java:49)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.ListExecutor$Executive.executeStatements(ListExecutor.java:43)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.ListExecutor.execute(ListExecutor.java:85) [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimServer.executeInstructions(SlimServer.java:82)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimServer.processOneSetOfInstructions(SlimServer.java:75)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimServer.tryProcessInstructions(SlimServer.java:62)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimServer.serve(SlimServer.java:47) [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.handle(SlimService.java:169) [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.acceptOne(SlimService.java:177)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.accept(SlimService.java:139) [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.startWithFactory(SlimService.java:92)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.main(SlimService.java:57) [fitnesse-20201213.jar:20201213]&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr
+        class="exception-detail closed-detail"&gt;&lt;td colspan="2"&gt;&lt;pre&gt;__EXCEPTION__:java.lang.NoClassDefFoundError:
+        io.restassured.specification.RequestSpecification
+        at java.base/java.lang.Class.getDeclaredFieldsImpl(Native Method) [rt.jar]
+        at java.base/java.lang.Class.getDeclaredFields(Class.java:947) [rt.jar]
+        at
+        fitnesse.slim.SystemUnderTestMethodExecutor.findSystemUnderTest(SystemUnderTestMethodExecutor.java:23)
+        [fitnesse-20201213.jar:20201213]
+        at
+        fitnesse.slim.SystemUnderTestMethodExecutor.execute(SystemUnderTestMethodExecutor.java:19)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.StatementExecutor.getMethodExecutionResult(StatementExecutor.java:139)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.StatementExecutor.call(StatementExecutor.java:112)
+        [fitnesse-20201213.jar:20201213]
+        at
+        fitnesse.slim.instructions.CallAndOptionalAssignInstruction.executeInternal(CallAndOptionalAssignInstruction.java:30)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.instructions.Instruction.execute(Instruction.java:29)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.ListExecutor$Executive.executeStatement(ListExecutor.java:49)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.ListExecutor$Executive.executeStatements(ListExecutor.java:43)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.ListExecutor.execute(ListExecutor.java:85) [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimServer.executeInstructions(SlimServer.java:82)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimServer.processOneSetOfInstructions(SlimServer.java:75)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimServer.tryProcessInstructions(SlimServer.java:62)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimServer.serve(SlimServer.java:47) [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.handle(SlimService.java:169) [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.acceptOne(SlimService.java:177)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.accept(SlimService.java:139) [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.startWithFactory(SlimService.java:92)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.main(SlimService.java:57) [fitnesse-20201213.jar:20201213]
+        Caused by: java.lang.ClassNotFoundException:
+        io.restassured.specification.RequestSpecification
+        at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:766)
+        [n/a]
+        at
+        java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:178)
+        [n/a]
+        at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:1083) [rt.jar]
+        at java.base/java.lang.Class.getDeclaredFieldsImpl(Native Method) [rt.jar]
+        at java.base/java.lang.Class.getDeclaredFields(Class.java:947) [rt.jar]
+        at
+        fitnesse.slim.SystemUnderTestMethodExecutor.findSystemUnderTest(SystemUnderTestMethodExecutor.java:23)
+        [fitnesse-20201213.jar:20201213]
+        at
+        fitnesse.slim.SystemUnderTestMethodExecutor.execute(SystemUnderTestMethodExecutor.java:19)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.StatementExecutor.getMethodExecutionResult(StatementExecutor.java:139)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.StatementExecutor.call(StatementExecutor.java:112)
+        [fitnesse-20201213.jar:20201213]
+        at
+        fitnesse.slim.instructions.CallAndOptionalAssignInstruction.executeInternal(CallAndOptionalAssignInstruction.java:30)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.instructions.Instruction.execute(Instruction.java:29)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.ListExecutor$Executive.executeStatement(ListExecutor.java:49)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.ListExecutor$Executive.executeStatements(ListExecutor.java:43)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.ListExecutor.execute(ListExecutor.java:85) [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimServer.executeInstructions(SlimServer.java:82)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimServer.processOneSetOfInstructions(SlimServer.java:75)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimServer.tryProcessInstructions(SlimServer.java:62)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimServer.serve(SlimServer.java:47) [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.handle(SlimService.java:169) [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.acceptOne(SlimService.java:177)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.accept(SlimService.java:139) [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.startWithFactory(SlimService.java:92)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.main(SlimService.java:57) [fitnesse-20201213.jar:20201213]&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr class="exception closed"&gt;
+        &lt;td class="error"&gt;&lt;table&gt;&lt;tr class="exception closed"&gt;&lt;td&gt; &lt;span
+        class="error"&gt;&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr class="exception-detail
+        closed-detail"&gt;&lt;td&gt;__EXCEPTION__:java.lang.NoClassDefFoundError:
+        io/restassured/builder/RequestSpecBuilder
+        at dev.unexist.showcase.todo.domain.todo.fitnesse.TodoFixture.setTitle(TodoFixture.java:27)
+        [file:/Users/unexist/Projects/quarkus-testing-showcase/target/test-classes/]
+        at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) [n/a]
+        at
+        java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+        [n/a]
+        at
+        java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+        [n/a]
+        at java.base/java.lang.reflect.Method.invoke(Method.java:566) [rt.jar]
+        at
+        fitnesse.slim.fixtureInteraction.SimpleInteraction.methodInvoke(SimpleInteraction.java:322)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.fixtureInteraction.SimpleInteraction.callMethod(SimpleInteraction.java:307)
+        [fitnesse-20201213.jar:20201213]
+        at
+        fitnesse.slim.fixtureInteraction.SimpleInteraction.invokeMethod(SimpleInteraction.java:290)
+        [fitnesse-20201213.jar:20201213]
+        at
+        fitnesse.slim.fixtureInteraction.SimpleInteraction.findAndInvoke(SimpleInteraction.java:217)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.MethodExecutor.findAndInvoke(MethodExecutor.java:18)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.FixtureMethodExecutor.execute(FixtureMethodExecutor.java:18)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.StatementExecutor.getMethodExecutionResult(StatementExecutor.java:139)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.StatementExecutor.call(StatementExecutor.java:112)
+        [fitnesse-20201213.jar:20201213]
+        at
+        fitnesse.slim.instructions.CallAndOptionalAssignInstruction.executeInternal(CallAndOptionalAssignInstruction.java:30)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.instructions.Instruction.execute(Instruction.java:29)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.ListExecutor$Executive.executeStatement(ListExecutor.java:49)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.ListExecutor$Executive.executeStatements(ListExecutor.java:43)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.ListExecutor.execute(ListExecutor.java:85) [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimServer.executeInstructions(SlimServer.java:82)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimServer.processOneSetOfInstructions(SlimServer.java:75)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimServer.tryProcessInstructions(SlimServer.java:62)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimServer.serve(SlimServer.java:47) [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.handle(SlimService.java:169) [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.acceptOne(SlimService.java:177)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.accept(SlimService.java:139) [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.startWithFactory(SlimService.java:92)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.main(SlimService.java:57) [fitnesse-20201213.jar:20201213]&lt;/td&lt;/tr&gt;&lt;/table&gt;&lt;/td&gt;
+        &lt;td class="error"&gt;&lt;table&gt;&lt;tr class="exception closed"&gt;&lt;td&gt; &lt;span
+        class="error"&gt;400&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr class="exception-detail
+        closed-detail"&gt;&lt;td&gt;__EXCEPTION__:java.lang.NoClassDefFoundError:
+        io/restassured/RestAssured
+        at dev.unexist.showcase.todo.domain.todo.fitnesse.TodoFixture.status(TodoFixture.java:39)
+        [file:/Users/unexist/Projects/quarkus-testing-showcase/target/test-classes/]
+        at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) [n/a]
+        at
+        java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+        [n/a]
+        at
+        java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+        [n/a]
+        at java.base/java.lang.reflect.Method.invoke(Method.java:566) [rt.jar]
+        at
+        fitnesse.slim.fixtureInteraction.SimpleInteraction.methodInvoke(SimpleInteraction.java:322)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.fixtureInteraction.SimpleInteraction.callMethod(SimpleInteraction.java:307)
+        [fitnesse-20201213.jar:20201213]
+        at
+        fitnesse.slim.fixtureInteraction.SimpleInteraction.invokeMethod(SimpleInteraction.java:290)
+        [fitnesse-20201213.jar:20201213]
+        at
+        fitnesse.slim.fixtureInteraction.SimpleInteraction.findAndInvoke(SimpleInteraction.java:217)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.MethodExecutor.findAndInvoke(MethodExecutor.java:18)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.FixtureMethodExecutor.execute(FixtureMethodExecutor.java:18)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.StatementExecutor.getMethodExecutionResult(StatementExecutor.java:139)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.StatementExecutor.call(StatementExecutor.java:112)
+        [fitnesse-20201213.jar:20201213]
+        at
+        fitnesse.slim.instructions.CallAndOptionalAssignInstruction.executeInternal(CallAndOptionalAssignInstruction.java:30)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.instructions.Instruction.execute(Instruction.java:29)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.ListExecutor$Executive.executeStatement(ListExecutor.java:49)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.ListExecutor$Executive.executeStatements(ListExecutor.java:43)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.ListExecutor.execute(ListExecutor.java:85) [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimServer.executeInstructions(SlimServer.java:82)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimServer.processOneSetOfInstructions(SlimServer.java:75)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimServer.tryProcessInstructions(SlimServer.java:62)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimServer.serve(SlimServer.java:47) [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.handle(SlimService.java:169) [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.acceptOne(SlimService.java:177)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.accept(SlimService.java:139) [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.startWithFactory(SlimService.java:92)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.main(SlimService.java:57) [fitnesse-20201213.jar:20201213]&lt;/td&lt;/tr&gt;&lt;/table&gt;&lt;/td&gt;
+        &lt;/tr&gt;&lt;tr class="exception-detail closed-detail"&gt;&lt;td colspan="2"&gt;&lt;pre&gt;__EXCEPTION__:java.lang.NoClassDefFoundError:
+        io.restassured.specification.RequestSpecification
+        at java.base/java.lang.Class.getDeclaredFields(Class.java:947) [rt.jar]
+        at
+        fitnesse.slim.SystemUnderTestMethodExecutor.findSystemUnderTest(SystemUnderTestMethodExecutor.java:23)
+        [fitnesse-20201213.jar:20201213]
+        at
+        fitnesse.slim.SystemUnderTestMethodExecutor.execute(SystemUnderTestMethodExecutor.java:19)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.StatementExecutor.getMethodExecutionResult(StatementExecutor.java:139)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.StatementExecutor.call(StatementExecutor.java:112)
+        [fitnesse-20201213.jar:20201213]
+        at
+        fitnesse.slim.instructions.CallAndOptionalAssignInstruction.executeInternal(CallAndOptionalAssignInstruction.java:30)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.instructions.Instruction.execute(Instruction.java:29)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.ListExecutor$Executive.executeStatement(ListExecutor.java:49)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.ListExecutor$Executive.executeStatements(ListExecutor.java:43)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.ListExecutor.execute(ListExecutor.java:85) [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimServer.executeInstructions(SlimServer.java:82)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimServer.processOneSetOfInstructions(SlimServer.java:75)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimServer.tryProcessInstructions(SlimServer.java:62)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimServer.serve(SlimServer.java:47) [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.handle(SlimService.java:169) [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.acceptOne(SlimService.java:177)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.accept(SlimService.java:139) [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.startWithFactory(SlimService.java:92)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.main(SlimService.java:57) [fitnesse-20201213.jar:20201213]
+        Caused by: java.lang.ClassNotFoundException:
+        io.restassured.specification.RequestSpecification
+        at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:766)
+        [n/a]
+        at
+        java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:178)
+        [n/a]
+        at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:1083) [rt.jar]
+        at java.base/java.lang.Class.getDeclaredFieldsImpl(Native Method) [rt.jar]
+        at java.base/java.lang.Class.getDeclaredFields(Class.java:947) [rt.jar]
+        at
+        fitnesse.slim.SystemUnderTestMethodExecutor.findSystemUnderTest(SystemUnderTestMethodExecutor.java:23)
+        [fitnesse-20201213.jar:20201213]
+        at
+        fitnesse.slim.SystemUnderTestMethodExecutor.execute(SystemUnderTestMethodExecutor.java:19)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.StatementExecutor.getMethodExecutionResult(StatementExecutor.java:139)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.StatementExecutor.call(StatementExecutor.java:112)
+        [fitnesse-20201213.jar:20201213]
+        at
+        fitnesse.slim.instructions.CallAndOptionalAssignInstruction.executeInternal(CallAndOptionalAssignInstruction.java:30)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.instructions.Instruction.execute(Instruction.java:29)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.ListExecutor$Executive.executeStatement(ListExecutor.java:49)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.ListExecutor$Executive.executeStatements(ListExecutor.java:43)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.ListExecutor.execute(ListExecutor.java:85) [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimServer.executeInstructions(SlimServer.java:82)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimServer.processOneSetOfInstructions(SlimServer.java:75)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimServer.tryProcessInstructions(SlimServer.java:62)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimServer.serve(SlimServer.java:47) [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.handle(SlimService.java:169) [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.acceptOne(SlimService.java:177)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.accept(SlimService.java:139) [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.startWithFactory(SlimService.java:92)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.main(SlimService.java:57) [fitnesse-20201213.jar:20201213]&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr
+        class="exception-detail closed-detail"&gt;&lt;td colspan="2"&gt;&lt;pre&gt;__EXCEPTION__:java.lang.NoClassDefFoundError:
+        io.restassured.specification.RequestSpecification
+        at java.base/java.lang.Class.getDeclaredFields(Class.java:947) [rt.jar]
+        at
+        fitnesse.slim.SystemUnderTestMethodExecutor.findSystemUnderTest(SystemUnderTestMethodExecutor.java:23)
+        [fitnesse-20201213.jar:20201213]
+        at
+        fitnesse.slim.SystemUnderTestMethodExecutor.execute(SystemUnderTestMethodExecutor.java:19)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.StatementExecutor.getMethodExecutionResult(StatementExecutor.java:139)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.StatementExecutor.call(StatementExecutor.java:112)
+        [fitnesse-20201213.jar:20201213]
+        at
+        fitnesse.slim.instructions.CallAndOptionalAssignInstruction.executeInternal(CallAndOptionalAssignInstruction.java:30)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.instructions.Instruction.execute(Instruction.java:29)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.ListExecutor$Executive.executeStatement(ListExecutor.java:49)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.ListExecutor$Executive.executeStatements(ListExecutor.java:43)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.ListExecutor.execute(ListExecutor.java:85) [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimServer.executeInstructions(SlimServer.java:82)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimServer.processOneSetOfInstructions(SlimServer.java:75)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimServer.tryProcessInstructions(SlimServer.java:62)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimServer.serve(SlimServer.java:47) [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.handle(SlimService.java:169) [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.acceptOne(SlimService.java:177)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.accept(SlimService.java:139) [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.startWithFactory(SlimService.java:92)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.main(SlimService.java:57) [fitnesse-20201213.jar:20201213]
+        Caused by: java.lang.ClassNotFoundException:
+        io.restassured.specification.RequestSpecification
+        at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:766)
+        [n/a]
+        at
+        java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:178)
+        [n/a]
+        at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:1083) [rt.jar]
+        at java.base/java.lang.Class.getDeclaredFieldsImpl(Native Method) [rt.jar]
+        at java.base/java.lang.Class.getDeclaredFields(Class.java:947) [rt.jar]
+        at
+        fitnesse.slim.SystemUnderTestMethodExecutor.findSystemUnderTest(SystemUnderTestMethodExecutor.java:23)
+        [fitnesse-20201213.jar:20201213]
+        at
+        fitnesse.slim.SystemUnderTestMethodExecutor.execute(SystemUnderTestMethodExecutor.java:19)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.StatementExecutor.getMethodExecutionResult(StatementExecutor.java:139)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.StatementExecutor.call(StatementExecutor.java:112)
+        [fitnesse-20201213.jar:20201213]
+        at
+        fitnesse.slim.instructions.CallAndOptionalAssignInstruction.executeInternal(CallAndOptionalAssignInstruction.java:30)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.instructions.Instruction.execute(Instruction.java:29)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.ListExecutor$Executive.executeStatement(ListExecutor.java:49)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.ListExecutor$Executive.executeStatements(ListExecutor.java:43)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.ListExecutor.execute(ListExecutor.java:85) [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimServer.executeInstructions(SlimServer.java:82)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimServer.processOneSetOfInstructions(SlimServer.java:75)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimServer.tryProcessInstructions(SlimServer.java:62)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimServer.serve(SlimServer.java:47) [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.handle(SlimService.java:169) [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.acceptOne(SlimService.java:177)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.accept(SlimService.java:139) [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.startWithFactory(SlimService.java:92)
+        [fitnesse-20201213.jar:20201213]
+        at fitnesse.slim.SlimService.main(SlimService.java:57) [fitnesse-20201213.jar:20201213]&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;
+        &lt;/table&gt;
+    </content>
+    <relativePageName>TodoFitness</relativePageName>
+    <instructions>
+      <instructionResult>
+        <instruction>{id='import_0_0', instruction='import', path='dev.unexist.showcase.todo.domain.todo.fixtures'}</instruction>
+        <slimResult>pass(dev.unexist.showcase.todo.domain.todo.fixtures)</slimResult>
+        <expectation>
+          <status>pass</status>
+          <instructionId>import_0_0</instructionId>
+          <col>0</col>
+          <row>1</row>
+          <type>ImportExpectation</type>
+          <evaluationMessage>dev.unexist.showcase.todo.domain.todo.fitnesse</evaluationMessage>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_1_0', instruction='make', instanceName='decisionTable_1', className='TodoFixture', args=[]}</instruction>
+        <slimResult>pass(Todo Fixture)</slimResult>
+        <expectation>
+          <status>pass</status>
+          <instructionId>decisionTable_1_0</instructionId>
+          <col>0</col>
+          <row>0</row>
+          <type>ConstructionExpectation</type>
+          <evaluationMessage>Todo Fixture</evaluationMessage>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_1_1', instruction='call', instanceName='decisionTable_1', methodName='table', args=[[[title, status?], [Test, 200], [, 400]]]}</instruction>
+        <slimResult></slimResult>
+        <expectation>
+          <status>error</status>
+          <instructionId>decisionTable_1_1</instructionId>
+          <type>SilentReturnExpectation</type>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_1_2', instruction='call', instanceName='decisionTable_1', methodName='beginTable', args=[]}</instruction>
+        <slimResult></slimResult>
+        <expectation>
+          <status>error</status>
+          <instructionId>decisionTable_1_2</instructionId>
+          <type>SilentReturnExpectation</type>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_1_3', instruction='call', instanceName='decisionTable_1', methodName='reset', args=[]}</instruction>
+        <slimResult></slimResult>
+        <expectation>
+          <status>error</status>
+          <instructionId>decisionTable_1_3</instructionId>
+          <type>SilentReturnExpectation</type>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_1_4', instruction='call', instanceName='decisionTable_1', methodName='setTitle', args=[Test]}</instruction>
+        <slimResult></slimResult>
+        <expectation>
+          <status>error</status>
+          <instructionId>decisionTable_1_4</instructionId>
+          <type>VoidReturnExpectation</type>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_1_5', instruction='call', instanceName='decisionTable_1', methodName='execute', args=[]}</instruction>
+        <slimResult></slimResult>
+        <expectation>
+          <status>error</status>
+          <instructionId>decisionTable_1_5</instructionId>
+          <type>SilentReturnExpectation</type>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_1_6', instruction='call', instanceName='decisionTable_1', methodName='status', args=[]}</instruction>
+        <slimResult></slimResult>
+        <expectation>
+          <status>error</status>
+          <instructionId>decisionTable_1_6</instructionId>
+          <type>ReturnedValueExpectation</type>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_1_7', instruction='call', instanceName='decisionTable_1', methodName='reset', args=[]}</instruction>
+        <slimResult></slimResult>
+        <expectation>
+          <status>error</status>
+          <instructionId>decisionTable_1_7</instructionId>
+          <type>SilentReturnExpectation</type>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_1_8', instruction='call', instanceName='decisionTable_1', methodName='setTitle', args=[]}</instruction>
+        <slimResult></slimResult>
+        <expectation>
+          <status>error</status>
+          <instructionId>decisionTable_1_8</instructionId>
+          <type>VoidReturnExpectation</type>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_1_9', instruction='call', instanceName='decisionTable_1', methodName='execute', args=[]}</instruction>
+        <slimResult></slimResult>
+        <expectation>
+          <status>error</status>
+          <instructionId>decisionTable_1_9</instructionId>
+          <type>SilentReturnExpectation</type>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_1_10', instruction='call', instanceName='decisionTable_1', methodName='status', args=[]}</instruction>
+        <slimResult></slimResult>
+        <expectation>
+          <status>error</status>
+          <instructionId>decisionTable_1_10</instructionId>
+          <type>ReturnedValueExpectation</type>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_1_11', instruction='call', instanceName='decisionTable_1', methodName='endTable', args=[]}</instruction>
+        <slimResult></slimResult>
+        <expectation>
+          <status>error</status>
+          <instructionId>decisionTable_1_11</instructionId>
+          <type>SilentReturnExpectation</type>
+        </expectation>
+      </instructionResult>
+    </instructions>
+  </result>
+  <executionLog>
+    <testSystem>slim:fitnesse.slim.SlimService</testSystem>
+    <command>/Users/unexist/Library/Java/JavaVirtualMachines/adopt-openj9-11.0.10/Contents/Home/bin/java -cp /Users/unexist/.m2/repository/org/fitnesse/fitnesse/20201213/fitnesse-20201213.jar:/Users/unexist/Projects/quarkus-testing-showcase/target/classes/:/Users/unexist/Projects/quarkus-testing-showcase/target/test-classes/ fitnesse.slim.SlimService 1</command>
+    <exitCode>0</exitCode>
+    <stdOut></stdOut>
+    <stdErr>Slim  Map converter not loaded: could not find class org.htmlparser.NodeFilter
+</stdErr>
+  </executionLog>
+  <finalCounts>
+    <right>0</right>
+    <wrong>0</wrong>
+    <ignores>0</ignores>
+    <exceptions>1</exceptions>
+  </finalCounts>
+  <totalRunTimeInMillis>401</totalRunTimeInMillis>
+</testResults>
+

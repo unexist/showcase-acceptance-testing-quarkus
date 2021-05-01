@@ -5,5 +5,5 @@ syntax: glob
 target/
 .idea/
 .mvn/
-FitNesseRoot/
+FitNesseRoot/*.zip
 .jqwik-database
