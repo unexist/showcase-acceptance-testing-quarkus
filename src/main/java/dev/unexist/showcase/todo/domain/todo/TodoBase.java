@@ -12,6 +12,7 @@
 package dev.unexist.showcase.todo.domain.todo;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 public class TodoBase {
 
@@ -23,7 +24,7 @@ public class TodoBase {
 
     private Boolean done;
 
-    @NotBlank
+    @NotNull
     private DueDate dueDate;
 
     public String getTitle() {
