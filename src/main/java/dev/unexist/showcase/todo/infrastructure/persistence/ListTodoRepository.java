@@ -23,8 +23,8 @@ import java.util.List;
 import java.util.Optional;
 
 @ApplicationScoped
-public class TodoRepositoryImpl implements TodoRepository {
-    private static final Logger LOGGER = LoggerFactory.getLogger(TodoRepositoryImpl.class);
+public class ListTodoRepository implements TodoRepository {
+    private static final Logger LOGGER = LoggerFactory.getLogger(ListTodoRepository.class);
 
     private final List<Todo> list;
 
@@ -32,7 +32,7 @@ public class TodoRepositoryImpl implements TodoRepository {
      * Constructor
      **/
 
-    TodoRepositoryImpl() {
+    ListTodoRepository() {
         this.list = new ArrayList<>();
     }
 
