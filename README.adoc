@@ -1,4 +1,4 @@
-= Quarkus testing showcase
+= Showcase for testing based on quarkus
 
 This project holds a showcase for various testing strategies and technologies.
 
