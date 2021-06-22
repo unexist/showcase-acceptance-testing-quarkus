@@ -4,7 +4,7 @@
         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd"
         xmlns="http://maven.apache.org/POM/4.0.0">
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>quarkus-testing-showcase</artifactId>
+    <artifactId>showcase-testing-quarkus</artifactId>
     <version>0.1</version>
 
     <parent>
