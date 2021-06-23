@@ -36,5 +36,5 @@ pom.xml.versionsBackup
 release.properties
 
 # Misc
-FitNesseRoot/*.zip
+FitNesseRoot/**/*.zip
 .jqwik-database
