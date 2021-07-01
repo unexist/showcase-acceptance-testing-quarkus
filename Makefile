@@ -24,17 +24,26 @@ todo:
 quarkus:
 	mvn -Pquarkus quarkus:dev
 
+# FitNesse
 fitnesse:
 	mvn -Pfitnesse clean
+
+update-tests:
+	mvn test-compile
 
 dbfitnesse:
 	mvn -Pdbfitnesse clean
 
+# Cucumber
 cucumber:
 	mvn -Pquarkus test
 
+# Pact
 pact-verify:
 	mvn -Ppact pact:verify -Dpact.verifier.publishResults=true
+
+pact-publish:
+	mvn -Ppact pact:publish
 
 .PHONY: docker
 docker:
@@ -43,5 +52,3 @@ docker:
 lazydocker:
 	lazydocker -f docker/docker-compose.yml up
 
-update-tests:
-	mvn test-compile
