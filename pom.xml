@@ -29,10 +29,26 @@
         <fitnesse-cucumber.version>1.0</fitnesse-cucumber.version>
         <dbfitness.version>3.2.0</dbfitness.version>
         <maven-antrun-plugin.version>1.8</maven-antrun-plugin.version>
+
+        <!-- Pact -->
+        <pact.version>4.2.6</pact.version>
     </properties>
 
     <dependencies>
         <!-- Testing -->
+        <dependency>
+            <groupId>net.jqwik</groupId>
+            <artifactId>jqwik</artifactId>
+            <version>${jqwik.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.github.javafaker</groupId>
+            <artifactId>javafaker</artifactId>
+            <version>${javafaker.version}</version>
+        </dependency>
+
+        <!-- Cucumber -->
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-java</artifactId>
@@ -58,16 +74,19 @@
             <version>${junit-vintage-engine.version}</version>
             <scope>test</scope>
         </dependency>
+
+        <!-- Pact -->
         <dependency>
-            <groupId>net.jqwik</groupId>
-            <artifactId>jqwik</artifactId>
-            <version>${jqwik.version}</version>
+            <groupId>au.com.dius.pact.consumer</groupId>
+            <artifactId>junit5</artifactId>
+            <version>${pact.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>com.github.javafaker</groupId>
-            <artifactId>javafaker</artifactId>
-            <version>${javafaker.version}</version>
+            <groupId>au.com.dius.pact.provider</groupId>
+            <artifactId>junit5</artifactId>
+            <version>${pact.version}</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
@@ -173,6 +192,41 @@
                                 </goals>
                             </execution>
                         </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+        <profile>
+            <id>pact</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <version>${surefire-plugin.version}</version>
+                        <configuration>
+                            <systemPropertyVariables>
+                                <java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
+                                <maven.home>${maven.home}</maven.home>
+                                <pact.verifier.publishResults>true</pact.verifier.publishResults> <!--1-->
+                            </systemPropertyVariables>
+                        </configuration>
+                    </plugin>
+                    <plugin>
+                        <groupId>au.com.dius.pact.provider</groupId>
+                        <artifactId>maven</artifactId>
+                        <version>${pact.version}</version>
+                        <configuration>
+                            <pactBrokerUrl>http://localhost:9292</pactBrokerUrl>
+                            <projectVersion>${project.version}</projectVersion>
+                            <trimSnapshot>true</trimSnapshot>
+                            <skipPactPublish>false</skipPactPublish>
+                            <serviceProviders>
+                                <serviceProvider>
+                                    <name>Todo-Provider</name>
+                                </serviceProvider>
+                            </serviceProviders>
+                        </configuration>
                     </plugin>
                 </plugins>
             </build>

@@ -7,6 +7,7 @@ This project holds a showcase for various testing strategies and technologies.
 - https://cucumber.io[Cucumber]
 - https://fitnesse.org[FitNesse]
 - https://dbfit.github.io/dbfit[DbFit]
+- https://pact.io[Pact]
 
 == Libraries
 
