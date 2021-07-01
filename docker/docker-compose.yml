@@ -1,0 +1,26 @@
+version: '3.6'
+
+services:
+  pact-broker:
+    container_name: pact
+    image: dius/pact-broker
+    ports:
+      - "9292:80"
+    environment:
+      PACT_BROKER_DATABASE_USERNAME: test
+      PACT_BROKER_DATABASE_PASSWORD: test
+      PACT_BROKER_DATABASE_HOST: postgres
+      PACT_BROKER_DATABASE_NAME: test
+    depends_on:
+      - postgres
+
+  postgres:
+    container_name: postgres
+    image: postgres
+    ports:
+      - "5432:5432"
+    restart: always
+    environment:
+      - POSTGRES_DB=test
+      - POSTGRES_USER=test
+      - POSTGRES_PASSWORD=test
