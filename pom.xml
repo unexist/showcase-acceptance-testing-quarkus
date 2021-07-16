@@ -17,6 +17,7 @@
         <!-- Testing -->
         <jqwik.version>1.5.0</jqwik.version>
         <javafaker.version>1.0.2</javafaker.version>
+        <json-unit-assertj.version>2.27.0</json-unit-assertj.version>
 
         <!-- Cucumber -->
         <cucumber.version>6.10.3</cucumber.version>
@@ -35,6 +36,12 @@
     </properties>
 
     <dependencies>
+        <!-- Quarkus -->
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-jsonp</artifactId>
+        </dependency>
+
         <!-- Testing -->
         <dependency>
             <groupId>net.jqwik</groupId>
@@ -46,6 +53,12 @@
             <groupId>com.github.javafaker</groupId>
             <artifactId>javafaker</artifactId>
             <version>${javafaker.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>net.javacrumbs.json-unit</groupId>
+            <artifactId>json-unit-assertj</artifactId>
+            <version>${json-unit-assertj.version}</version>
+            <scope>test</scope>
         </dependency>
 
         <!-- Cucumber -->

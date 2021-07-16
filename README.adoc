@@ -13,6 +13,7 @@ This project holds a showcase for various testing strategies and technologies.
 
 - https://jqwik.net[jqwik]
 - https://github.com/DiUS/java-faker[java-faker]
+- https://github.com/lukas-krecan/JsonUnit[JsonUnit]
 
 === Instructions
 
