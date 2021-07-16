@@ -48,7 +48,6 @@ public class TodoFakerTest {
 
         todo.setDueDate(dd);
 
-
         assertThat(todo.getDueDate()).isNotNull();
     }
 
