@@ -240,6 +240,14 @@
                                 </serviceProvider>
                             </serviceProviders>
                         </configuration>
+                        <executions>
+                            <execution>
+                                <goals>
+                                    <goal>verify</goal>
+                                </goals>
+                                <phase>test</phase>
+                            </execution>
+                        </executions>
                     </plugin>
                 </plugins>
             </build>

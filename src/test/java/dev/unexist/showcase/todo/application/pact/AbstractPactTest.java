@@ -9,7 +9,7 @@
  * See the file LICENSE for details.
  **/
 
-package dev.unexist.showcase.todo.application;
+package dev.unexist.showcase.todo.application.pact;
 
 import au.com.dius.pact.core.support.expressions.ValueResolver;
 import io.quarkus.bootstrap.app.QuarkusBootstrap;

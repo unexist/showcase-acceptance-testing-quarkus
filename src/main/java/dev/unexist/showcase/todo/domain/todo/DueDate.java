@@ -23,17 +23,41 @@ public class DueDate {
     @JsonSerialize(using = DateSerializer.class)
     private LocalDate due;
 
+    /**
+     * Get start date
+     *
+     * @return Start date
+     **/
+
     public LocalDate getStart() {
         return start;
     }
+
+    /**
+     * Set start date
+     *
+     * @param  start  Date to set
+     **/
 
     public void setStart(LocalDate start) {
         this.start = start;
     }
 
+    /**
+     * Get due date
+     *
+     * @return Due date
+     **/
+
     public LocalDate getDue() {
         return due;
     }
+
+    /**
+     * Set due date
+     *
+     * @param  due  Date to set
+     **/
 
     public void setDue(LocalDate due) {
         this.due = due;

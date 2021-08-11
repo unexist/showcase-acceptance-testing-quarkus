@@ -32,6 +32,7 @@ public class TodoTest {
     private static final int FUTURE_TIME = 1741598467;
 
     @Property
+//    @Report(Reporting.GENERATED)
     public void testCreateTodo(@ForAll String anyStr) {
         Todo todo = new Todo();
 
