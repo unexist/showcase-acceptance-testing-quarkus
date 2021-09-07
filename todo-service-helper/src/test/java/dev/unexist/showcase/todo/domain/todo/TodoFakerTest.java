@@ -9,11 +9,9 @@
  * See the file LICENSE for details.
  **/
 
-package dev.unexist.showcase.todo.domain.todo.faker;
+package dev.unexist.showcase.todo.domain.todo;
 
 import com.github.javafaker.Faker;
-import dev.unexist.showcase.todo.domain.todo.DueDate;
-import dev.unexist.showcase.todo.domain.todo.Todo;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;

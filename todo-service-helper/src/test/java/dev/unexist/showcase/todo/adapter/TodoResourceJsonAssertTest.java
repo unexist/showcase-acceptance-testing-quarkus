@@ -27,7 +27,7 @@ import static io.restassured.RestAssured.given;
 import static net.javacrumbs.jsonunit.assertj.JsonAssertions.assertThatJson;
 
 @QuarkusTest
-public class JsonTodoResourceTest {
+public class TodoResourceJsonAssertTest {
 
     @Test
     public void testTodoPostToEndpoint() {

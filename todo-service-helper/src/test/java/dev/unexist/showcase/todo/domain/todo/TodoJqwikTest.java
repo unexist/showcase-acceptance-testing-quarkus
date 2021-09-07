@@ -9,11 +9,8 @@
  * See the file LICENSE for details.
  **/
 
-package dev.unexist.showcase.todo.domain.todo.jqwik;
+package dev.unexist.showcase.todo.domain.todo;
 
-import dev.unexist.showcase.todo.domain.todo.DueDate;
-import dev.unexist.showcase.todo.domain.todo.Todo;
-import dev.unexist.showcase.todo.domain.todo.TodoBase;
 import net.jqwik.api.ForAll;
 import net.jqwik.api.Property;
 import net.jqwik.api.PropertyDefaults;
@@ -28,7 +25,7 @@ import static org.assertj.core.api.Assertions.allOf;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @PropertyDefaults(tries = 10)
-public class TodoTest {
+public class TodoJqwikTest {
     private static final int FUTURE_TIME = 1741598467;
 
     @Property
@@ -45,7 +42,7 @@ public class TodoTest {
 
     @Property
     public void testCreateTodoWithDate(@ForAll String anyStr,
-                                       @ForAll @IntRange(min = TodoTest.FUTURE_TIME) int unixtime)
+                                       @ForAll @IntRange(min = TodoJqwikTest.FUTURE_TIME) int unixtime)
     {
         Todo todo = new Todo();
 
