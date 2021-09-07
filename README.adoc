@@ -4,6 +4,7 @@ This project holds a showcase for various testing strategies and technologies.
 
 == Frameworks
 
+- https://concordion.org[Concordion]
 - https://cucumber.io[Cucumber]
 - https://fitnesse.org[FitNesse]
 - https://dbfit.github.io/dbfit[DbFit]
@@ -19,7 +20,7 @@ This project holds a showcase for various testing strategies and technologies.
 
 Following make targets exist:
 
-- **quarkus** - Start quarkus application
+- **concordion** - Run concordion tests
+- **cucumber** - Run cucumber tests
 - **fitnesse** - Start FitNesse
 - **dbfitnesse** - Start DbFitNesse
-- **cucumber** - Run cucumber tests
