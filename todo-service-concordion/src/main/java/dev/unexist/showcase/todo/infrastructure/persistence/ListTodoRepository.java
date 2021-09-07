@@ -32,7 +32,7 @@ public class ListTodoRepository implements TodoRepository {
      * Constructor
      **/
 
-    ListTodoRepository() {
+    public ListTodoRepository() {
         this.list = new ArrayList<>();
     }
 
