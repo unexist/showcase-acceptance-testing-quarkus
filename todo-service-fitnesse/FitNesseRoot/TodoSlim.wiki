@@ -1,0 +1,19 @@
+---
+Suite
+---
+!1 Test Suite for Slim based REST calls
+
+This suite just consists of a single test of the endpoint.
+
+----
+!contents -R2 -g -p -f -h
+
+!*< SLiM relevant stuff
+
+!define TEST_SYSTEM {slim}
+
+!path /Users/unexist/Projects/quarkus-testing-showcase/target/classes/
+!path /Users/unexist/Projects/quarkus-testing-showcase/target/test-classes/
+!path ${java.class.path}
+
+*!

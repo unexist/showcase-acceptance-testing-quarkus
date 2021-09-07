@@ -21,34 +21,31 @@ export JSON_TODO
 todo:
 	@echo $$JSON_TODO | bash
 
-quarkus:
-	mvn -Pquarkus quarkus:dev
-
 # FitNesse
 fitnesse:
-	mvn -Pfitnesse clean
+	mvn -f todo-service-fitnesse/pom.xml clean
 
 update-tests:
-	mvn test-compile
+	mvn -f todo-service-fitnesse/pom.xml test-compile
 
 dbfitnesse:
-	mvn -Pdbfitnesse clean
+	mvn -f todo-service-fitnesse/pom.xml -Pdbfitnesse clean
 
 # Cucumber
 cucumber:
-	mvn -Pquarkus test
+	mvn -f todo-service-cucumber/pom.xml test
 
 # Pact
 pact-verify:
-	mvn -Ppact pact:verify -Dpact.verifier.publishResults=true
+	mvn -f todo-service-pact/pom.xml pact:verify -Dpact.verifier.publishResults=true
 
 pact-publish:
-	mvn -Ppact pact:publish
+	mvn  -f todo-service-pact/pom.xml pact:publish
 
 .PHONY: docker
 docker:
-	docker-compose -f docker/docker-compose.yml up
+	docker-compose -f docker/docker-compose-pact.yml up
 
 lazydocker:
-	lazydocker -f docker/docker-compose.yml up
+	lazydocker -f docker/docker-compose-pact.yml up
 

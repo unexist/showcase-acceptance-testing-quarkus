@@ -1,5 +1,0 @@
-!contents -R2 -g -p -f -h
-
-!|dbfit.PostgresTest|
-
-!|Connect|localhost|test|test|test|

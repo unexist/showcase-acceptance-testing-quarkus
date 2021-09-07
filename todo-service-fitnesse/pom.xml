@@ -1,0 +1,137 @@
+<?xml version="1.0"?>
+<project
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd"
+        xmlns="http://maven.apache.org/POM/4.0.0">
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>todo-service-fitnesse</artifactId>
+    <version>0.1</version>
+
+    <parent>
+        <groupId>dev.unexist.showcase</groupId>
+        <artifactId>showcase-testing-quarkus</artifactId>
+        <version>0.1</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+
+    <properties>
+        <!-- Fitnesse -->
+        <fitness.version>20210410</fitness.version>
+        <fitnesse-cucumber.version>1.0</fitnesse-cucumber.version>
+        <dbfitness.version>3.2.0</dbfitness.version>
+        <maven-antrun-plugin.version>1.8</maven-antrun-plugin.version>
+    </properties>
+
+    <dependencies>
+        <!-- Quarkus -->
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-jsonp</artifactId>
+        </dependency>
+
+        <!-- FitNesse -->
+        <dependency>
+            <groupId>org.fitnesse</groupId>
+            <artifactId>fitnesse</artifactId>
+            <version>${fitness.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.fitnesse.cucumber</groupId>
+            <artifactId>fitnesse-cucumber</artifactId>
+            <version>${fitnesse-cucumber.version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>${maven-antrun-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>start-fitnesse</id>
+                        <phase>clean</phase>
+                        <configuration>
+                            <target>
+                                <echo message=""/>
+                                <echo message="Fitnesse wiki is available here:"/>
+                                <echo message=""/>
+                                <echo message="  http://localhost:8888/FrontPage"/>
+                                <echo message=""/>
+                                <echo message=""/>
+
+                                <java classname="fitnesseMain.FitNesseMain"
+                                      classpathref="maven.test.classpath"
+                                      fork="true" failonerror="true">
+                                    <arg line="-p 8888"/>
+                                    <arg line="-v"/>
+                                    <arg line="-d ."/>
+                                    <arg line="-lh"/>
+                                    <arg line="-e 9999"/>
+                                    <!-- <arg line="${fitnesse.command}" /> -->
+                                    <jvmarg value="-Xmx1024m"/>
+                                </java>
+                            </target>
+                        </configuration>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <profiles>
+        <profile>
+            <id>dbfitnesse</id>
+            <dependencies>
+                <dependency>
+                    <groupId>com.github.dbfit</groupId>
+                    <artifactId>dbfit</artifactId>
+                    <version>${dbfitness.version}</version>
+                </dependency>
+            </dependencies>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-antrun-plugin</artifactId>
+                        <version>${maven-antrun-plugin.version}</version>
+                        <executions>
+                            <execution>
+                                <id>start-dbfitnesse</id>
+                                <phase>clean</phase>
+                                <configuration>
+                                    <target>
+                                        <echo message=""/>
+                                        <echo message="Fitnesse wiki is available here:"/>
+                                        <echo message=""/>
+                                        <echo message="  http://localhost:8888/FrontPage"/>
+                                        <echo message=""/>
+                                        <echo message=""/>
+
+                                        <java classname="fitnesseMain.FitNesseMain"
+                                              classpathref="maven.test.classpath"
+                                              fork="true" failonerror="true">
+                                            <arg line="-p 8888"/>
+                                            <arg line="-v"/>
+                                            <arg line="-d ."/>
+                                            <arg line="-e 9999"/>
+                                            <!-- <arg line="${fitnesse.command}" /> -->
+                                            <jvmarg value="-Xmx1024m"/>
+                                        </java>
+                                    </target>
+                                </configuration>
+                                <goals>
+                                    <goal>run</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+</project>
