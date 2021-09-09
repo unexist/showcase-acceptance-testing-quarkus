@@ -17,12 +17,16 @@ import io.quarkus.bootstrap.app.QuarkusBootstrap;
 import io.quarkus.bootstrap.app.RunningQuarkusApplication;
 import io.quarkus.bootstrap.model.PathsCollection;
 import io.quarkus.test.common.PathTestHelper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.enterprise.context.ApplicationScoped;
+import java.net.BindException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
 public class CdiObjectFactory implements ObjectFactory {
+    private static final Logger LOGGER = LoggerFactory.getLogger(CdiObjectFactory.class);
     private RunningQuarkusApplication application;
 
     public CdiObjectFactory() {
@@ -36,12 +40,14 @@ public class CdiObjectFactory implements ObjectFactory {
     public boolean addClass(Class<?> stepClass) {
         if (stepClass.getAnnotation(ApplicationScoped.class) == null) {
             throw new RuntimeException(
-                    "You need to register your step definitions with @ApplicationScoped, otherwise Arc container does not register them as beans."
+                    "You need to register your step definitions with @ApplicationScoped, otherwise"
+                    + "Arc container does not register them as beans."
             );
         }
         if (stepClass.getAnnotation(Unremovable.class) == null) {
             throw new RuntimeException(
-                    "You need to register your step definitions with @Unremovable, otherwise Arc container may remove the beans at runtime"
+                    "You need to register your step definitions with @Unremovable, otherwise Arc"
+                    + "container may remove the beans at runtime"
             );
         }
         return true;
@@ -49,11 +55,11 @@ public class CdiObjectFactory implements ObjectFactory {
 
     @SuppressWarnings("unchecked")
     public <T> T getInstance(Class<T> type) {
-        if (application == null) {
+        if (null == this.application) {
             throw new RuntimeException("Application has not been successfully started");
         }
         try {
-            return (T) application.instance(type);
+            return (T) this.application.instance(type);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -65,26 +71,27 @@ public class CdiObjectFactory implements ObjectFactory {
 
             Path testClassLocation = PathTestHelper.getTestClassesLocation(CdiObjectFactory.class);
 
-            // Load step definitions
+            /* Load step definitions */
             rootBuilder.add(testClassLocation);
 
-            // Load application classes
-            final Path appClassLocation = PathTestHelper.getAppClassLocationForTestLocation(testClassLocation.toString());
+            /* Load application classes */
+            final Path appClassLocation = PathTestHelper.getAppClassLocationForTestLocation(
+                    testClassLocation.toString());
             rootBuilder.add(appClassLocation);
 
-            QuarkusBootstrap.Builder applicationBuilder = QuarkusBootstrap.builder()
+            this.application = QuarkusBootstrap.builder()
                     .setIsolateDeployment(false)
                     .setMode(QuarkusBootstrap.Mode.TEST)
                     .setProjectRoot(Paths.get("").normalize().toAbsolutePath())
-                    .setApplicationRoot(rootBuilder.build());
-
-            application = applicationBuilder
+                    .setApplicationRoot(rootBuilder.build())
                     .build()
                     .bootstrap()
                     .createAugmentor()
                     .createInitialRuntimeApplication()
                     .run();
-
+        } catch (BindException e) {
+            /* If Quarkus is already running - fine */
+            LOGGER.error("Address already in use - which is fine!", e);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
