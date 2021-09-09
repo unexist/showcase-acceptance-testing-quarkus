@@ -39,7 +39,7 @@ This example combines ideas from the others ones:
 
 | [createAndSave][][Title][title] | [Description][description] | [Is done?][done] |
 | ------------------------------- | -------------------------- | -----------------------------|
-| title1                          | description1               | yes                          |
+| title1                          | description1               | no                           |
 | title2                          | description2               | no                           |
 
 [createAndSave]: - "#result = createAndSave(#title,#description)"

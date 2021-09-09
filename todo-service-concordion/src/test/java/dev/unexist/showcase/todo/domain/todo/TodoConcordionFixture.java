@@ -18,7 +18,6 @@ import org.junit.runner.RunWith;
 
 @RunWith(ConcordionRunner.class)
 public class TodoConcordionFixture {
-
     TodoRepository todoRepository = new ListTodoRepository();
 
     public TodoBase create(final String title, final String description) {
