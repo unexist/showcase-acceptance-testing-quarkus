@@ -20,6 +20,15 @@ import org.junit.runner.RunWith;
 public class TodoConcordionFixture {
     TodoRepository todoRepository = new ListTodoRepository();
 
+    /**
+     * Create new {@link TodoBase}
+     *
+     * @param  title        The title of the entry
+     * @param  description  The description of the entry
+     *
+     * @return A newly created {@link TodoBase}
+     **/
+
     public TodoBase create(final String title, final String description) {
         TodoBase base = new Todo();
 
@@ -29,6 +38,14 @@ public class TodoConcordionFixture {
         return base;
     }
 
+    /**
+     * Save a {@link TodoBase} into the repository
+     *
+     * @param  base  A {@link TodoBase}
+     *
+     * @return A newly created {@link Todo}
+     **/
+
     public Todo save(TodoBase base) {
         Todo todo = new Todo(base);
 
@@ -37,9 +54,25 @@ public class TodoConcordionFixture {
         return todo;
     }
 
+    /**
+     * Convenience method to create a save a {@link Todo}
+     *
+     * @param  title        The title of the entry
+     * @param  description  The description of the entry
+     *
+     * @return A newly created {@link Todo}
+     **/
+
     public Todo createAndSave(final String title, final String description) {
         return this.save(this.create(title, description));
     }
+
+    /**
+     * Convert done state to yes or no
+     * @param  todo  The {@link Todo} to check
+     *
+     * @return Either {@code yes} if the entry is done; otherwise {@code no}
+     **/
 
     public String isDone(final Todo todo) {
         return BooleanUtils.isTrue(todo.getDone()) ? "yes" : "no";
