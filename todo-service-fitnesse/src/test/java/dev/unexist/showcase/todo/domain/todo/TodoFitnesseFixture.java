@@ -22,7 +22,7 @@ import java.time.format.DateTimeFormatter;
 
 import static io.restassured.RestAssured.given;
 
-public class TodoFixture {
+public class TodoFitnesseFixture {
     private TodoBase todoBase;
     private DateTimeFormatter dtf;
     private RequestSpecification requestSpec;
