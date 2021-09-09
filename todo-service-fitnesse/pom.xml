@@ -17,7 +17,6 @@
     <properties>
         <!-- Fitnesse -->
         <fitness.version>20210410</fitness.version>
-        <fitnesse-cucumber.version>1.0</fitnesse-cucumber.version>
         <dbfitness.version>3.2.0</dbfitness.version>
         <maven-antrun-plugin.version>1.8</maven-antrun-plugin.version>
     </properties>
@@ -35,11 +34,6 @@
             <artifactId>fitnesse</artifactId>
             <version>${fitness.version}</version>
         </dependency>
-        <dependency>
-            <groupId>org.fitnesse.cucumber</groupId>
-            <artifactId>fitnesse-cucumber</artifactId>
-            <version>${fitnesse-cucumber.version}</version>
-        </dependency>
     </dependencies>
 
     <build>
@@ -51,7 +45,7 @@
                 <executions>
                     <execution>
                         <id>start-fitnesse</id>
-                        <phase>clean</phase>
+                        <phase>compile</phase>
                         <configuration>
                             <target>
                                 <echo message=""/>

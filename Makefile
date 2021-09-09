@@ -23,7 +23,7 @@ todo:
 
 # FitNesse
 fitnesse:
-	mvn -f todo-service-fitnesse/pom.xml clean
+	mvn -f todo-service-fitnesse/pom.xml compile
 
 update-tests:
 	mvn -f todo-service-fitnesse/pom.xml test-compile

@@ -28,7 +28,6 @@ public class TodoFixture {
     private RequestSpecification requestSpec;
 
     /* Slim Lifecycle http://fitnesse.org/FitNesse.UserGuide.WritingAcceptanceTests.SliM.DecisionTable */
-
     public void beginTable() {
         this.todoBase = new TodoBase();
         this.dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
@@ -51,7 +50,6 @@ public class TodoFixture {
     }
 
     /* Tests */
-
     private DueDate getOrCreateDueDate() {
         if (null == this.todoBase.getDueDate()) {
             this.todoBase.setDueDate(new DueDate());

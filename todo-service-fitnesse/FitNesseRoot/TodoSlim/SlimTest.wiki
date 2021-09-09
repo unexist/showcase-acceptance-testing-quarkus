@@ -6,7 +6,7 @@ This test runs different calls to the REST endpoint
 !contents -R2 -g -p -f -h
 
 |import|
-|dev.unexist.showcase.todo.domain.todo.fitnesse|
+|dev.unexist.showcase.todo.domain.todo|
 
 !|Todo Fixture                                                      |
 | title   | description | start date | due date   | done  | status? |
