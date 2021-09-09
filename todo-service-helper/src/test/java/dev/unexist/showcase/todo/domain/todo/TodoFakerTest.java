@@ -1,5 +1,5 @@
 /**
- * @package Quarkus-Testing-Showcase
+ * @package Showcase-Testing-Quarkus
  *
  * @file Contrived tests with PBT
  * @copyright 2020-2021 Christoph Kappel <christoph@unexist.dev>

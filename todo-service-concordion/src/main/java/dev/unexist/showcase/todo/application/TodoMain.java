@@ -1,5 +1,5 @@
 /**
- * @package Quarkus-Testing-Showcase
+ * @package Showcase-Testing-Quarkus
  *
  * @file Todo application
  * @copyright 2021 Christoph Kappel <christoph@unexist.dev>

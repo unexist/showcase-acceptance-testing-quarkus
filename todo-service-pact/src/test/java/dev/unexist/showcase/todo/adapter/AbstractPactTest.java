@@ -1,5 +1,5 @@
 /**
- * @package Quarkus-Testing-Showcase
+ * @package Showcase-Testing-Quarkus
  *
  * @file Helper for pact tests
  * @copyright 2021 Christoph Kappel <unexist@subforge.org>

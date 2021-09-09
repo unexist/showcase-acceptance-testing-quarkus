@@ -1,5 +1,5 @@
 /**
- * @package Quarkus-Testing-Showcase
+ * @package Showcase-Testing-Quarkus
  *
  * @file DueDate class
  * @copyright 2021 Christoph Kappel <christoph@unexist.dev>

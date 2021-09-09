@@ -1,5 +1,5 @@
 /**
- * @package Quarkus-Testing-Showcase
+ * @package Showcase-Testing-Quarkus
  *
  * @file Stupid integration test
  * @copyright 2019 Christoph Kappel <unexist@subforge.org>
