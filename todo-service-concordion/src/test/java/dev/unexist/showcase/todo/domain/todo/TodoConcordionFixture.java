@@ -12,6 +12,7 @@
 package dev.unexist.showcase.todo.domain.todo;
 
 import dev.unexist.showcase.todo.infrastructure.persistence.ListTodoRepository;
+import org.apache.commons.lang3.BooleanUtils;
 import org.concordion.integration.junit4.ConcordionRunner;
 import org.junit.runner.RunWith;
 
@@ -41,7 +42,7 @@ public class TodoConcordionFixture {
         return this.save(this.create(title, description));
     }
 
-    public boolean isDone(final Todo todo) {
-        return todo.getDone();
+    public String isDone(final Todo todo) {
+        return BooleanUtils.isTrue(todo.getDone()) ? "yes" : "no";
     }
 }
