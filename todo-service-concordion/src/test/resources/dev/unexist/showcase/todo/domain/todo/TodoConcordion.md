@@ -37,12 +37,12 @@ This example creates todos based on table values:
 
 This example combines ideas from the others ones:
 
-| [createAndSave][][Title][title] | [Description][description] | [Is done?][done] |
-| ------------------------------- | -------------------------- | -----------------------------|
-| title1                          | description1               | no                           |
-| title2                          | description2               | no                           |
+| [createWithDate][][Start date][start] | [Due date][due] | [Is done?][done] |
+| ------------------------------------ | ----------------| -----------------|
+| 2021-09-10                           | 2022-09-10      | yes              |
+| 2021-09-10                           | 2021-09-09      | no               |
 
-[createAndSave]: - "#result = createAndSave(#title,#description)"
-[title]: - "#title"
-[description]: - "#description"
+[createWithDate]: - "#result = createWithDate(#start,#due)"
+[start]: - "#start"
+[due]: - "#due"
 [done]: - "?=isDone(#result)"

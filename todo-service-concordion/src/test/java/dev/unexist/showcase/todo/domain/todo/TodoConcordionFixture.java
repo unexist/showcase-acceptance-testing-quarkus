@@ -13,12 +13,17 @@ package dev.unexist.showcase.todo.domain.todo;
 
 import dev.unexist.showcase.todo.infrastructure.persistence.ListTodoRepository;
 import org.apache.commons.lang3.BooleanUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.concordion.integration.junit4.ConcordionRunner;
 import org.junit.runner.RunWith;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 @RunWith(ConcordionRunner.class)
 public class TodoConcordionFixture {
     TodoRepository todoRepository = new ListTodoRepository();
+    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
     /**
      * Create new {@link TodoBase}
@@ -54,6 +59,7 @@ public class TodoConcordionFixture {
         return todo;
     }
 
+
     /**
      * Convenience method to create a save a {@link Todo}
      *
@@ -65,6 +71,31 @@ public class TodoConcordionFixture {
 
     public Todo createAndSave(final String title, final String description) {
         return this.save(this.create(title, description));
+    }
+
+    /**
+     * Convenience method to create a {@link Todo} from dates
+     *
+     * @param  start  The start date of the entry
+     * @param  due    The due date of the entry
+     *
+     * @return A newly created {@link Todo}
+     **/
+
+    public Todo createWithDate(final String start, final String due) {
+        Todo todo = new Todo();
+
+        todo.setTitle("Test");
+        todo.setDescription("Test");
+
+        DueDate dueDate = new DueDate();
+
+        dueDate.setStart(LocalDate.parse(StringUtils.strip(start), this.dtf));
+        dueDate.setDue(LocalDate.parse(StringUtils.strip(due), this.dtf));
+
+        todo.setDueDate(dueDate);
+
+        return todo;
     }
 
     /**
