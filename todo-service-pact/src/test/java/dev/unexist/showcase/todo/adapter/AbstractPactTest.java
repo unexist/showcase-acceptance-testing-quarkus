@@ -18,11 +18,15 @@ import io.quarkus.bootstrap.model.PathsCollection;
 import io.quarkus.test.common.PathTestHelper;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+import java.net.BindException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
 public class AbstractPactTest {
+    private static final Logger LOGGER = LoggerFactory.getLogger(AbstractPactTest.class);
     public static final String PACT_URL = "https://localhost:9292";
     public static final String SYSENV_PACTBROKER_URL = "pactbroker.url";
 
@@ -36,23 +40,23 @@ public class AbstractPactTest {
 
             rootBuilder.add(testClassLocation);
 
-            // Load application classes
+            /* Load application classes */
             final Path appClassLocation = PathTestHelper.getAppClassLocationForTestLocation(testClassLocation.toString());
             rootBuilder.add(appClassLocation);
 
-            QuarkusBootstrap.Builder applicationBuilder = QuarkusBootstrap.builder()
+            QuarkusBootstrap.builder()
                     .setIsolateDeployment(false)
                     .setMode(QuarkusBootstrap.Mode.TEST)
                     .setProjectRoot(Paths.get("").normalize().toAbsolutePath())
-                    .setApplicationRoot(rootBuilder.build());
-
-            APP = applicationBuilder
+                    .setApplicationRoot(rootBuilder.build())
                     .build()
                     .bootstrap()
                     .createAugmentor()
                     .createInitialRuntimeApplication()
                     .run();
-
+        } catch (BindException e) {
+            /* If Quarkus is already running - fine */
+            LOGGER.error("Address already in use - which is fine!", e);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
