@@ -24,3 +24,5 @@ Following make targets exist:
 - **cucumber** - Run cucumber tests
 - **fitnesse** - Start FitNesse
 - **dbfitnesse** - Start DbFitNesse
+- **pact-publish** - Push pacts to broker
+- **pact-verify** - Verify pacts with broker

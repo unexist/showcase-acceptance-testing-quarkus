@@ -21,19 +21,24 @@ export JSON_TODO
 todo:
 	@echo $$JSON_TODO | bash
 
-# FitNesse
-fitnesse:
-	mvn -f todo-service-fitnesse/pom.xml compile
-
-update-tests:
-	mvn -f todo-service-fitnesse/pom.xml test-compile
-
-dbfitnesse:
-	mvn -f todo-service-fitnesse/pom.xml -Pdbfitnesse clean
+# Concordion
+concordion:
+	mvn -f todo-service-concordion/pom.xml test
 
 # Cucumber
 cucumber:
 	mvn -f todo-service-cucumber/pom.xml test
+
+# FitNesse
+fitnesse:
+	mvn -f todo-service-fitnesse/pom.xml compile
+
+fitnesse-update-tests:
+	mvn -f todo-service-fitnesse/pom.xml test-compile
+
+dbfitnesse:
+	mvn -f todo-service-fitnesse/pom.xml -Pdbfitnesse compile
+
 
 # Pact
 pact-verify:
