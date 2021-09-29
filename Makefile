@@ -29,6 +29,9 @@ concordion:
 cucumber:
 	mvn -f todo-service-cucumber/pom.xml test
 
+cucumber-serenity:
+	mvn -f todo-service-cucumber-with-serenity/pom.xml test
+
 # FitNesse
 fitnesse:
 	mvn -f todo-service-fitnesse/pom.xml compile
