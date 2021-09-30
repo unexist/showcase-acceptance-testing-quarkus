@@ -21,5 +21,5 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         objectFactory = CdiObjectFactory.class
 )
-public class TodoCucumberTest {
+public class TodoCucumberFixture {
 }
