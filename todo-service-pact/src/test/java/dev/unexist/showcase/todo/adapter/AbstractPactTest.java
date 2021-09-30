@@ -2,7 +2,7 @@
  * @package Showcase-Testing-Quarkus
  *
  * @file Helper for pact tests
- * @copyright 2021 Christoph Kappel <unexist@subforge.org>
+ * @copyright 2021 Christoph Kappel <christoph@unexist.dev>
  * @version $Id$
  *
  * This program can be distributed under the terms of the Apache License v2.0.
