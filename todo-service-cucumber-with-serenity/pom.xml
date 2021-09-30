@@ -22,6 +22,7 @@
         <junit-vintage-engine.version>5.7.1</junit-vintage-engine.version>
 
         <serenity.version>2.6.0</serenity.version>
+        <serenity-navigator-report.version>2.3.13</serenity-navigator-report.version>
     </properties>
 
     <dependencies>
@@ -91,7 +92,20 @@
                         <artifactId>serenity-core</artifactId>
                         <version>${serenity.version}</version>
                     </dependency>
+                    <dependency>
+                        <groupId>net.serenity-bdd</groupId>
+                        <artifactId>serenity-single-page-report</artifactId>
+                        <version>${serenity.version}</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>net.serenity-bdd</groupId>
+                        <artifactId>serenity-navigator-report</artifactId>
+                        <version>${serenity-navigator-report.version}</version>
+                    </dependency>
                 </dependencies>
+                <configuration>
+                    <reports>single-page-html,navigator</reports>
+                </configuration>
                 <executions>
                     <execution>
                         <id>serenity-reports</id>
