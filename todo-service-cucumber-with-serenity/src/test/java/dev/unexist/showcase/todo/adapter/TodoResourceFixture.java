@@ -11,17 +11,32 @@
 
 package dev.unexist.showcase.todo.adapter;
 
-import io.quarkus.test.junit.QuarkusTest;
-import org.junit.jupiter.api.Test;
+import io.restassured.builder.RequestSpecBuilder;
+import io.restassured.http.ContentType;
+import io.restassured.specification.RequestSpecification;
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.JUnit4;
 
 import static io.restassured.RestAssured.given;
 
-@QuarkusTest
+@RunWith(JUnit4.class)
 public class TodoResourceFixture {
+    private RequestSpecification requestSpec;
+
+    @Before
+    public void before() {
+        this.requestSpec = new RequestSpecBuilder()
+                .setPort(8081)
+                .setContentType(ContentType.JSON)
+                .setAccept(ContentType.JSON)
+                .build();
+    }
 
     @Test
     public void testTodoEndpoint() {
-        given()
+        given(this.requestSpec)
           .when().get("/todo")
           .then()
              .statusCode(204);
