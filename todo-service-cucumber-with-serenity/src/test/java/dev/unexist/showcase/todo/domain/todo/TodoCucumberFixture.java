@@ -11,6 +11,7 @@
 
 package dev.unexist.showcase.todo.domain.todo;
 
+import cucumber.runtime.SerenityObjectFactory;
 import io.cucumber.junit.CucumberOptions;
 import net.serenitybdd.cucumber.CucumberWithSerenity;
 import org.junit.runner.RunWith;
@@ -19,7 +20,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         plugin = "pretty",
         features = "src/test/resources/features",
-        objectFactory = CdiObjectFactory.class
+        objectFactory = SerenityObjectFactory.class
 )
 public class TodoCucumberFixture {
 }
