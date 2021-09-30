@@ -34,7 +34,7 @@ serenity:
 	mvn -f todo-service-cucumber-with-serenity/pom.xml test
 
 serenity-report:
-	mvn -f todo-service-cucumber-with-serenity/pom.xml serenity:reports -Dserenity.reports=single-page-html
+	mvn -f todo-service-cucumber-with-serenity/pom.xml test serenity:reports -Dserenity.reports=single-page-html
 
 # FitNesse
 fitnesse:
