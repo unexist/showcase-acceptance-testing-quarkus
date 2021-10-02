@@ -9,7 +9,7 @@
 
     <parent>
         <groupId>dev.unexist.showcase</groupId>
-        <artifactId>showcase-testing-quarkus</artifactId>
+        <artifactId>showcase-acceptance-testing-quarkus</artifactId>
         <version>0.1</version>
         <relativePath>../pom.xml</relativePath>
     </parent>

@@ -45,25 +45,3 @@ fitnesse-update-tests:
 
 dbfitnesse:
 	mvn -f todo-service-fitnesse/pom.xml -Pdbfitnesse compile
-
-# Helper
-helper:
-	mvn -f todo-service-helper/pom.xml test
-
-# Pact
-pact:
-	mvn -f todo-service-helper/pom.xml test
-
-pact-verify:
-	mvn -f todo-service-pact/pom.xml pact:verify -Dpact.verifier.publishResults=true
-
-pact-publish:
-	mvn  -f todo-service-pact/pom.xml pact:publish
-
-.PHONY: docker
-docker:
-	docker-compose -f docker/docker-compose-pact.yml up
-
-lazydocker:
-	lazydocker -f docker/docker-compose-pact.yml up
-

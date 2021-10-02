@@ -1,6 +1,6 @@
 = Showcase for testing based on quarkus
 
-This project holds a showcase for various testing strategies and technologies.
+This project holds a showcase for various tools for acceptance testing.
 
 == Frameworks
 
@@ -8,13 +8,6 @@ This project holds a showcase for various testing strategies and technologies.
 - https://cucumber.io[Cucumber]
 - https://fitnesse.org[FitNesse]
 - https://dbfit.github.io/dbfit[DbFit]
-- https://pact.io[Pact]
-
-== Libraries
-
-- https://jqwik.net[jqwik]
-- https://github.com/DiUS/java-faker[java-faker]
-- https://github.com/lukas-krecan/JsonUnit[JsonUnit]
 
 === Instructions
 
@@ -24,5 +17,3 @@ Following make targets exist:
 - **cucumber** - Run cucumber tests
 - **fitnesse** - Start FitNesse
 - **dbfitnesse** - Start DbFitNesse
-- **pact-publish** - Push pacts to broker
-- **pact-verify** - Verify pacts with broker
