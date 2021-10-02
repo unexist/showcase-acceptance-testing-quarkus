@@ -6,6 +6,7 @@ This project holds a showcase for various tools for acceptance testing.
 
 - https://concordion.org[Concordion]
 - https://cucumber.io[Cucumber]
+- https://serenity-bdd.net[Serenity-BDD]
 - https://fitnesse.org[FitNesse]
 - https://dbfit.github.io/dbfit[DbFit]
 
@@ -15,5 +16,6 @@ Following make targets exist:
 
 - **concordion** - Run concordion tests
 - **cucumber** - Run cucumber tests
+- **serenity-reports** - Run cucumber tests and generate report
 - **fitnesse** - Start FitNesse
 - **dbfitnesse** - Start DbFitNesse
