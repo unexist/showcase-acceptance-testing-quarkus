@@ -1,5 +1,5 @@
 /**
- * @package Showcase-Testing-Quarkus
+ * @package Showcase-Acceptance-Testing-Quarkus
  *
  * @file Stupid integration test
  * @copyright 2019 Christoph Kappel <christoph@unexist.dev>

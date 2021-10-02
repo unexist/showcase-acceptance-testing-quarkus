@@ -1,5 +1,5 @@
 /**
- * @package Showcase-Testing-Quarkus
+ * @package Showcase-Acceptance-Testing-Quarkus
  *
  * @file Todo resource
  * @copyright 2021 Christoph Kappel <christoph@unexist.dev>
