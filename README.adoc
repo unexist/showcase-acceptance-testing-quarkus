@@ -1,4 +1,4 @@
-= Showcase for testing based on quarkus
+= Showcase for acceptance testing based on Quarkus
 
 This project holds a showcase for various tools for acceptance testing.
 
