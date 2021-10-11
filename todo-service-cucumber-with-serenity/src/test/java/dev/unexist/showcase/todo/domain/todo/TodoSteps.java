@@ -11,17 +11,15 @@
 
 package dev.unexist.showcase.todo.domain.todo;
 
-import io.cucumber.java.Before;
 import io.cucumber.java.ParameterType;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
 import io.quarkus.arc.Unremovable;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
-import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
+import net.serenitybdd.core.annotations.events.BeforeScenario;
 import org.apache.commons.lang3.StringUtils;
 
 import javax.enterprise.context.ApplicationScoped;
@@ -29,19 +27,21 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 import static io.restassured.RestAssured.given;
+import static org.assertj.core.api.Assertions.assertThat;
 
 @ApplicationScoped
 @Unremovable
 public class TodoSteps {
-    private TodoBase todoBase;
-    private Response response;
-    private DateTimeFormatter dtf;
+    private final DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
     private RequestSpecification requestSpec;
+    private TodoBase todoBase;
+    private DueDate dueDate;
 
-    @Before
+    @BeforeScenario
     public void beforeScenario() {
         this.todoBase = new TodoBase();
-        this.dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        this.dueDate = new DueDate();
+
         this.requestSpec = new RequestSpecBuilder()
                 .setPort(8081)
                 .setContentType(ContentType.JSON)
@@ -49,61 +49,58 @@ public class TodoSteps {
                 .build();
     }
 
-    private DueDate getOrCreateDueDate() {
-        if (null == this.todoBase.getDueDate()) {
-            this.todoBase.setDueDate(new DueDate());
-        }
+    /* Scenario 1 */
 
-        return this.todoBase.getDueDate();
-    }
-
-    @Given("I imagine a todo {string}")
+    @Given("I create a todo with the title {string}")
     public void given_set_title(String title) {
         this.todoBase.setTitle(title);
     }
 
-    @And("a description of {string}")
-    public void given_set_description(String description) {
+    @And("the description {string}")
+    public void and_set_description(String description) {
         this.todoBase.setDescription(description);
     }
 
-    @And("starting on {string}")
+    @Then("its id should be {int}")
+    public void then_get_id(int id) {
+        String location = given(this.requestSpec)
+            .when()
+                .body(this.todoBase)
+                .post("/todo")
+            .then()
+                .statusCode(201)
+            .and()
+                .extract().header("location");
+
+        assertThat(location.substring(location.lastIndexOf("/") + 1))
+                .isEqualTo(Integer.toString(id));
+    }
+
+    /* Scenario 2 */
+
+    @Given("I create a todo on {string}")
     public void given_set_start_date(String datestr) {
         if (StringUtils.isNotEmpty(datestr)) {
-            this.getOrCreateDueDate()
-                    .setStart(LocalDate.parse(datestr, this.dtf));
+            this.dueDate.setStart(LocalDate.parse(datestr, this.dtf));
         }
     }
 
-    @And("lasting no longer than {string}")
-    public void given_set_due_date(String datestr) {
+    @And("set its due date to {string}")
+    public void and_set_due_date(String datestr) {
         if (StringUtils.isNotEmpty(datestr)) {
-            this.getOrCreateDueDate()
-                    .setDue(LocalDate.parse(datestr, this.dtf));
+            this.dueDate.setDue(LocalDate.parse(datestr, this.dtf));
         }
     }
 
-    @ParameterType(value = "true|True|TRUE|false|False|FALSE")
-    public Boolean booleanValue(String value) {
-        return Boolean.valueOf(value);
+    @Then("it should be marked as {status}")
+    public void then_get_status(boolean status) {
+        this.todoBase.setDueDate(this.dueDate);
+
+        assertThat(status).isEqualTo(this.todoBase.getDone());
     }
 
-    @And("still not {string}")
-    public void given_set_done(String isDone) {
-        this.todoBase.setDone(Boolean.valueOf(isDone));
-    }
-
-    @When("I would ask for the status code")
-    public void when_get_status() {
-        response = given(this.requestSpec)
-                .when()
-                    .body(todoBase)
-                    .post("/todo");
-    }
-
-    @Then("I should be told {string}")
-    public void then_get_status_code(String status) {
-        response.then()
-                .statusCode(Integer.parseInt(status));
+    @ParameterType("done|undone")
+    public boolean status(String status) {
+        return "done".equalsIgnoreCase(status);
     }
 }
