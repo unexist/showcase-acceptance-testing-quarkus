@@ -59,7 +59,6 @@ public class TodoConcordionFixture {
         return todo;
     }
 
-
     /**
      * Convenience method to create a save a {@link Todo}
      *
@@ -100,6 +99,7 @@ public class TodoConcordionFixture {
 
     /**
      * Convert done state to yes or no
+     *
      * @param  todo  The {@link Todo} to check
      *
      * @return Either {@code yes} if the entry is done; otherwise {@code no}

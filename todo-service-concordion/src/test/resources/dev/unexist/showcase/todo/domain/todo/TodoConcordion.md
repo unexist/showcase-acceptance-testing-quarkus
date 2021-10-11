@@ -38,9 +38,9 @@ This example creates todos based on table values:
 This example combines ideas from the others ones:
 
 | [createWithDate][][Start date][start] | [Due date][due] | [Is done?][done] |
-| ------------------------------------ | ----------------| -----------------|
-| 2021-09-10                           | 2022-09-10      | yes              |
-| 2021-09-10                           | 2021-09-09      | no               |
+| ------------------------------------ | ----------------| ------------------|
+| 2021-09-10                           | 2022-09-10      | no                |
+| 2021-09-10                           | 2021-09-09      | yes               |
 
 [createWithDate]: - "#result = createWithDate(#start,#due)"
 [start]: - "#start"
