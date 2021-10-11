@@ -27,13 +27,13 @@ public class TodoService {
      *
      * @param  base  A {@link TodoBase} entry
      *
-     * @return Either {@code true} on success; otherwise {@code false}
+     * @return Either id of the entry on success; otherwise {@code -1}
      **/
 
-    public boolean create(TodoBase base) {
+    public int create(TodoBase base) {
         Todo todo = new Todo(base);
 
-        return this.todoRepository.add(todo);
+        return this.todoRepository.add(todo) ? todo.getId() : -1;
     }
 
     /**
