@@ -11,10 +11,13 @@
 
 package dev.unexist.showcase.todo.domain.todo;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.Objects;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class TodoBase {
 
     @NotBlank
@@ -111,7 +114,7 @@ public class TodoBase {
         this.dueDate = dueDate;
 
         if (null != dueDate.getStart() && null != dueDate.getDue()) {
-            this.done = dueDate.getStart().isBefore(dueDate.getDue());
+            this.done = dueDate.getStart().isAfter(dueDate.getDue());
         }
     }
 }
