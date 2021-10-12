@@ -6,4 +6,4 @@ target/
 .idea/
 .mvn/
 todo-service-fitnesse/FitNesseRoot/**/*.zip
-todo-service-helper/.jqwik-database
+todo-service-fitnesse/FitNesseRoot/files/testResults/
