@@ -1,3 +1,13 @@
+!2 ${FITNESSE_VERSION}
+* 2nd attempt to fix non-backwards compatible change in fitnesse.testsystems.TestSystemListener ([[1325][https://github.com/unclebob/fitnesse/issues/1325]])
+
+!2 20210605
+* Fix non-backwards compatible change in fitnesse.testsystems.TestSystemListener ([[1325][https://github.com/unclebob/fitnesse/issues/1325]])
+
+!2 20210516
+* Release process updated to no longer use Bintray.
+* Improve handling of Slim symbols embedded in strings ([[1324][https://github.com/unclebob/fitnesse/issues/1324]])
+
 !2 20210410
 * Ability to show number of test pages in table of context of suite. ([[1318][https://github.com/unclebob/fitnesse/pull/1318]])
 * Create distinct rerun failed page per suite, to allow concurent suites to run. ([[1316][https://github.com/unclebob/fitnesse/pull/1316]])

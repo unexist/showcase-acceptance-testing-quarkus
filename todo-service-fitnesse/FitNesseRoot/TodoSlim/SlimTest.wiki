@@ -1,6 +1,4 @@
-!1 Test status code of the REST endpoint
-
-This test runs different calls to the REST endpoint
+!1 Create a todo
 
 ----
 !contents -R2 -g -p -f -h
@@ -8,13 +6,17 @@ This test runs different calls to the REST endpoint
 |import|
 |dev.unexist.showcase.todo.domain.todo|
 
-!|Todo Fixture                                                      |
-| title   | description | start date | due date   | done  | status? |
-| Test    | Test        | 2021-01-01 | 2021-02-01 | false | 201     |
-|         | Test        | 2021-01-01 | 2021-02-01 | false | 201     |
-| Test    |             | 2021-01-01 | 2021-02-01 | false | 201     |
-| Test    | Test        |            | 2021-02-01 | false | 201     |
-| Test    | Test        | 2021-01-01 |            | false | 201     |
-| Test    | Test        | 2021-01-01 | 2021-02-01 |       | 201     |
-|         |             |            |            |       | 400     |  
+Create various todo entries to test the endpoint.
 
+!|Todo Endpoint Fitnesse Fixture |
+| title   | description   | id?  |
+| title1  | description1  | 1    |
+| title2  | description2  | 2    |
+
+
+Create a todo with start and due dates and check the status.
+
+!|Todo Status Fitnesse Fixture      |
+| start      | due        | status? |
+| 2021-09-10 | 2022-09-10 | undone  |
+| 2021-09-10 | 2021-09-09 | done    |
