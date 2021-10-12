@@ -38,7 +38,10 @@ serenity-report:
 
 # FitNesse
 fitnesse:
-	mvn -f todo-service-fitnesse/pom.xml compile
+	mvn -f todo-service-fitnesse/pom.xml test
+
+fitnesse-quarkus:
+	mvn -f todo-service-fitnesse/pom.xml dev:quarkus
 
 fitnesse-update-tests:
 	mvn -f todo-service-fitnesse/pom.xml test-compile
