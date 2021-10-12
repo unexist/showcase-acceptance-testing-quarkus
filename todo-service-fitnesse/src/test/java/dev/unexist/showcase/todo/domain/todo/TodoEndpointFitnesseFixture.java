@@ -13,20 +13,18 @@ package dev.unexist.showcase.todo.domain.todo;
 
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
-import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
-import org.apache.commons.lang3.StringUtils;
 
-import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import static io.restassured.RestAssured.given;
 
-public class TodoFitnesseFixture {
-    private TodoBase todoBase;
-    private DateTimeFormatter dtf;
+public class TodoEndpointFitnesseFixture {
+    private final DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
     private RequestSpecification requestSpec;
+    private TodoBase todoBase;
+    private DueDate dueDate;
 
     /* Slim lifecycle (http://fitnesse.org/FitNesse.UserGuide.WritingAcceptanceTests.SliM.DecisionTable) */
 
@@ -42,9 +40,11 @@ public class TodoFitnesseFixture {
      **/
 
     public void beginTable() {
-        this.dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        this.todoBase = new TodoBase();
+        this.dueDate = new DueDate();
+
         this.requestSpec = new RequestSpecBuilder()
-                .setPort(8080)
+                .setPort(8081)
                 .setContentType(ContentType.JSON)
                 .setAccept(ContentType.JSON)
                 .build();
@@ -95,68 +95,21 @@ public class TodoFitnesseFixture {
     }
 
     /**
-     * Set the start date as string
+     * Get the status id of the newly added {@link Todo}
      *
-     * @param  datestr  The date string, this is parsed and converted to {@link LocalDate}
+     * @return The id
      **/
 
-
-    public void setStartDate(String datestr) {
-        if (StringUtils.isNotEmpty(datestr)) {
-            this.getOrCreateDueDate()
-                    .setStart(LocalDate.parse(datestr, this.dtf));
-        }
-    }
-
-    /**
-     * Set the due date as string
-     *
-     * @param  datestr  The date string, this is parsed and converted to {@link LocalDate}
-     **/
-
-    public void setDueDate(String datestr) {
-        if (StringUtils.isNotEmpty(datestr)) {
-            this.getOrCreateDueDate()
-                    .setDue(LocalDate.parse(datestr, this.dtf));
-        }
-    }
-
-    /**
-     * Set the done state
-     *
-     * @param  isDone  The state to set, whether it is done or not
-     **/
-
-    public void setDone(Boolean isDone) {
-        this.todoBase.setDone(isDone);
-    }
-
-    /**
-     * Get the status code of the call
-     *
-     * @return The status code
-     **/
-
-    public int status() {
-        Response response = given(requestSpec)
-                .when()
+    public int id() {
+        String location = given(this.requestSpec)
+            .when()
                 .body(this.todoBase)
-                .post("/todo");
+                .post("/todo")
+            .then()
+                .statusCode(201)
+            .and()
+                .extract().header("location");
 
-        return response.getStatusCode();
-    }
-
-    /**
-     * Convenience method to get a valid {@link DueDate}
-     *
-     * @return Either an existing instance or creates a new one
-     **/
-
-    private DueDate getOrCreateDueDate() {
-        if (null == this.todoBase.getDueDate()) {
-            this.todoBase.setDueDate(new DueDate());
-        }
-
-        return this.todoBase.getDueDate();
+        return Integer.parseInt(location.substring(location.lastIndexOf("/") + 1));
     }
 }
