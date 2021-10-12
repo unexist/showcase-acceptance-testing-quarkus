@@ -19,6 +19,9 @@
         <fitness.version>20210606</fitness.version>
         <dbfitness.version>3.2.0</dbfitness.version>
         <maven-antrun-plugin.version>1.8</maven-antrun-plugin.version>
+
+        <!-- Util -->
+        <awaitility.version>4.1.0</awaitility.version>
     </properties>
 
     <dependencies>
@@ -34,6 +37,13 @@
             <artifactId>fitnesse</artifactId>
             <version>${fitness.version}</version>
         </dependency>
+
+        <!-- Util -->
+        <dependency>
+            <groupId>org.awaitility</groupId>
+            <artifactId>awaitility</artifactId>
+            <version>${awaitility.version}</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -45,7 +55,7 @@
                 <executions>
                     <execution>
                         <id>start-fitnesse</id>
-                        <phase>compile</phase>
+                        <phase>test</phase>
                         <configuration>
                             <target>
                                 <echo message=""/>
