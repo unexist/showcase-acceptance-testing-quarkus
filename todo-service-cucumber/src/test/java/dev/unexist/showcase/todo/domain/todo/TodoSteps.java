@@ -64,12 +64,12 @@ public class TodoSteps {
     @Then("its id should be {int}")
     public void then_get_id(int id) {
         String location = given(this.requestSpec)
-                .when()
+            .when()
                 .body(this.todoBase)
                 .post("/todo")
-                .then()
+            .then()
                 .statusCode(201)
-                .and()
+            .and()
                 .extract().header("location");
 
         assertThat(location.substring(location.lastIndexOf("/") + 1))
