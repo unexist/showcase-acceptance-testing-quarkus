@@ -11,20 +11,30 @@
 
 package dev.unexist.showcase.todo.domain.todo;
 
+import io.quarkus.bootstrap.app.QuarkusBootstrap;
+import io.quarkus.bootstrap.app.RunningQuarkusApplication;
+import io.quarkus.bootstrap.model.PathsCollection;
+import io.quarkus.test.common.PathTestHelper;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+import java.net.BindException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import static io.restassured.RestAssured.given;
 
 public class TodoEndpointFitnesseFixture {
+    private static final Logger LOGGER = LoggerFactory.getLogger(TodoEndpointFitnesseFixture.class);
+    private static RunningQuarkusApplication application;
     private final DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
     private RequestSpecification requestSpec;
     private TodoBase todoBase;
-    private DueDate dueDate;
 
     /* Slim lifecycle (http://fitnesse.org/FitNesse.UserGuide.WritingAcceptanceTests.SliM.DecisionTable) */
 
@@ -33,6 +43,7 @@ public class TodoEndpointFitnesseFixture {
      **/
 
     public void table(List<List<String>> table) {
+        startApplication();
     }
 
     /**
@@ -41,7 +52,6 @@ public class TodoEndpointFitnesseFixture {
 
     public void beginTable() {
         this.todoBase = new TodoBase();
-        this.dueDate = new DueDate();
 
         this.requestSpec = new RequestSpecBuilder()
                 .setPort(8081)
@@ -69,7 +79,8 @@ public class TodoEndpointFitnesseFixture {
      * This method is called after the last row has been processed
      **/
 
-    public void endTable() {
+    public void endTable() throws Exception {
+        stopApplication();
     }
 
     /* Tests */
@@ -111,5 +122,42 @@ public class TodoEndpointFitnesseFixture {
                 .extract().header("location");
 
         return Integer.parseInt(location.substring(location.lastIndexOf("/") + 1));
+    }
+
+    private static void startApplication() {
+        try {
+            PathsCollection.Builder rootBuilder = PathsCollection.builder();
+
+            Path testClassLocation = PathTestHelper.getTestClassesLocation(TodoStatusFitnesseFixture.class);
+
+            /* Load step definitions */
+            rootBuilder.add(testClassLocation);
+
+            /* Load application classes */
+            final Path appClassLocation = PathTestHelper.getAppClassLocationForTestLocation(
+                    testClassLocation.toString());
+            rootBuilder.add(appClassLocation);
+
+            application = QuarkusBootstrap.builder()
+                    .setIsolateDeployment(false)
+                    .setMode(QuarkusBootstrap.Mode.TEST)
+                    .setProjectRoot(Paths.get("").normalize().toAbsolutePath())
+                    .setApplicationRoot(rootBuilder.build())
+                    .build()
+                    .bootstrap()
+                    .createAugmentor()
+                    .createInitialRuntimeApplication()
+                    .run();
+            LOGGER.info("Quarkus is starting..");
+        } catch (BindException e) {
+            /* If Quarkus is already running - fine */
+            LOGGER.error("Address already in use - which is fine!", e);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private static void stopApplication() throws Exception {
+        application.close();
     }
 }

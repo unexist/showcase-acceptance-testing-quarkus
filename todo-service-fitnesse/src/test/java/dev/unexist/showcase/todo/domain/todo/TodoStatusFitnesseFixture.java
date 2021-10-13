@@ -11,25 +11,14 @@
 
 package dev.unexist.showcase.todo.domain.todo;
 
-import io.quarkus.bootstrap.app.QuarkusBootstrap;
-import io.quarkus.bootstrap.app.RunningQuarkusApplication;
-import io.quarkus.bootstrap.model.PathsCollection;
-import io.quarkus.test.common.PathTestHelper;
 import org.apache.commons.lang3.StringUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
-import java.net.BindException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 public class TodoStatusFitnesseFixture {
-    private static final Logger LOGGER = LoggerFactory.getLogger(TodoStatusFitnesseFixture.class);
     private final DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-    private static RunningQuarkusApplication application;
     private TodoBase todoBase;
     private DueDate dueDate;
 
@@ -40,7 +29,6 @@ public class TodoStatusFitnesseFixture {
      **/
 
     public void table(List<List<String>> table) {
-        startApplication();
     }
 
     /**
@@ -71,7 +59,6 @@ public class TodoStatusFitnesseFixture {
      **/
 
     public void endTable() throws Exception {
-        this.application.close();
     }
 
     /* Tests */
@@ -104,37 +91,5 @@ public class TodoStatusFitnesseFixture {
         this.todoBase.setDueDate(this.dueDate);
 
         return this.todoBase.getDone() ? "done" : "undone";
-    }
-
-    private static void startApplication() {
-        try {
-            PathsCollection.Builder rootBuilder = PathsCollection.builder();
-
-            Path testClassLocation = PathTestHelper.getTestClassesLocation(TodoStatusFitnesseFixture.class);
-
-            /* Load step definitions */
-            rootBuilder.add(testClassLocation);
-
-            /* Load application classes */
-            final Path appClassLocation = PathTestHelper.getAppClassLocationForTestLocation(
-                    testClassLocation.toString());
-            rootBuilder.add(appClassLocation);
-
-            application = QuarkusBootstrap.builder()
-                    .setIsolateDeployment(false)
-                    .setMode(QuarkusBootstrap.Mode.TEST)
-                    .setProjectRoot(Paths.get("").normalize().toAbsolutePath())
-                    .setApplicationRoot(rootBuilder.build())
-                    .build()
-                    .bootstrap()
-                    .createAugmentor()
-                    .createInitialRuntimeApplication()
-                    .run();
-        } catch (BindException e) {
-            /* If Quarkus is already running - fine */
-            LOGGER.error("Address already in use - which is fine!", e);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
     }
 }
