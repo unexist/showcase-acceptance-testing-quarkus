@@ -11,19 +11,33 @@
  
 package dev.unexist.showcase.todo.domain.todo;
 
-import dev.unexist.showcase.todo.infrastructure.persistence.ListTodoRepository;
+import io.restassured.builder.RequestSpecBuilder;
+import io.restassured.http.ContentType;
+import io.restassured.specification.RequestSpecification;
 import org.apache.commons.lang3.BooleanUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.concordion.integration.junit4.ConcordionRunner;
+import org.junit.Before;
 import org.junit.runner.RunWith;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
+import static io.restassured.RestAssured.given;
+
 @RunWith(ConcordionRunner.class)
 public class TodoConcordionFixture {
-    TodoRepository todoRepository = new ListTodoRepository();
-    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+    private final DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+    private RequestSpecification requestSpec;
+
+    @Before
+    public void beforeScenario() {
+        this.requestSpec = new RequestSpecBuilder()
+                .setPort(8081)
+                .setContentType(ContentType.JSON)
+                .setAccept(ContentType.JSON)
+                .build();
+    }
 
     /**
      * Create new {@link TodoBase}
@@ -46,15 +60,24 @@ public class TodoConcordionFixture {
     /**
      * Save a {@link TodoBase} into the repository
      *
-     * @param  base  A {@link TodoBase}
+     * @param  todoBase  A {@link TodoBase}
      *
      * @return A newly created {@link Todo}
      **/
 
-    public Todo save(TodoBase base) {
-        Todo todo = new Todo(base);
+    public Todo save(TodoBase todoBase) {
+        Todo todo = new Todo(todoBase);
 
-        this.todoRepository.add(todo);
+        String location = given(this.requestSpec)
+            .when()
+                .body(todoBase)
+                .post("/todo")
+            .then()
+                .statusCode(201)
+            .and()
+                .extract().header("location");
+
+        todo.setId(Integer.parseInt(location.substring(location.lastIndexOf("/") + 1)));
 
         return todo;
     }
@@ -102,10 +125,10 @@ public class TodoConcordionFixture {
      *
      * @param  todo  The {@link Todo} to check
      *
-     * @return Either {@code yes} if the entry is done; otherwise {@code no}
+     * @return Either {@code done} if the entry is done; otherwise {@code undone}
      **/
 
     public String isDone(final Todo todo) {
-        return BooleanUtils.isTrue(todo.getDone()) ? "yes" : "no";
+        return BooleanUtils.isTrue(todo.getDone()) ? "done" : "undone";
     }
 }
