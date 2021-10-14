@@ -14,7 +14,7 @@ title **[test](- "#title")** and the matching description
 
 A todo is [created][createdCmd] with the simple title **[test](- "#title")** and
 the matching description **[test](- "#description")** and [saved][savedCmd] 
-as ID [1](- "?=#result.getId").
+as ID [2](- "?=#result.getId").
 
 [createdCmd]: - "#result = create(#title, #description)"
 [savedCmd]: - "#result = save(#result)"
@@ -25,8 +25,8 @@ This example creates todos based on table values:
 
 | [createAndSave][][Title][title] | [Description][description] | [ID][id] |
 | ------------------------------- | -------------------------- | -------- |
-| title1                          | description1               | 1        |
-| title2                          | description2               | 2        |
+| title1                          | description1               | 3        |
+| title2                          | description2               | 4        |
 
 [createAndSave]: - "#result = createAndSave(#title,#description)"
 [title]: - "#title"
@@ -39,8 +39,8 @@ This example combines ideas from the others ones:
 
 | [createWithDate][][Start date][start] | [Due date][due] | [Is done?][done] |
 | ------------------------------------ | ----------------| ------------------|
-| 2021-09-10                           | 2022-09-10      | no                |
-| 2021-09-10                           | 2021-09-09      | yes               |
+| 2021-09-10                           | 2022-09-10      | undone            |
+| 2021-09-10                           | 2021-09-09      | done              |
 
 [createWithDate]: - "#result = createWithDate(#start,#due)"
 [start]: - "#start"
