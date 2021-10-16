@@ -17,5 +17,8 @@ Following make targets exist:
 - **concordion** - Run concordion tests
 - **cucumber** - Run cucumber tests
 - **serenity-reports** - Run cucumber tests and generate report
-- **fitnesse** - Start FitNesse
+- **fitnesse-server** - Start FitNesse
+- **fitnesse-quarkus** - Start Quarkus app
+- **fitnesse-open** - Open the FitNesse page (probably macOS only)
+- **fitnesse-update** - Rebuild test fixtures
 - **dbfitnesse** - Start DbFitNesse
