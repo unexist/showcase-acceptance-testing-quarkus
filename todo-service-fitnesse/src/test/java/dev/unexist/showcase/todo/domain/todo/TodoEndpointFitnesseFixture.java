@@ -24,7 +24,6 @@ import org.slf4j.LoggerFactory;
 import java.net.BindException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import static io.restassured.RestAssured.given;
@@ -32,7 +31,6 @@ import static io.restassured.RestAssured.given;
 public class TodoEndpointFitnesseFixture {
     private static final Logger LOGGER = LoggerFactory.getLogger(TodoEndpointFitnesseFixture.class);
     private static RunningQuarkusApplication application;
-    private final DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
     private RequestSpecification requestSpec;
     private TodoBase todoBase;
 
