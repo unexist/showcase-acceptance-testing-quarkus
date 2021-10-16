@@ -29,12 +29,15 @@ concordion:
 cucumber:
 	mvn -f todo-service-cucumber/pom.xml test
 
+cucumber-report: cucumber
+	mvn -f todo-service-cucumber/pom.xml cluecumber-report:reporting
+
 # Serenity
 serenity:
 	mvn -f todo-service-cucumber-with-serenity/pom.xml test
 
-serenity-report:
-	mvn -f todo-service-cucumber-with-serenity/pom.xml test serenity:reports -Dserenity.reports=single-page-html,navigator
+serenity-report: serenity
+	mvn -f todo-service-cucumber-with-serenity/pom.xml serenity:reports -Dserenity.reports=single-page-html,navigator serenity:aggregate
 
 # FitNesse
 fitnesse-server:
