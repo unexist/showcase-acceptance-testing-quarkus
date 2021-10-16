@@ -20,6 +20,7 @@
         <junit5.version>5.7.0</junit5.version>
         <junit-platform.version>1.8.0</junit-platform.version>
         <junit-vintage-engine.version>5.8.0</junit-vintage-engine.version>
+        <cluecumber-report-plugin.version>2.7.0</cluecumber-report-plugin.version>
     </properties>
 
     <dependencies>
@@ -56,4 +57,27 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.trivago.rta</groupId>
+                <artifactId>cluecumber-report-plugin</artifactId>
+                <version>${cluecumber-report-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>report</id>
+                        <phase>post-integration-test</phase>
+                        <goals>
+                            <goal>reporting</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <sourceJsonReportDirectory>${project.build.directory}/cucumber-report</sourceJsonReportDirectory>
+                    <generatedHtmlReportDirectory>${project.build.directory}/generated-report</generatedHtmlReportDirectory>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
