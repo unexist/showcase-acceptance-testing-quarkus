@@ -37,13 +37,16 @@ serenity-report:
 	mvn -f todo-service-cucumber-with-serenity/pom.xml test serenity:reports -Dserenity.reports=single-page-html,navigator
 
 # FitNesse
-fitnesse:
+fitnesse-server:
 	mvn -f todo-service-fitnesse/pom.xml test
 
-fitnesse-quarkus:
-	mvn -f todo-service-fitnesse/pom.xml dev:quarkus
+fitnesse-open:
+	open http://localhost:8888/FrontPage
 
-fitnesse-update-tests:
+fitnesse-quarkus:
+	mvn -f todo-service-fitnesse/pom.xml quarkus:dev
+
+fitnesse-update:
 	mvn -f todo-service-fitnesse/pom.xml test-compile
 
 dbfitnesse:
