@@ -12,7 +12,7 @@
 package dev.unexist.showcase.todo;
 
 import dev.unexist.showcase.todo.adapter.TodoResourceFixture;
-import dev.unexist.showcase.todo.domain.todo.TodoCucumberFixture;
+import dev.unexist.showcase.todo.domain.todo.TodoSerenityFixture;
 import io.quarkus.bootstrap.app.QuarkusBootstrap;
 import io.quarkus.bootstrap.app.RunningQuarkusApplication;
 import io.quarkus.bootstrap.model.PathsCollection;
@@ -31,7 +31,7 @@ import java.nio.file.Paths;
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
         TodoResourceFixture.class,
-        TodoCucumberFixture.class
+        TodoSerenityFixture.class
 })
 public class TestSuite {
     private static final Logger LOGGER = LoggerFactory.getLogger(TestSuite.class);
@@ -51,7 +51,8 @@ public class TestSuite {
         try {
             PathsCollection.Builder rootBuilder = PathsCollection.builder();
 
-            Path testClassLocation = PathTestHelper.getTestClassesLocation(TodoCucumberFixture.class);
+            Path testClassLocation = PathTestHelper
+                    .getTestClassesLocation(TodoSerenityFixture.class);
 
             /* Load step definitions */
             rootBuilder.add(testClassLocation);

@@ -49,7 +49,8 @@ public class TestSuite {
         try {
             PathsCollection.Builder rootBuilder = PathsCollection.builder();
 
-            Path testClassLocation = PathTestHelper.getTestClassesLocation(TodoConcordionFixture.class);
+            Path testClassLocation = PathTestHelper.getTestClassesLocation(
+                    TodoConcordionFixture.class);
 
             /* Load step definitions */
             rootBuilder.add(testClassLocation);

@@ -51,7 +51,8 @@ public class TestSuite {
         try {
             PathsCollection.Builder rootBuilder = PathsCollection.builder();
 
-            Path testClassLocation = PathTestHelper.getTestClassesLocation(TodoCucumberFixture.class);
+            Path testClassLocation = PathTestHelper.getTestClassesLocation(
+                    TodoCucumberFixture.class);
 
             /* Load step definitions */
             rootBuilder.add(testClassLocation);
