@@ -14,7 +14,6 @@ package dev.unexist.showcase.todo.application;
 import io.quarkus.runtime.Quarkus;
 import io.quarkus.runtime.annotations.QuarkusMain;
 
-
 @QuarkusMain
 public class TodoMain {
     @SuppressWarnings("checkstyle:UncommentedMain")
