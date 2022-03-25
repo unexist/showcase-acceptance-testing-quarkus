@@ -52,7 +52,7 @@ public class TodoEndpointFitnesseFixture {
         this.todoBase = new TodoBase();
 
         this.requestSpec = new RequestSpecBuilder()
-                .setPort(8080)
+                .setPort(8081)
                 .setContentType(ContentType.JSON)
                 .setAccept(ContentType.JSON)
                 .build();
