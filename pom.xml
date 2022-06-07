@@ -18,5 +18,6 @@
         <module>todo-service-cucumber</module>
         <module>todo-service-cucumber-with-serenity</module>
         <module>todo-service-fitnesse</module>
+        <module>todo-service-jbehave</module>
     </modules>
 </project>

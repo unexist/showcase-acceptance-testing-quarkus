@@ -52,5 +52,10 @@ fitnesse-quarkus:
 fitnesse-update:
 	mvn -f todo-service-fitnesse/pom.xml test-compile
 
+# DB Fitnesse
 dbfitnesse:
 	mvn -f todo-service-fitnesse/pom.xml -Pdbfitnesse compile
+
+# JBehave
+jbehave:
+	mvn -f todo-service-jbehave/pom.xml test

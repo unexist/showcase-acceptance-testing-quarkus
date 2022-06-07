@@ -9,6 +9,7 @@ This project holds a showcase for various tools for acceptance testing.
 - https://serenity-bdd.net[Serenity-BDD]
 - https://fitnesse.org[FitNesse]
 - https://dbfit.github.io/dbfit[DbFit]
+- https://jbehave.org[JBehave]
 
 === Instructions
 
@@ -22,3 +23,4 @@ Following make targets exist:
 - **fitnesse-open** - Open the FitNesse page (probably macOS only)
 - **fitnesse-update** - Rebuild test fixtures
 - **dbfitnesse** - Start DbFitNesse
+- **jbehave** - Run JBehave tests
