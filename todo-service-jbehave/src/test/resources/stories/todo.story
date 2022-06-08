@@ -15,9 +15,9 @@ And its description is "<description>"
 Then its id should be <id>
 
 Examples:
-      | title  | description  | id |
-      | title1 | description1 | 1  |
-      | title2 | description2 | 2  |
+| title  | description  | id |
+| title1 | description1 | 1  |
+| title2 | description2 | 2  |
 
 Scenario: Create a todo with start and due dates and check the status.
 
@@ -27,6 +27,6 @@ And it ends on "<due>"
 Then it should be marked as <status>
 
 Examples:
-      | start      | due        | status  |
-      | 2021-09-10 | 2022-09-10 | undone  |
-      | 2021-09-10 | 2021-09-09 | done    |
+| start      | due        | status  |
+| 2021-09-10 | 2022-09-10 | undone  |
+| 2021-09-10 | 2021-09-09 | done    |
