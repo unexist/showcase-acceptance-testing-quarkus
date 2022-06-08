@@ -35,6 +35,7 @@ public class TodoSteps {
     private final DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
     private RequestSpecification requestSpec;
     private TodoBase todoBase;
+    private DueDate dueDate;
 
     @Before
     public void beforeScenario() {
@@ -48,8 +49,7 @@ public class TodoSteps {
     @Given("I create a todo")
     public void given_create_todo() {
         this.todoBase = new TodoBase();
-
-        this.todoBase.setDueDate(new DueDate());
+        this.dueDate = new DueDate();
     }
 
     /* Scenario 1 */
@@ -84,19 +84,21 @@ public class TodoSteps {
     @When("it starts on $datestr")
     public void when_set_start_date(String datestr) {
         if (StringUtils.isNotEmpty(datestr)) {
-            this.todoBase.getDueDate().setStart(LocalDate.parse(datestr, this.dtf));
+            this.dueDate.setStart(LocalDate.parse(datestr, this.dtf));
         }
     }
 
     @When("it ends on $datestr")
     public void and_set_due_date(String datestr) {
         if (StringUtils.isNotEmpty(datestr)) {
-            this.todoBase.getDueDate().setDue(LocalDate.parse(datestr, this.dtf));
+            this.dueDate.setDue(LocalDate.parse(datestr, this.dtf));
         }
     }
 
     @Then("it should be marked as $status")
     public void then_get_status(boolean status) {
+        this.todoBase.setDueDate(this.dueDate);
+
         assertThat(status).isEqualTo(this.todoBase.getDone());
     }
 
