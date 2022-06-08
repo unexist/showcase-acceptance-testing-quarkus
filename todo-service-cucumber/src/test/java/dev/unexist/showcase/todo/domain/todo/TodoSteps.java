@@ -16,6 +16,7 @@ import io.cucumber.java.ParameterType;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import io.quarkus.arc.Unremovable;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
@@ -35,13 +36,9 @@ public class TodoSteps {
     private final DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
     private RequestSpecification requestSpec;
     private TodoBase todoBase;
-    private DueDate dueDate;
 
     @Before
     public void beforeScenario() {
-        this.todoBase = new TodoBase();
-        this.dueDate = new DueDate();
-
         this.requestSpec = new RequestSpecBuilder()
                 .setPort(8081)
                 .setContentType(ContentType.JSON)
@@ -49,14 +46,21 @@ public class TodoSteps {
                 .build();
     }
 
+    @Given("I create a todo")
+    public void given_create_todo() {
+        this.todoBase = new TodoBase();
+
+        this.todoBase.setDueDate(new DueDate());
+    }
+
     /* Scenario 1 */
 
-    @Given("I create a todo with the title {string}")
-    public void given_set_title(String title) {
+    @When("its title is {string}")
+    public void when_set_title(String title) {
         this.todoBase.setTitle(title);
     }
 
-    @And("the description {string}")
+    @And("its description is {string}")
     public void and_set_description(String description) {
         this.todoBase.setDescription(description);
     }
@@ -78,24 +82,22 @@ public class TodoSteps {
 
     /* Scenario 2 */
 
-    @Given("I create a todo on {string}")
-    public void given_set_start_date(String datestr) {
+    @When("it starts on {string}")
+    public void when_set_start_date(String datestr) {
         if (StringUtils.isNotEmpty(datestr)) {
-            this.dueDate.setStart(LocalDate.parse(datestr, this.dtf));
+            this.todoBase.getDueDate().setStart(LocalDate.parse(datestr, this.dtf));
         }
     }
 
-    @And("set its due date to {string}")
+    @And("it ends on {string}")
     public void and_set_due_date(String datestr) {
         if (StringUtils.isNotEmpty(datestr)) {
-            this.dueDate.setDue(LocalDate.parse(datestr, this.dtf));
+            this.todoBase.getDueDate().setDue(LocalDate.parse(datestr, this.dtf));
         }
     }
 
     @Then("it should be marked as {status}")
     public void then_get_status(boolean status) {
-        this.todoBase.setDueDate(this.dueDate);
-
         assertThat(status).isEqualTo(this.todoBase.getDone());
     }
 

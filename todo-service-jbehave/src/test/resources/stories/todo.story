@@ -10,8 +10,8 @@ Create various todo entries to test the endpoint.
 Scenario: Create a todo with title and description and check the id.
 
 Given I create a todo
-When the title is "<title>"
-And the description is "<description>"
+When its title is "<title>"
+And its description is "<description>"
 Then its id should be <id>
 
 Examples:

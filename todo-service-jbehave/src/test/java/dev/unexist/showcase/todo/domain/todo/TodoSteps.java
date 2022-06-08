@@ -35,13 +35,9 @@ public class TodoSteps {
     private final DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
     private RequestSpecification requestSpec;
     private TodoBase todoBase;
-    private DueDate dueDate;
 
     @Before
     public void beforeScenario() {
-        this.todoBase = new TodoBase();
-        this.dueDate = new DueDate();
-
         this.requestSpec = new RequestSpecBuilder()
                 .setPort(8081)
                 .setContentType(ContentType.JSON)
@@ -52,16 +48,18 @@ public class TodoSteps {
     @Given("I create a todo")
     public void given_create_todo() {
         this.todoBase = new TodoBase();
+
+        this.todoBase.setDueDate(new DueDate());
     }
 
     /* Scenario 1 */
 
-    @When("the title is $title")
-    public void given_set_title(String title) {
+    @When("its title is $title")
+    public void when_set_title(String title) {
         this.todoBase.setTitle(title);
     }
 
-    @When("the description is $description")
+    @When("its description is $description")
     public void and_set_description(String description) {
         this.todoBase.setDescription(description);
     }
@@ -84,23 +82,21 @@ public class TodoSteps {
     /* Scenario 2 */
 
     @When("it starts on $datestr")
-    public void given_set_start_date(String datestr) {
+    public void when_set_start_date(String datestr) {
         if (StringUtils.isNotEmpty(datestr)) {
-            this.dueDate.setStart(LocalDate.parse(datestr, this.dtf));
+            this.todoBase.getDueDate().setStart(LocalDate.parse(datestr, this.dtf));
         }
     }
 
     @When("it ends on $datestr")
     public void and_set_due_date(String datestr) {
         if (StringUtils.isNotEmpty(datestr)) {
-            this.dueDate.setDue(LocalDate.parse(datestr, this.dtf));
+            this.todoBase.getDueDate().setDue(LocalDate.parse(datestr, this.dtf));
         }
     }
 
     @Then("it should be marked as $status")
     public void then_get_status(boolean status) {
-        this.todoBase.setDueDate(this.dueDate);
-
         assertThat(status).isEqualTo(this.todoBase.getDone());
     }
 

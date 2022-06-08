@@ -2,8 +2,9 @@ Feature: Create a todo
   Create various todo entries to test the endpoint.
 
   Scenario Outline: Create a todo with title and description and check the id.
-    Given I create a todo with the title "<title>"
-    And the description "<description>"
+    Given I create a todo
+    When its title is "<title>"
+    And its description is "<description>"
     Then its id should be <id>
 
     Examples:
@@ -12,8 +13,9 @@ Feature: Create a todo
       | title2 | description2 | 2  |
 
   Scenario Outline: Create a todo with start and due dates and check the status.
-    Given I create a todo on "<start>"
-    And set its due date to "<due>"
+    Given I create a todo
+    When it starts on "<start>"
+    And it ends on "<due>"
     Then it should be marked as <status>
 
     Examples:
