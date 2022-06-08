@@ -25,7 +25,7 @@ import java.util.List;
 @RunWith(JUnit4StoryRunner.class)
 @Configure
 @UsingEmbedder(generateViewAfterStories = true,
-        ignoreFailureInStories = true, ignoreFailureInView = false)
+        ignoreFailureInStories = true, ignoreFailureInView = false, verboseFiltering = true)
 @UsingSteps
 public class TodoJBehaveFixture extends JUnitStories {
 

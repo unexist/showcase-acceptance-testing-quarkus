@@ -31,7 +31,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @ApplicationScoped
 @Unremovable
-public class TodoSteps {
+public class TodoStories {
     private final DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
     private RequestSpecification requestSpec;
     private TodoBase todoBase;
