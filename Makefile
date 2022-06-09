@@ -33,11 +33,23 @@ cucumber-report: cucumber
 	mvn -f todo-service-cucumber/pom.xml cluecumber-report:reporting
 
 # Serenity
-serenity:
+serenity-cucumber:
 	mvn -f todo-service-cucumber-with-serenity/pom.xml test
 
-serenity-report: serenity
+serenity-cucumber-report: serenity-cucumber
 	mvn -f todo-service-cucumber-with-serenity/pom.xml serenity:reports -Dserenity.reports=single-page-html,navigator serenity:aggregate
+
+serenity-cucumber-open:
+	open todo-service-cucumber-with-serenity/target/site/serenity/index.html
+
+serenity-jbehave:
+	mvn -f todo-service-jbehave-with-serenity/pom.xml test
+
+serenity-jbehave-report: serenity-jbehave
+	mvn -f todo-service-cucumber-with-serenity/pom.xml serenity:reports -Dserenity.reports=single-page-html,navigator serenity:aggregate
+
+serenity-jbehave-open:
+	open todo-service-jbehave-with-serenity/target/site/serenity/index.html
 
 # FitNesse
 fitnesse-server:
