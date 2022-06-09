@@ -20,7 +20,7 @@ import static io.restassured.RestAssured.given;
 public class TodoResourceFixture {
 
     @Test
-    public void shouldGetEmptyResult() {
+    public void shouldGetEmptyReply() {
         given()
           .when().get("/todo")
           .then()

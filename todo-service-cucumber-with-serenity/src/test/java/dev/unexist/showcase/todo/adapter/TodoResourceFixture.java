@@ -35,7 +35,7 @@ public class TodoResourceFixture {
     }
 
     @Test
-    public void shouldGetEmptyResult() {
+    public void shouldGetEmptyReply() {
         given(this.requestSpec)
           .when().get("/todo")
           .then()
