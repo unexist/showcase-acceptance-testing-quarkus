@@ -29,7 +29,8 @@ concordion:
 cucumber:
 	mvn -f todo-service-cucumber/pom.xml test
 
-cucumber-report: cucumber
+# Cluecumber
+cluecumber-report: cucumber
 	mvn -f todo-service-cucumber/pom.xml cluecumber-report:reporting
 
 # Serenity
