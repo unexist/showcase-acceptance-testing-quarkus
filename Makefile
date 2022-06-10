@@ -72,3 +72,6 @@ dbfitnesse:
 # JBehave
 jbehave:
 	mvn -f todo-service-jbehave/pom.xml test
+
+jbehave-report:
+	open todo-service-jbehave/target/jbehave/view/reports.html
