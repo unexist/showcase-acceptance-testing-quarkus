@@ -10,8 +10,8 @@ Create various todo entries to test the endpoint.
 Scenario: Create a todo with title and description and check the id.
 
 Given I create a todo
-When its title is "<title>"
-And its description is "<description>"
+When its title is <title>
+And its description is <description>
 Then its id should be <id>
 
 Examples:
@@ -22,8 +22,8 @@ Examples:
 Scenario: Create a todo with start and due dates and check the status.
 
 Given I create a todo
-When it starts on "<start>"
-And it ends on "<due>"
+When it starts on <start>
+And it ends on <due>
 Then it should be marked as <status>
 
 Examples:

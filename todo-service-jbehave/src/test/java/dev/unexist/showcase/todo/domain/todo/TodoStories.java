@@ -16,8 +16,10 @@ import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
 import org.apache.commons.lang3.StringUtils;
+import org.jbehave.core.annotations.Alias;
 import org.jbehave.core.annotations.AsParameterConverter;
 import org.jbehave.core.annotations.Given;
+import org.jbehave.core.annotations.Named;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
 import org.junit.Before;
@@ -54,18 +56,21 @@ public class TodoStories {
 
     /* Scenario 1 */
 
-    @When("its title is $title")
+    @When("its title is <title>")
+    @Alias("its title is $title")
     public void when_set_title(String title) {
         this.todoBase.setTitle(title);
     }
 
-    @When("its description is $description")
-    public void and_set_description(String description) {
+    @When("its description is <description>")
+    @Alias("its description is $description$")
+    public void and_set_description(@Named("description") String description) {
         this.todoBase.setDescription(description);
     }
 
-    @Then("its id should be $id")
-    public void then_get_id(int id) {
+    @Then("its id should be <id>")
+    @Alias("its id should be $id")
+    public void then_get_id(@Named("id") int id) {
         String location = given(this.requestSpec)
             .when()
                 .body(this.todoBase)
@@ -81,22 +86,22 @@ public class TodoStories {
 
     /* Scenario 2 */
 
-    @When("it starts on $datestr")
-    public void when_set_start_date(String datestr) {
+    @When("it starts on <start>")
+    public void when_set_start_date(@Named("start") String datestr) {
         if (StringUtils.isNotEmpty(datestr)) {
             this.dueDate.setStart(LocalDate.parse(datestr, this.dtf));
         }
     }
 
-    @When("it ends on $datestr")
-    public void and_set_due_date(String datestr) {
+    @When("it ends on <due>")
+    public void and_set_due_date(@Named("due") String datestr) {
         if (StringUtils.isNotEmpty(datestr)) {
             this.dueDate.setDue(LocalDate.parse(datestr, this.dtf));
         }
     }
 
-    @Then("it should be marked as $status")
-    public void then_get_status(boolean status) {
+    @Then("it should be marked as <status>")
+    public void then_get_status(@Named("status") boolean status) {
         this.todoBase.setDueDate(this.dueDate);
 
         assertThat(status).isEqualTo(this.todoBase.getDone());
