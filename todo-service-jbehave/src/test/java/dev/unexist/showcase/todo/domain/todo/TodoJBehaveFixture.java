@@ -17,23 +17,33 @@ import org.jbehave.core.io.CodeLocations;
 import org.jbehave.core.io.StoryFinder;
 import org.jbehave.core.junit.JUnit4StoryRunner;
 import org.jbehave.core.junit.JUnitStories;
+import org.jbehave.core.reporters.StoryReporterBuilder;
 import org.jbehave.core.steps.InjectableStepsFactory;
 import org.jbehave.core.steps.InstanceStepsFactory;
 import org.junit.runner.RunWith;
 
 import java.util.List;
 
+import static org.jbehave.core.reporters.Format.CONSOLE;
+import static org.jbehave.core.reporters.Format.HTML;
+
 @RunWith(JUnit4StoryRunner.class)
 public class TodoJBehaveFixture extends JUnitStories {
 
     public TodoJBehaveFixture() {
-        configuredEmbedder().embedderControls().doGenerateViewAfterStories(true).doIgnoreFailureInStories(true)
-                .doIgnoreFailureInView(true).useThreads(2);
+        configuredEmbedder().embedderControls()
+                .doGenerateViewAfterStories(true)
+                .doIgnoreFailureInStories(true)
+                .doIgnoreFailureInView(true)
+                .useThreads(2);
     }
 
     @Override
     public Configuration configuration() {
-        return new MostUsefulConfiguration();
+        return new MostUsefulConfiguration()
+                .useStoryReporterBuilder(new StoryReporterBuilder()
+                        .withDefaultFormats()
+                        .withFormats(CONSOLE, HTML));
     }
 
     /*@Override
