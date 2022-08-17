@@ -15,6 +15,7 @@
 
     <modules>
         <module>todo-service-concordion</module>
+        <module>todo-service-courgette</module>
         <module>todo-service-cucumber</module>
         <module>todo-service-cucumber-with-serenity</module>
         <module>todo-service-fitnesse</module>
