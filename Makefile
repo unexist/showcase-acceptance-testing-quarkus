@@ -27,7 +27,7 @@ concordion:
 
 # Courgette
 courgette:
-	mvn -f todo-service-cucumber/pom.xml test
+	mvn -f todo-service-courgette/pom.xml test
 
 # Cucumber
 cucumber:
