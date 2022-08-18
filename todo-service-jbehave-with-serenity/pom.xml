@@ -17,8 +17,8 @@
     <properties>
         <!-- JUnit -->
         <junit5.version>5.7.0</junit5.version>
-        <junit-platform.version>1.8.2</junit-platform.version>
-        <junit-vintage-engine.version>5.8.0</junit-vintage-engine.version>
+        <junit-platform.version>1.9.0</junit-platform.version>
+        <junit-vintage-engine.version>5.9.0</junit-vintage-engine.version>
 
         <!-- JBehave -->
         <jbehave-core.version>5.0</jbehave-core.version>
@@ -26,7 +26,7 @@
         <embeddables>**/*Stories.java</embeddables>
 
         <!-- Serenity -->
-        <serenity.version>2.6.0</serenity.version>
+        <serenity.version>3.3.0</serenity.version>
         <serenity-navigator-report.version>2.3.13</serenity-navigator-report.version>
     </properties>
 
