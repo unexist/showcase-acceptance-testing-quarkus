@@ -38,6 +38,7 @@
             <groupId>io.github.prashant-ramcharan</groupId>
             <artifactId>courgette-jvm</artifactId>
             <version>${courgette-jvm.version}</version>
+
             <exclusions>
                 <exclusion>
                     <groupId>com.aventstack</groupId>
