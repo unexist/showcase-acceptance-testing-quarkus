@@ -28,6 +28,7 @@
         <!-- Serenity -->
         <serenity.version>3.3.0</serenity.version>
         <serenity-navigator-report.version>2.3.13</serenity-navigator-report.version>
+        <serenity-cucumber6.version>2.6.0</serenity-cucumber6.version>
     </properties>
 
     <dependencies>
@@ -88,7 +89,7 @@
         <dependency>
             <groupId>net.serenity-bdd</groupId>
             <artifactId>serenity-cucumber6</artifactId>
-            <version>${serenity.version}</version>
+            <version>${serenity-cucumber6.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
