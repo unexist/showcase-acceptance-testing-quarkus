@@ -11,16 +11,30 @@ This project holds a showcase for various tools for acceptance testing.
 - https://dbfit.github.io/dbfit[DbFit]
 - https://jbehave.org[JBehave]
 
+== Projects
+
+- https://github.com/prashant-ramcharan/courgette-jvm[Courgette]
+- https://github.com/trivago/cluecumber-report-plugin[Cluecumber]
+
+== Reports
+
+- https://reportportal.io/[ReportPortal]
+
 === Instructions
 
 Following make targets exist:
 
-- **concordion** - Run concordion tests
-- **cucumber** - Run cucumber tests
-- **serenity-reports** - Run cucumber tests and generate report
+- **concordion** - Run Concordion tests
+- **courgette** - Run Courgette tests
+- **cucumber** - Run Cucumber tests
+- **cluecumber-report** - Generate Cluecumber reports
+- **serenity-cucumber** - Run Cucumber tests and generate report
+- **serenity-jbehave** - Run JBehave tests and generate report
 - **fitnesse-server** - Start FitNesse
 - **fitnesse-quarkus** - Start Quarkus app
 - **fitnesse-open** - Open the FitNesse page (probably macOS only)
 - **fitnesse-update** - Rebuild test fixtures
 - **dbfitnesse** - Start DbFitNesse
 - **jbehave** - Run JBehave tests
+- **jbehave-reports** - Run JBehave tests and generate report
+- **reportportal** - Start ReportPortal via Podman
