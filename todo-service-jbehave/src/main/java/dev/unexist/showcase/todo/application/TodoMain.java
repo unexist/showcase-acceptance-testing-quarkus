@@ -21,3 +21,4 @@ public class TodoMain {
         Quarkus.run(args);
     }
 }
+
