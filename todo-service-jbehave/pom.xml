@@ -16,7 +16,6 @@
 
     <properties>
         <!-- JUnit -->
-        <junit5.version>5.7.0</junit5.version>
         <junit-platform.version>1.9.0</junit-platform.version>
         <junit-vintage-engine.version>5.9.0</junit-vintage-engine.version>
 
