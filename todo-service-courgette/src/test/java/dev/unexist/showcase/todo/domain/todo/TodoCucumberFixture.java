@@ -26,7 +26,7 @@ import org.junit.runner.RunWith;
         rerunAttempts = 1,
         testOutput = CourgetteTestOutput.CONSOLE,
         reportTitle = "Courgette Example",
-        reportTargetDir = "build",
+        reportTargetDir = "target",
         environmentInfo = "browser=chrome; git_branch=master",
         cucumberOptions = @CucumberOptions(
                 features = "src/test/resources/features",
