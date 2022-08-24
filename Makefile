@@ -79,3 +79,7 @@ jbehave:
 
 jbehave-report:
 	open todo-service-jbehave/target/jbehave/view/reports.html
+
+# Karate
+karate:
+	mvn -f todo-service-karate/pom.xml test
