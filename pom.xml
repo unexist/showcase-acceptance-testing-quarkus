@@ -21,5 +21,6 @@
         <module>todo-service-fitnesse</module>
         <module>todo-service-jbehave</module>
         <module>todo-service-jbehave-with-serenity</module>
+        <module>todo-service-karate</module>
     </modules>
 </project>

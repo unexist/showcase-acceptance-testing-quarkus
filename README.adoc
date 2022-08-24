@@ -15,6 +15,7 @@ This project holds a showcase for various tools for acceptance testing.
 
 - https://github.com/prashant-ramcharan/courgette-jvm[Courgette]
 - https://github.com/trivago/cluecumber-report-plugin[Cluecumber]
+- https://github.com/karatelabs/karate[Karate]
 
 == Reports
 
