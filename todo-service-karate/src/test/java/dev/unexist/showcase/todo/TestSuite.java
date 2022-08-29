@@ -17,10 +17,10 @@ import io.quarkus.bootstrap.app.QuarkusBootstrap;
 import io.quarkus.bootstrap.app.RunningQuarkusApplication;
 import io.quarkus.bootstrap.model.PathsCollection;
 import io.quarkus.test.common.PathTestHelper;
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
-import org.junit.runner.RunWith;
-import org.junit.runners.Suite;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.platform.suite.api.SelectClasses;
+import org.junit.platform.suite.api.Suite;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -28,21 +28,18 @@ import java.net.BindException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-@RunWith(Suite.class)
-@Suite.SuiteClasses({
-        TodoResourceFixture.class,
-        TodoKarateFixture.class
-})
+@Suite
+@SelectClasses({ TodoResourceFixture.class, TodoKarateFixture.class })
 public class TestSuite {
     private static final Logger LOGGER = LoggerFactory.getLogger(TestSuite.class);
     private static RunningQuarkusApplication application;
 
-    @BeforeClass
+    @BeforeAll
     public static void setUp() {
         startApplication();
     }
 
-    @AfterClass
+    @AfterAll
     public static void tearDown() throws Exception {
         application.close();
     }
