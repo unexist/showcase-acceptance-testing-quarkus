@@ -55,9 +55,10 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${surefire-plugin.version}</version>
                 <configuration>
+                    <test>TestSuite</test>
                     <includes>
-                        <include>**/*Fixture</include>
-                        <include>**/*Suite</include>
+                        <include>**/*Fixture*</include>
+                        <include>**/*Suite*</include>
                     </includes>
                 </configuration>
             </plugin>
