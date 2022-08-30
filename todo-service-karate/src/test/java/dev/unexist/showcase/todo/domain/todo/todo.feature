@@ -19,6 +19,7 @@ Feature: Create a todo
     """
     When method post
     Then status 201
+    And match header location ==  "http://localhost:8081/todo/<id>"
 
     Examples:
       | title    | description    | id |
