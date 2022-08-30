@@ -18,7 +18,7 @@
         <!-- Karate -->
         <karate-junit5.version>1.3.0.RC2</karate-junit5.version>
 
-        <!-- JUnit -->
+        <!-- JUnit (1.9.0 cannot find test classes)-->
         <junit-platform-suite-engine.version>1.8.2</junit-platform-suite-engine.version>
     </properties>
 
