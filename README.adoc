@@ -38,4 +38,6 @@ Following make targets exist:
 - **dbfitnesse** - Start DbFitNesse
 - **jbehave** - Run JBehave tests
 - **jbehave-reports** - Run JBehave tests and generate report
+- **karate** - Run Karate tests
+- **karate-reports** - Run Karate tests and generate report
 - **reportportal** - Start ReportPortal via Podman
