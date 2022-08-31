@@ -46,12 +46,12 @@ Feature: Create a todo
       todo.setDueDate(dueDate);
 
       return todo.getDone() ? "done" : "undone";
-
+    }
     """
     When def result = call createTodo { startDate: <start>, dueDate: <due> }
-    Then match result == <status>
+    Then match result == "<status>"
 
     Examples:
-      | start      | due        | status   |
-      | 2021-09-10 | 2022-09-10 | "undone" |
-      | 2021-09-10 | 2021-09-09 | "done"   |
+      | start      | due        | status |
+      | 2021-09-10 | 2022-09-10 | undone |
+      | 2021-09-10 | 2021-09-09 | done   |
