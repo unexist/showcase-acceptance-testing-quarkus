@@ -18,6 +18,8 @@
         <!-- Fitnesse -->
         <fitness.version>20220815</fitness.version>
         <dbfitness.version>3.2.0</dbfitness.version>
+
+        <!-- Maven -->
         <maven-antrun-plugin.version>1.8</maven-antrun-plugin.version>
     </properties>
 
@@ -26,7 +28,6 @@
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-jsonp</artifactId>
-            <version>2.12.0.Final</version>
         </dependency>
 
         <!-- FitNesse -->
