@@ -16,14 +16,14 @@
 
     <properties>
         <!-- Cucumber -->
-        <cucumber.version>7.5.0</cucumber.version>
+        <cucumber.version>7.6.0</cucumber.version>
         <junit-platform.version>1.9.0</junit-platform.version>
         <junit-vintage-engine.version>5.9.0</junit-vintage-engine.version>
 
         <!-- Serenity -->
-        <serenity.version>3.3.0</serenity.version>
+        <serenity.version>3.3.4</serenity.version>
         <serenity-navigator-report.version>2.3.13</serenity-navigator-report.version>
-        <serenity-cucumber6.version>2.6.0</serenity-cucumber6.version>
+        <serenity-cucumber.version>3.3.4</serenity-cucumber.version>
     </properties>
 
     <dependencies>
@@ -31,6 +31,7 @@
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-jsonp</artifactId>
+            <version>2.12.0.Final</version>
         </dependency>
 
         <!-- Cucumber -->
@@ -75,8 +76,8 @@
         </dependency>
         <dependency>
             <groupId>net.serenity-bdd</groupId>
-            <artifactId>serenity-cucumber6</artifactId>
-            <version>${serenity-cucumber6.version}</version>
+            <artifactId>serenity-cucumber</artifactId>
+            <version>${serenity-cucumber.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
