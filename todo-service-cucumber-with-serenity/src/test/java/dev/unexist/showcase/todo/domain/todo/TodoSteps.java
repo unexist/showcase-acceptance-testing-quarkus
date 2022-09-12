@@ -1,7 +1,7 @@
 /**
  * @package Showcase-Acceptance-Testing-Quarkus
  *
- * @file Todo cucumber steps
+ * @file Todo Cucumber steps
  * @copyright 2021 Christoph Kappel <christoph@unexist.dev>
  * @version $Id$
  *
