@@ -25,6 +25,9 @@ todo:
 concordion:
 	mvn -f todo-service-concordion/pom.xml test
 
+concordion-report:
+	open todo-service-concordion/target/concordion/dev/unexist/showcase/todo/domain/todo/TodoConcordion.html
+
 # Courgette
 courgette:
 	mvn -f todo-service-courgette/pom.xml test
