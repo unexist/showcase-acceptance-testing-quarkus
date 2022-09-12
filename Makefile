@@ -54,7 +54,7 @@ serenity-jbehave:
 	mvn -f todo-service-jbehave-with-serenity/pom.xml test
 
 serenity-jbehave-report: serenity-jbehave
-	mvn -f todo-service-cucumber-with-serenity/pom.xml serenity:reports -Dserenity.reports=single-page-html,navigator serenity:aggregate
+	mvn -f todo-service-jbehave-with-serenity/pom.xml serenity:reports -Dserenity.reports=single-page-html,navigator serenity:aggregate
 
 serenity-jbehave-open:
 	open todo-service-jbehave-with-serenity/target/site/serenity/index.html
