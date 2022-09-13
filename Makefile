@@ -17,75 +17,77 @@ curl -X 'POST' \
 endef
 export JSON_TODO
 
+#opts=-nsu
+
 # Tools
 todo:
 	@echo $$JSON_TODO | bash
 
 # Concordion
 concordion:
-	mvn -f todo-service-concordion/pom.xml test
+	mvn $(opts) -f todo-service-concordion/pom.xml test
 
 concordion-report:
 	open todo-service-concordion/target/concordion/dev/unexist/showcase/todo/domain/todo/TodoConcordion.html
 
 # Courgette
 courgette:
-	mvn -f todo-service-courgette/pom.xml test
+	mvn $(opts) -f todo-service-courgette/pom.xml test
 
 # Cucumber
 cucumber:
-	mvn -f todo-service-cucumber/pom.xml test
+	mvn $(opts) -f todo-service-cucumber/pom.xml test
 
 # Cluecumber
 cluecumber-report: cucumber
-	mvn -f todo-service-cucumber/pom.xml cluecumber-report:reporting
+	mvn $(opts) -f todo-service-cucumber/pom.xml cluecumber-report:reporting
 
 # Serenity
 serenity-cucumber:
-	mvn -f todo-service-cucumber-with-serenity/pom.xml test
+	mvn $(opts) -f todo-service-cucumber-with-serenity/pom.xml test
 
 serenity-cucumber-report: serenity-cucumber
-	mvn -f todo-service-cucumber-with-serenity/pom.xml serenity:reports -Dserenity.reports=single-page-html,navigator serenity:aggregate
+	mvn $(opts) -f todo-service-cucumber-with-serenity/pom.xml serenity:reports -Dserenity.reports=single-page-html,navigator serenity:aggregate
 
 serenity-cucumber-open:
 	open todo-service-cucumber-with-serenity/target/site/serenity/index.html
 
 serenity-jbehave:
-	mvn -f todo-service-jbehave-with-serenity/pom.xml test
+	mvn $(opts) -f todo-service-jbehave-with-serenity/pom.xml test
 
 serenity-jbehave-report: serenity-jbehave
-	mvn -f todo-service-jbehave-with-serenity/pom.xml serenity:reports -Dserenity.reports=single-page-html,navigator serenity:aggregate
+	mvn $(opts) -f todo-service-jbehave-with-serenity/pom.xml serenity:reports -Dserenity.reports=single-page-html,navigator serenity:aggregate
 
 serenity-jbehave-open:
 	open todo-service-jbehave-with-serenity/target/site/serenity/index.html
 
 # FitNesse
 fitnesse-server:
-	mvn -f todo-service-fitnesse/pom.xml test
+	mvn $(opts) -f todo-service-fitnesse/pom.xml test
 
 fitnesse-open:
 	open http://localhost:8888/FrontPage
 
 fitnesse-quarkus:
-	mvn -f todo-service-fitnesse/pom.xml quarkus:dev
+	mvn $(opts) -f todo-service-fitnesse/pom.xml quarkus:dev
 
 fitnesse-update:
-	mvn -f todo-service-fitnesse/pom.xml test-compile
+	mvn $(opts) -f todo-service-fitnesse/pom.xml test-compile
 
 # DB Fitnesse
 dbfitnesse:
-	mvn -f todo-service-fitnesse/pom.xml -Pdbfitnesse compile
+	mvn $(opts) -f todo-service-fitnesse/pom.xml -Pdbfitnesse compile
 
 # JBehave
 jbehave:
-	mvn -f todo-service-jbehave/pom.xml test
+	mvn $(opts) -f todo-service-jbehave/pom.xml test
 
 jbehave-report:
 	open todo-service-jbehave/target/jbehave/view/reports.html
 
 # Karate
 karate:
-	mvn -f todo-service-karate/pom.xml test
+	mvn $(opts) -f todo-service-karate/pom.xml test
 
 karate-report:
 	open todo-service-karate/target/karate-reports/karate-summary.html
