@@ -26,8 +26,9 @@
         <embeddables>**/*Stories.java</embeddables>
 
         <!-- Serenity -->
-        <serenity.version>3.3.2</serenity.version>
+        <serenity.version>3.3.4</serenity.version>
         <serenity-navigator-report.version>2.3.13</serenity-navigator-report.version>
+        <serenity-jbehave.version>1.46.0</serenity-jbehave.version>
     </properties>
 
     <dependencies>
@@ -42,6 +43,7 @@
             <groupId>org.jbehave</groupId>
             <artifactId>jbehave-core</artifactId>
             <version>${jbehave-core.version}</version>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.jbehave</groupId>
@@ -49,12 +51,14 @@
             <version>${jbehave-core.version}</version>
             <classifier>resources</classifier>
             <type>zip</type>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.jbehave.site</groupId>
             <artifactId>jbehave-site-resources</artifactId>
             <version>${jbehave-site.version}</version>
             <type>zip</type>
+            <scope>test</scope>
         </dependency>
 
         <!-- JUnit -->
@@ -83,6 +87,12 @@
             <groupId>net.serenity-bdd</groupId>
             <artifactId>serenity-screenplay</artifactId>
             <version>${serenity.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>net.serenity-bdd</groupId>
+            <artifactId>serenity-jbehave</artifactId>
+            <version>${serenity-jbehave.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
