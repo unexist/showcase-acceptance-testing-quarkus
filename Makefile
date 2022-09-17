@@ -27,7 +27,7 @@ todo:
 concordion:
 	mvn $(opts) -f todo-service-concordion/pom.xml test
 
-concordion-report:
+concordion-open:
 	open todo-service-concordion/target/concordion/dev/unexist/showcase/todo/domain/todo/TodoConcordion.html
 
 # Courgette
@@ -41,6 +41,9 @@ cucumber:
 # Cluecumber
 cluecumber-report: cucumber
 	mvn $(opts) -f todo-service-cucumber/pom.xml cluecumber-report:reporting
+
+cluecumber-open:
+	open todo-service-cucumber/target/generated-report/index.html
 
 # Serenity
 serenity-cucumber:
