@@ -14,8 +14,8 @@ Feature: Create a todo
 
   Scenario Outline: Create a todo with start and due dates and check the status.
     Given I create a todo
-    When it starts on "<start>"
-    And it ends on "<due>"
+    When it starts on <start>
+    And it ends on <due>
     Then it should be marked as <status>
 
     Examples:
