@@ -16,7 +16,7 @@
 
     <properties>
         <!-- Cucumber -->
-        <cucumber.version>7.6.0</cucumber.version>
+        <cucumber.version>7.7.0</cucumber.version>
         <junit5.version>5.7.0</junit5.version>
         <junit-platform.version>1.9.0</junit-platform.version>
         <junit-vintage-engine.version>5.9.0</junit-vintage-engine.version>
