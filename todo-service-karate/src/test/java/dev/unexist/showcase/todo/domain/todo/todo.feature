@@ -9,11 +9,6 @@ Feature: Create a todo
     """
     {
       "description": <description>,
-      "done": true,
-      "dueDate": {
-        "due": "2021-05-07",
-        "start": "2021-05-07"
-      },
       "title": <title>
     }
     """
