@@ -21,7 +21,6 @@ import io.quarkus.arc.Unremovable;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
-import org.apache.commons.lang3.StringUtils;
 
 import javax.enterprise.context.ApplicationScoped;
 import java.time.LocalDate;
@@ -82,18 +81,14 @@ public class TodoSteps {
 
     /* Scenario 2 */
 
-    @When("it starts on {string}")
-    public void when_set_start_date(String datestr) {
-        if (StringUtils.isNotEmpty(datestr)) {
-            this.dueDate.setStart(LocalDate.parse(datestr, this.dtf));
-        }
+    @When("it starts on {datestr}")
+    public void when_set_start_date(LocalDate startDate) {
+        this.dueDate.setStart(startDate);
     }
 
-    @And("it ends on {string}")
-    public void and_set_due_date(String datestr) {
-        if (StringUtils.isNotEmpty(datestr)) {
-            this.dueDate.setDue(LocalDate.parse(datestr, this.dtf));
-        }
+    @And("it ends on {datestr}")
+    public void and_set_due_date(LocalDate dueDate) {
+        this.dueDate.setDue(dueDate);
     }
 
     @Then("it should be marked as {status}")
@@ -101,6 +96,11 @@ public class TodoSteps {
         this.todoBase.setDueDate(this.dueDate);
 
         assertThat(status).isEqualTo(this.todoBase.getDone());
+    }
+
+    @ParameterType("[0-9]{4}-[0-9]{2}-[0-9]{2}")
+    public LocalDate datestr(String datestr) {
+        return LocalDate.parse(datestr, this.dtf);
     }
 
     @ParameterType("done|undone")
