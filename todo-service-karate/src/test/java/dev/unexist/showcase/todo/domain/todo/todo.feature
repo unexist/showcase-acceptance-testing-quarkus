@@ -8,8 +8,8 @@ Feature: Create a todo
     And request
     """
     {
-      "description": <description>,
-      "title": <title>
+      "title": <title>,
+      "description": <description>
     }
     """
     When method post
