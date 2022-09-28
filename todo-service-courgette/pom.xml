@@ -16,7 +16,7 @@
 
     <properties>
         <!-- Courgette -->
-        <courgette-jvm.version>6.6.0</courgette-jvm.version>
+        <courgette-jvm.version>6.6.1</courgette-jvm.version>
         <extentreports.version>5.0.9</extentreports.version>
         <lombok.version>1.18.24</lombok.version>
 
