@@ -92,5 +92,5 @@ jbehave-report:
 karate:
 	mvn $(opts) -f todo-service-karate/pom.xml test
 
-karate-report:
+karate-open:
 	open todo-service-karate/target/karate-reports/karate-summary.html
