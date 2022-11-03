@@ -21,9 +21,9 @@
         <junit-vintage-engine.version>5.9.0</junit-vintage-engine.version>
 
         <!-- Serenity -->
-        <serenity.version>3.3.4</serenity.version>
+        <serenity.version>3.3.7</serenity.version>
         <serenity-navigator-report.version>2.3.13</serenity-navigator-report.version>
-        <serenity-cucumber.version>3.3.4</serenity-cucumber.version>
+        <serenity-cucumber.version>3.3.7</serenity-cucumber.version>
     </properties>
 
     <dependencies>
