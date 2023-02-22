@@ -5,6 +5,6 @@ Suite
 
 !note This page is automatically generated when running tests. It will be overwritten by the next Suite or Test execution.
 
-Tests failed (first failure was at 2022-09-15T11:32:23.017247):
+Tests failed (first failure was at 2022-11-10T16:08:41.796512):
 
 !see [[TodoSlim.SlimTest][.TodoSlim.SlimTest]]

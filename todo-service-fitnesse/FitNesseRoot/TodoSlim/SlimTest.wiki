@@ -11,7 +11,7 @@ Create various todo entries to test the endpoint.
 !|Todo Endpoint Fitnesse Fixture |
 | title   | description   | id?  |
 | title1  | description1  | 1    |
-| title2  | description2  | 2    |
+| title2  |               | -1   |
 
 
 Create a todo with start and due dates and check the status.
